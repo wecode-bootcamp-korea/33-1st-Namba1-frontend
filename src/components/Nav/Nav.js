@@ -6,43 +6,53 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <div className="nav">
+    <nav className="nav">
       <h1 className="logo">
         <Link to="/" className="logoLink">
           남바완
         </Link>
       </h1>
       <ul className="pageMenu">
-        <li>
-          <Link to="/menu" className="pageLink">
-            메뉴
-          </Link>
-        </li>
-        <li>
-          <Link to="/review" className="pageLink">
-            리뷰
-          </Link>
-        </li>
-        <li>
-          <Link to="/mypage" className="pageLink">
-            마이페이지
-          </Link>
-        </li>
+        {PAGENAV_LIST.map(menu => {
+          return (
+            <li key={menu.id}>
+              <Link to={menu.url} className="pageLink">
+                {menu.page}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       <div className="myMenu">
         <ul>
-          <li>
-            <Link to="/signin" className="myLink">
-              로그인
-            </Link>
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faCartShopping} className="cart" />
-          </li>
+          {MYNAV_LIST.map(myMenu => {
+            return (
+              <li key={myMenu.id}>
+                <Link to={myMenu.url} className="myLink">
+                  {myMenu.page}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
+
+const PAGENAV_LIST = [
+  { id: 1, page: '메뉴', url: '/menu' },
+  { id: 2, page: '리뷰', url: '/review' },
+  { id: 3, page: '마이페이지', url: 'mypage' },
+];
+
+const MYNAV_LIST = [
+  { id: 1, page: '로그인', url: '/signin' },
+  {
+    id: 2,
+    page: <FontAwesomeIcon icon={faCartShopping} className="cart" />,
+    url: '/cart',
+  },
+];
 
 export default Nav;
