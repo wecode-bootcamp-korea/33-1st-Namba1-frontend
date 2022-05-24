@@ -3,11 +3,11 @@
 }
 
 .contentWrapper {
-  margin-top: 50px;
+  margin-top: 3.125rem;
   margin-left: 0 auto;
   margin-right: 0 auto;
   header {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 
@@ -20,93 +20,93 @@
 .idContent {
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
-  font-size: 12px;
+  margin-top: 4.375rem;
+  font-size: 0.75rem;
   .userId {
-    width: 400px;
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
   }
 }
 
 .nameContent {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 0.75rem;
   .isUserName {
-    width: 400px;
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
   }
 }
 
 .passwordContent {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 0.75rem;
   .userPassword {
-    width: 400px;
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
   }
 }
 
 .passwordCheckContent {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 0.75rem;
   .userPasswordCheck {
-    width: 400px;
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
   }
 }
 
 .phoneNumber {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 0.75rem;
   .userPhoneNumber {
-    width: 400px;
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
   }
 }
 
 .birth {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 0.75rem;
   .userBirth {
-    width: 400px;
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
   }
 }
 
 .footer {
   position: relative;
-  font-size: 14px;
-  right: 20px;
-  margin-top: 20px;
+  font-size: 0.875rem;
+  right: 1.25rem;
+  margin-top: 1.25rem;
 
   .terms {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
   .agreeTerms {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
   .agreeTerms2 {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
   .agreeTerms3 {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
   input[type='checkbox'] {
     zoom: 1.2;
@@ -115,13 +115,13 @@
 }
 
 .signupBtn {
-  margin-top: 30px;
+  margin-top: 1.875rem;
   .userSignUp {
-    width: 400px;
-    height: 40px;
+    width: 25rem;
+    height: 2.5rem;
     background: #fabf01;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.313rem;
   }
 }
 

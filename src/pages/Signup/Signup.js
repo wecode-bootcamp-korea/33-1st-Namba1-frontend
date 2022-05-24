@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import './Signup.scss';
 
 const Signup = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setconfirmPassword] = useState('');
+  const [PhoneNumbers, setPhoneNumbers] = useState('');
+  const [Userbirth, setUserbirth] = useState('');
+
   return (
     <div className="backgroundWrapper">
       <div className="contentWrapper">
