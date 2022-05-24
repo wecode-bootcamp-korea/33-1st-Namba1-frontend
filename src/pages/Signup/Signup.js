@@ -2,12 +2,12 @@ import React, { useCallback } from 'react';
 import './Signup.scss';
 
 const Signup = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setconfirmPassword] = useState('');
-  const [PhoneNumbers, setPhoneNumbers] = useState('');
-  const [Userbirth, setUserbirth] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [name, setName] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [confirmPassword, setconfirmPassword] = useState('');
+  // const [PhoneNumbers, setPhoneNumbers] = useState('');
+  // const [Userbirth, setUserbirth] = useState('');
 
   return (
     <div className="backgroundWrapper">
@@ -74,9 +74,7 @@ const Signup = () => {
             </div>
           </div>
           <div className="signupBtn">
-            <button className="userSignUp">
-              <a href="#">회원가입 하기</a>
-            </button>
+            <button className="userSignUp">회원가입 하기</button>
           </div>
         </form>
       </div>
