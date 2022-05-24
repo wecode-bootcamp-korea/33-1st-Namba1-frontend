@@ -1,61 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ReviewAdd = () => {
-  const menu = [
+  const [menu, setMenu] = useState([
     {
-      id: 1,
-      menuName: '단호박크림파스타',
+      id: '',
+      menuName: '',
     },
-    {
-      id: 2,
-      menuName: '토마토비프스튜',
-    },
-    {
-      id: 3,
-      menuName: '소고시듬뿍잡채',
-    },
-    {
-      id: 4,
-      menuName: '매운 치즈순살찜닭',
-    },
-    {
-      id: 5,
-      menuName: '수삼양지수육전골',
-    },
-    {
-      id: 6,
-      menuName: '비빔국수와 양지수육',
-    },
-    {
-      id: 7,
-      menuName: '닭한마리와 칼국수',
-    },
-    {
-      id: 8,
-      menuName: '고추장수제비와 배추전',
-    },
-    {
-      id: 9,
-      menuName: '붕장어전골과 구이',
-    },
-    {
-      id: 10,
-      menuName: '장어파김치전골',
-    },
-    {
-      id: 11,
-      menuName: '스파이시 치킨크림스튜',
-    },
-    {
-      id: 12,
-      menuName: '눈꽃치즈닭갈비',
-    },
-  ];
+  ]);
+
+  useEffect(() => {
+    fetch('data/menu.json')
+      .then(res => res.json())
+      .then(data => {
+        setMenu(data);
+      });
+  }, []);
 
   return (
     <section className="revieWrite">
       <div className="reviewWriteWarp">
-        <h3 className="reviewWriteHead">리뷰J 쓰기</h3>
+        <h3 className="reviewWriteHead">리뷰 쓰기</h3>
         <select name="상품선택">
           {menu.map(menu => (
             <option key={menu.id}>{menu.menuName}</option>
