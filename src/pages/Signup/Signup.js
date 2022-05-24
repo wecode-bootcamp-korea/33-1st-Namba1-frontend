@@ -14,13 +14,10 @@ const Signup = () => {
             <input
               className="userId"
               type="text"
-              placeholder="영문, 숫자 포함 5자 이상 입력해주세요."
+              placeholder="이메일 주소 전체를 입력해 주세요."
             />
           </div>
-          <div className="emailContent">
-            <span className="title">이메일 *</span>
-            <input className="userEmail" type="text" />
-          </div>
+
           <div className="nameContent">
             <span className="title">이름 *</span>
             <input className="isUserName" type="text" />
@@ -30,7 +27,7 @@ const Signup = () => {
             <input
               className="userPassword"
               type="text"
-              placeholder="8자 이상 입력해주세요."
+              placeholder="8자 이상 입력해 주세요."
             />
           </div>
           <div className="passwordCheckContent">
@@ -41,18 +38,9 @@ const Signup = () => {
             <span className="title">휴대폰 번호 *</span>
             <input className="userPhoneNumber" type="text" />
           </div>
-          <div className="userInfo">
-            <span className="userSex">성별 *</span>
-            <div className="maleFemale">
-              <input className="selectInfo" type="checkbox" />
-              <span className="male">남성</span>
-              <input className="selectInfo" type="checkbox" />
-              <span className="female">여성</span>
-            </div>
-          </div>
 
           <div className="birth">
-            <span className="title">생년월일</span>
+            <span className="title">생년월일 *</span>
             <input className="userBirth" type="text" />
           </div>
           <div className="footer">
@@ -77,6 +65,11 @@ const Signup = () => {
                 (선택) 이메일 및 SMS 마케팅 정보 수신에 동의합니다.
               </span>
             </div>
+          </div>
+          <div className="signupBtn">
+            <button className="userSignUp">
+              <a href="#">회원가입 하기</a>
+            </button>
           </div>
         </form>
       </div>
