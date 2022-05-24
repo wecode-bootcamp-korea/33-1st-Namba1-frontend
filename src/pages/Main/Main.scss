@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+
+.main {
+  @include primaryFont();
+  @include flexCenter();
+  flex-direction: column;
+  margin-top: 100px;
+
+  .slideBar {
+    width: 100%;
+    height: 640px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .recommend {
+    @include flexCenter;
+    margin-top: 100px;
+    width: 90%;
+
+    .recommendDrop {
+      flex: 1;
+      margin-left: 10%;
+
+      .drop {
+        #taste {
+          @include primaryFont();
+          border: none;
+          border-bottom: solid 3px black;
+          font-size: 40px;
+          font-weight: bold;
+        }
+      }
+
+      .recommendMsg {
+        padding-top: 15px;
+        font-size: 30px;
+      }
+    }
+
+    .recommendPhoto {
+      flex: 2;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .newProducts {
+    margin-top: 100px;
+    width: 90%;
+
+    .newProductTitle {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .newProduct {
+      margin-top: 30px;
+
+      .productItems {
+        @include flexCenter();
+      }
+    }
+  }
+}
