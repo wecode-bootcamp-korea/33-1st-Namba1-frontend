@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+.contentWrapper {
+  margin-top: 50px;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+  header {
+    font-size: 30px;
+  }
+}
+
+.signUpWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.idContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  .userId {
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.emailContent {
+  display: flex;
+  flex-direction: column;
+  .userEmail {
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.nameContent {
+  display: flex;
+  flex-direction: column;
+  .isUserName {
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.passwordContent {
+  display: flex;
+  flex-direction: column;
+  .userPassword {
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.passwordCheckContent {
+  display: flex;
+  flex-direction: column;
+  .userPasswordCheck {
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.phoneNumber {
+  display: flex;
+  flex-direction: column;
+  .userPhoneNumber {
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.userInfo {
+  position: relative;
+  right: 150px;
+  input {
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+}
+
+.birth {
+  display: flex;
+  flex-direction: column;
+
+  .userBirth {
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.footer {
+  .terms {
+    margin-bottom: 10px;
+  }
+  .agreeTerms {
+    margin-bottom: 10px;
+  }
+  .agreeTerms2 {
+    margin-bottom: 10px;
+  }
+  .agreeTerms3 {
+    margin-bottom: 10px;
+  }
+}

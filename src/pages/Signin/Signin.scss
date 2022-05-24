@@ -1,0 +1,119 @@
+.loginForm {
+  width: 450px;
+  height: 650px;
+  border: none;
+  text-align: center;
+  margin: auto;
+  border-radius: 2px;
+  margin-top: 100px;
+}
+
+.logIn {
+  h2 {
+    margin-top: 50px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 30px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #858585;
+}
+
+.userForm {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  input::placeholder {
+    color: #e0e0e0;
+  }
+}
+
+input.userName {
+  text-align: left;
+  margin: auto;
+  width: 400px;
+  height: 60px;
+  background: white;
+  border: 1px solid #fabf01;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+input.password {
+  text-align: left;
+  margin: auto;
+  width: 400px;
+  height: 60px;
+  background: white;
+  border: 1px solid #fabf01;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.saveId {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 1rem;
+  input[type='checkbox'] {
+    zoom: 1.5;
+    accent-color: #fabf01;
+  }
+}
+
+span {
+  .isSaveIdCheck {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.footerText {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  li:nth-child(n + 2) {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 25px;
+  }
+  li:nth-child::after {
+    position: absolute;
+    left: 0;
+    top: 1.5px;
+    content: '';
+    width: 1px;
+    height: 15px;
+    background-color: #858585;
+  }
+}
+
+.loginBtn {
+  margin-top: 70px;
+  width: 400px;
+  height: 70px;
+  background: #fabf01;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:disabled {
+    margin-top: 70px;
+    width: 400px;
+    height: 70px;
+    background: #eee;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+input::placeholder {
+  padding: 10px;
+}
