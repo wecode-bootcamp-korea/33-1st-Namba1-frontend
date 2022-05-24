@@ -46,7 +46,7 @@ $gray: #606060;
     }
   }
 
-  h1 {
+  .reviewHeader {
     font-size: 2rem;
     font-weight: 700;
     margin: 32px 0;
@@ -68,11 +68,7 @@ $gray: #606060;
       .reviewSilder {
         margin-right: 48px;
 
-        p {
-          line-height: 1.5;
-        }
-
-        .bestReviewImg {
+        .bestReviewImgBox {
           position: relative;
           width: 520px;
           height: 324px;
@@ -88,7 +84,7 @@ $gray: #606060;
             z-index: 50;
             opacity: 0.8;
 
-            span {
+            .bestTag {
               position: absolute;
               bottom: 10px;
               left: 50%;
@@ -98,7 +94,7 @@ $gray: #606060;
             }
           }
 
-          img {
+          .bestReviewImg {
             @include positionCenter;
           }
         }
@@ -111,10 +107,11 @@ $gray: #606060;
       font-weight: 700;
     }
 
-    p {
+    .bestReviewDesc {
       margin: 32px 0;
       font-size: 12px;
       color: $gray;
+      line-height: 1.5;
     }
   }
 
@@ -123,9 +120,10 @@ $gray: #606060;
     padding: 32px;
     background-color: #f7f7f7;
 
-    form {
+    .searchForm {
       position: relative;
-      input {
+
+      .search {
         width: 514px;
         height: 60px;
         padding: 15px;
@@ -140,7 +138,7 @@ $gray: #606060;
         }
       }
 
-      button {
+      .searchBtn {
         position: absolute;
         top: 50%;
         right: 15px;
@@ -156,16 +154,16 @@ $gray: #606060;
       align-items: center;
       padding: 56px 0 15px 0;
 
-      h2 {
+      .reviewSum {
         font-size: 22px;
         font-weight: 700;
       }
 
       .reviewListRight {
-        button {
+        .reviewAdd {
           font-size: 16px;
 
-          span {
+          .reviewAddDesc {
             margin-left: 10px;
           }
         }
@@ -196,7 +194,7 @@ $gray: #606060;
             border-radius: 5px;
             background-color: #fff;
 
-            h3 {
+            .reviewWriteHead {
               font-size: 20px;
               font-weight: 900;
               text-align: center;
@@ -216,13 +214,13 @@ $gray: #606060;
               }
             }
 
-            form {
+            .reviewWriteForm {
               .reviewFileTitle {
                 @include formLabel();
                 margin-bottom: 15px;
               }
 
-              p {
+              .reviewFileDesc {
                 font-size: 13px;
               }
 
@@ -230,7 +228,7 @@ $gray: #606060;
                 position: relative;
                 @include formBtn();
 
-                label {
+                .reviewFileUplodeTitle {
                   position: absolute;
                   top: 50%;
                   left: 50%;
@@ -238,7 +236,7 @@ $gray: #606060;
                   cursor: pointer;
                 }
 
-                input {
+                .reviewFileUplodeInput {
                   width: 100%;
                   opacity: 0;
                   cursor: pointer;
@@ -270,7 +268,7 @@ $gray: #606060;
                 }
               }
 
-              button {
+              .reviewSubmitBtn {
                 @include formBtn;
               }
             }
@@ -283,10 +281,10 @@ $gray: #606060;
                 @include formLabel();
               }
 
-              div {
+              .detailsDesc {
                 margin-top: 10px;
 
-                span {
+                .detail {
                   font-size: 12px;
                   line-height: 1.2;
                   color: #2f3438;
@@ -298,12 +296,7 @@ $gray: #606060;
       }
     }
 
-    ul {
-      p {
-        color: $gray;
-        font-size: 14px;
-      }
-
+    .reviewListComponent {
       li {
         padding: 23px 0;
         border-bottom: 1px solid $gray;
@@ -312,7 +305,7 @@ $gray: #606060;
           display: flex;
           justify-content: space-between;
 
-          h3 {
+          .reviewMenu {
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 12px;
@@ -360,21 +353,30 @@ $gray: #606060;
           }
         }
       }
+
+      p {
+        color: $gray;
+        font-size: 14px;
+      }
     }
 
     .pagination {
       text-align: center;
       margin: 50px;
 
-      button {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-        font-weight: 700;
+      .pages {
+        margin: 0 10px;
 
-        &.current {
-          color: #fff;
-          background-color: #2f3438;
+        button {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+          font-weight: 700;
+
+          &.current {
+            color: #fff;
+            background-color: #2f3438;
+          }
         }
       }
     }
