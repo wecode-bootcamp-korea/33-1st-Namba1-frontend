@@ -25,9 +25,7 @@ const ReviewBox = () => {
             <FontAwesomeIcon icon={faPlus} />
             <span className="reviewAddDesc">리뷰 쓰기</span>
           </button>
-          {reviewAdd && (
-            <ReviewAdd reviewAdd={reviewAdd} setReviewAdd={setReviewAdd} />
-          )}
+
           <button className="reviewAdd">
             <FontAwesomeIcon icon={faCircleCheck} size="1.5x" />
             <span className="reviewAddDesc">포토리뷰만 보기</span>
@@ -35,6 +33,10 @@ const ReviewBox = () => {
         </div>
       </div>
       <hr />
+
+      {reviewAdd && (
+        <ReviewAdd reviewAdd={reviewAdd} setReviewAdd={setReviewAdd} />
+      )}
 
       <ReviewList />
       <div className="pagination">

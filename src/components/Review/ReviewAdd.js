@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../../components/Review/ReviewAdd.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
 const ReviewAdd = ({ reviewAdd, setReviewAdd }) => {
-  const [menu, setMenu] = useState([
-    {
-      id: '',
-      menuName: '',
-    },
-  ]);
+  const [menu, setMenu] = useState([]);
 
   useEffect(() => {
     fetch('/data/menu.json')
@@ -54,58 +49,72 @@ const ReviewAdd = ({ reviewAdd, setReviewAdd }) => {
     },
   ];
 
+  const outSection = useRef();
+
   return (
     <section className="reviewadd">
-      <div className="reviewWriteWarp">
-        <h3 className="reviewWriteHead">리뷰 쓰기</h3>
+      {ReviewAdd ? (
+        <div
+          className="reviewWriteWarp"
+          ref={outSection}
+          onClick={e => {
+            if (outSection.current === e.target) {
+              setReviewAdd(false);
+            }
+          }}
+        >
+          <div className="reviewWriteFrom">
+            <h3 className="reviewWriteHead">리뷰 쓰기</h3>
 
-        <select name="상품선택">
-          {menu.map(({ id, menuName }) => (
-            <option key={id}>{menuName}</option>
-          ))}
-        </select>
+            <select name="상품선택">
+              {menu.map(({ id, menuName }) => (
+                <option key={id}>{menuName}</option>
+              ))}
+            </select>
 
-        <form className="reviewWriteForm">
-          <p className="reviewFileTitle">사진 첨부 (선택)</p>
-          <p className="reviewFileDesc">
-            오늘의집에 올렸던 사진에서 고르거나 새로운 사진을 첨부해주세요.
-            (최대 1장)
-          </p>
+            <form className="reviewWriteForm">
+              <p className="reviewFileTitle">사진 첨부 (선택)</p>
+              <p className="reviewFileDesc">
+                오늘의집에 올렸던 사진에서 고르거나 새로운 사진을 첨부해주세요.
+                (최대 1장)
+              </p>
 
-          <div className="reviewFileUplode">
-            <label className="reviewFileUplodeTitle">사진 첨부하기</label>
-            <input className="reviewFileUplodeInput" type="file" />
+              <div className="reviewFileUplode">
+                <label className="reviewFileUplodeTitle">사진 첨부하기</label>
+                <input className="reviewFileUplodeInput" type="file" />
+              </div>
+
+              <div className="review">
+                <label className="userReviewWrite">리뷰 작성</label>
+                <textarea
+                  placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다 (최소 20자 이상)"
+                  required
+                  maxLenth="200"
+                  minLength="20"
+                />
+              </div>
+
+              <button className="reviewSubmitBtn">완료</button>
+            </form>
+
+            <details>
+              <summary>Namba1 리뷰 정책</summary>
+              <div class="detailsDesc">
+                {DETAILS_DESC.map(({ id, detailsDesc }) => (
+                  <span key="id" className="detail">
+                    {detailsDesc}
+                    <br />
+                  </span>
+                ))}
+              </div>
+            </details>
+
+            <button className="close" onClick={() => setReviewAdd(false)}>
+              <FontAwesomeIcon icon={faX} />
+            </button>
           </div>
-
-          <div className="review">
-            <label className="userReviewWrite">리뷰 작성</label>
-            <textarea
-              placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다 (최소 20자 이상)"
-              required
-              maxLenth="200"
-              minLength="20"
-            />
-          </div>
-
-          <button className="reviewSubmitBtn">완료</button>
-        </form>
-
-        <details>
-          <summary>Namba1 리뷰 정책</summary>
-          <div class="detailsDesc">
-            {DETAILS_DESC.map(({ id, detailsDesc }) => (
-              <span key="id" className="detail">
-                {detailsDesc}
-                <br />
-              </span>
-            ))}
-          </div>
-        </details>
-
-        <button className="close" onClick={() => setReviewAdd(false)}>
-          <FontAwesomeIcon icon={faX} />
-        </button>
-      </div>
+        </div>
+      ) : null}
     </section>
   );
 };

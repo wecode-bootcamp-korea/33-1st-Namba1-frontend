@@ -1,26 +1,25 @@
 @import '../../styles/variables.scss';
 
 .reviewadd {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 100%;
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.5);
-  overflow-y: auto;
-
-  &.show {
-    display: block;
+  .reviewWriteWarp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
   }
 
-  .reviewWriteWarp {
+  .reviewWriteFrom {
     position: absolute;
-    top: 50px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     width: 760px;
+    margin: 50px;
     padding: 40px;
     border-radius: 5px;
     background-color: #fff;
