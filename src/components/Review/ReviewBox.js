@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleLeft,
@@ -11,19 +11,23 @@ import ReviewAdd from '../../components/Review/ReviewAdd';
 import '../../components/Review/ReviewBox.scss';
 
 const ReviewBox = () => {
+  const [reviewAdd, setReviewAdd] = useState(false);
+  const onClick = () => {
+    setReviewAdd(true);
+  };
+
   return (
     <section className="reviewbox">
       <div className="reviewListHead">
         <h2 className="reviewSum">리뷰 190,004건(임의)</h2>
         <div className="reviewListRight">
-          {/* TODO : Link로 리뷰 만들기 창 이동하게 할 것 */}
-          <button className="reviewAdd">
+          <button className="reviewAdd" onClick={onClick}>
             <FontAwesomeIcon icon={faPlus} />
             <span className="reviewAddDesc">리뷰 쓰기</span>
           </button>
-
-          <ReviewAdd />
-
+          {reviewAdd && (
+            <ReviewAdd reviewAdd={reviewAdd} setReviewAdd={setReviewAdd} />
+          )}
           <button className="reviewAdd">
             <FontAwesomeIcon icon={faCircleCheck} size="1.5x" />
             <span className="reviewAddDesc">포토리뷰만 보기</span>
@@ -32,7 +36,6 @@ const ReviewBox = () => {
       </div>
       <hr />
 
-      {/* TODO : Component화 */}
       <ReviewList />
       <div className="pagination">
         <button>

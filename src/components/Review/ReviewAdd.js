@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../../components/Review/ReviewAdd.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
-const ReviewAdd = () => {
+const ReviewAdd = ({ reviewAdd, setReviewAdd }) => {
   const [menu, setMenu] = useState([
     {
       id: '',
@@ -56,11 +58,13 @@ const ReviewAdd = () => {
     <section className="reviewadd">
       <div className="reviewWriteWarp">
         <h3 className="reviewWriteHead">리뷰 쓰기</h3>
+
         <select name="상품선택">
           {menu.map(({ id, menuName }) => (
             <option key={id}>{menuName}</option>
           ))}
         </select>
+
         <form className="reviewWriteForm">
           <p className="reviewFileTitle">사진 첨부 (선택)</p>
           <p className="reviewFileDesc">
@@ -97,6 +101,10 @@ const ReviewAdd = () => {
             ))}
           </div>
         </details>
+
+        <button className="close" onClick={() => setReviewAdd(false)}>
+          <FontAwesomeIcon icon={faX} />
+        </button>
       </div>
     </section>
   );

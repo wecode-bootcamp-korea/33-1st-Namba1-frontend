@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import '../../components/Review/BestReview.scss';
+import Arrows from './Arrows';
 
 const BestReview = () => {
   const [slider, setSlider] = useState([]);
@@ -17,9 +16,9 @@ const BestReview = () => {
   return (
     <section className="bestReview">
       {/* TODO : 수동 슬라이드 기능 구현 */}
-      <ul className="bestSilderWarp">
+      <ul className="bestSliderWarp">
         {slider.map(({ id, title, imgSrc, imgAlt, userId, userReview }) => (
-          <li key={id} className="reviewSilder">
+          <li key={id} className="reviewSlider">
             <div className="bestReviewImgBox">
               <div className="bestBg">
                 <span className="bestTag">Best</span>
@@ -30,23 +29,14 @@ const BestReview = () => {
             <div className="starBox">
               <span className="star">★★★★★</span>
               {/* TODO : id 3글자 이후 * 처리 */}
+
               <span>{userId}</span>
             </div>
             <p className="bestReviewDesc">{userReview}</p>
           </li>
         ))}
       </ul>
-      {/* TODO : 슬라이드 페이지네이션 구현 */}
-      <div className="pagination">
-        <button className="paginationBtn">
-          <FontAwesomeIcon icon={faAngleLeft} />
-        </button>
-        {/* 현재페이지 / 페이지합계 */}
-        <span className="pagenation">1 / 5</span>
-        <button className="paginationBtn">
-          <FontAwesomeIcon icon={faAngleRight} />
-        </button>
-      </div>
+      <Arrows />
     </section>
   );
 };
