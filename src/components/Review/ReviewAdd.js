@@ -7,6 +7,16 @@ const ReviewAdd = ({ reviewAdd, setReviewAdd }) => {
   const [menu, setMenu] = useState([]);
 
   useEffect(() => {
+    const escKeyModalClose = e => {
+      if (e.keyCode === 27) {
+        setReviewAdd(false);
+      }
+    };
+    window.addEventListener('keydown', escKeyModalClose);
+    return () => window.removeEventListener('keydown', escKeyModalClose);
+  }, [setReviewAdd]);
+
+  useEffect(() => {
     fetch('/data/menu.json')
       .then(res => res.json())
       .then(data => {
