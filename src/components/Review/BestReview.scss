@@ -1,0 +1,57 @@
+@import '../../styles/variables.scss';
+
+.bestReview {
+  padding: 32px 0;
+
+  .bestSilderWarp {
+    display: flex;
+
+    .reviewSilder {
+      margin-right: 48px;
+
+      .bestReviewImgBox {
+        position: relative;
+        width: 520px;
+        height: 324px;
+        overflow: hidden;
+
+        .bestBg {
+          position: absolute;
+          top: 0;
+          left: 30px;
+          width: 66px;
+          height: 66px;
+          background-color: $mainColor;
+          z-index: 50;
+          opacity: 0.8;
+
+          .bestTag {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-weight: 400;
+          }
+        }
+
+        .bestReviewImg {
+          @include positionCenter;
+        }
+      }
+    }
+  }
+
+  .reviewTitle {
+    margin: 10px 0;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .bestReviewDesc {
+    margin: 32px 0;
+    font-size: 12px;
+    color: $gray;
+    line-height: 1.5;
+  }
+}

@@ -1,0 +1,127 @@
+@import '../../styles/variables.scss';
+
+.reviewadd {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+
+  &.show {
+    display: block;
+  }
+
+  .reviewWriteWarp {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 760px;
+    padding: 40px;
+    border-radius: 5px;
+    background-color: #fff;
+
+    .reviewWriteHead {
+      font-size: 20px;
+      font-weight: 900;
+      text-align: center;
+      padding: 15px;
+    }
+
+    select {
+      width: 100%;
+      height: 64px;
+      margin: 30px 0;
+      padding: 15px;
+      border-radius: 5px;
+
+      option {
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+
+    .reviewWriteForm {
+      .reviewFileTitle {
+        @include formLabel();
+        margin-bottom: 15px;
+      }
+
+      .reviewFileDesc {
+        font-size: 13px;
+      }
+
+      .reviewFileUplode {
+        position: relative;
+        @include formBtn();
+
+        .reviewFileUplodeTitle {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          cursor: pointer;
+        }
+
+        .reviewFileUplodeInput {
+          width: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+
+      .review {
+        width: 100%;
+
+        label {
+          display: block;
+          @include formLabel();
+          margin-bottom: 15px;
+        }
+
+        textarea {
+          padding: 15px;
+          width: 100%;
+          height: 150px;
+          border: 1px solid #c0c6cc;
+          border-radius: 5px;
+          resize: none;
+
+          &::placeholder {
+            font-size: 16px;
+            font-weight: 600;
+            color: #c0c6cc;
+          }
+        }
+      }
+
+      .reviewSubmitBtn {
+        @include formBtn;
+      }
+    }
+
+    details {
+      padding: 20px;
+      background-color: #f7f9fa;
+
+      summary {
+        @include formLabel();
+      }
+
+      .detailsDesc {
+        margin-top: 10px;
+
+        .detail {
+          font-size: 12px;
+          line-height: 1.2;
+          color: #2f3438;
+        }
+      }
+    }
+  }
+}

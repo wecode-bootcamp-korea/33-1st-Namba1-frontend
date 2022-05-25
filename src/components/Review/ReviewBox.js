@@ -8,10 +8,11 @@ import {
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck';
 import ReviewList from '../../components/Review/ReviewList';
 import ReviewAdd from '../../components/Review/ReviewAdd';
+import '../../components/Review/ReviewBox.scss';
 
 const ReviewBox = () => {
   return (
-    <section className="reviewList">
+    <section className="reviewbox">
       <div className="reviewListHead">
         <h2 className="reviewSum">리뷰 190,004건(임의)</h2>
         <div className="reviewListRight">
