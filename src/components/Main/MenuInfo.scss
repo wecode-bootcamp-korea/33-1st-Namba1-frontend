@@ -1,0 +1,32 @@
+@import '../../styles/variables.scss';
+@mixin itemText {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.itemInfo {
+  display: flex;
+  border-top: 1px solid $mainColor;
+
+  .menuPhotoBox {
+    flex: 1;
+
+    .menuPhoto {
+      width: 100%;
+    }
+  }
+
+  .menuInfo {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+
+    .menuName {
+      @include itemText();
+      padding-bottom: 10px;
+    }
+  }
+}
