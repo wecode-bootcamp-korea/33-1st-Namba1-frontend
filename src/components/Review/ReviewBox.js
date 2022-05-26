@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleLeft,
@@ -8,20 +8,51 @@ import {
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck';
 import ReviewList from '../../components/Review/ReviewList';
 import ReviewAdd from '../../components/Review/ReviewAdd';
+import SearchBox from '../../components/Review/SearchBox';
 import '../../components/Review/ReviewBox.scss';
 
 const ReviewBox = () => {
+  const [review, setReview] = useState([]);
+  const [filterReview, setFilterReview] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
   const [reviewAdd, setReviewAdd] = useState(false);
-  const onClick = () => {
+
+  useEffect(() => {
+    fetch('/data/review.json')
+      .then(res => res.json())
+      .then(data => {
+        setReview(data);
+        setFilterReview(data);
+      });
+  }, []);
+
+  const isReviewAdd = () => {
     setReviewAdd(true);
+  };
+
+  const searchUser = e => {
+    setSearchInput(e.target.value);
+    if (searchInput === '') {
+      setFilterReview(review);
+    }
+  };
+
+  const searchReview = e => {
+    e.preventDefault();
+    const result = filterReview.filter(review => {
+      return review.reviewTitle.includes(searchInput);
+    });
+    setFilterReview(result);
   };
 
   return (
     <section className="reviewbox">
+      <SearchBox searchUser={searchUser} searchReview={searchReview} />
+
       <div className="reviewListHead">
         <h2 className="reviewSum">리뷰 190,004건(임의)</h2>
         <div className="reviewListRight">
-          <button className="reviewAdd" onClick={onClick}>
+          <button className="reviewAdd" onClick={isReviewAdd}>
             <FontAwesomeIcon icon={faPlus} />
             <span className="reviewAddDesc">리뷰 쓰기</span>
           </button>
@@ -35,15 +66,19 @@ const ReviewBox = () => {
       <hr />
 
       {reviewAdd && (
-        <ReviewAdd reviewAdd={reviewAdd} setReviewAdd={setReviewAdd} />
+        <ReviewAdd reviewAdd={reviewAdd} isReviewAdd={setReviewAdd} />
       )}
 
-      <ReviewList />
+      <ReviewList
+        searchReview={searchReview}
+        review={searchInput === '' ? review : filterReview}
+        setReview={setReview}
+      />
+
       <div className="pagination">
         <button>
           <FontAwesomeIcon icon={faAngleLeft} size="1.5x" />
         </button>
-        {/* TODO : 현재페이지 / 페이지합계 기능 구형 할 것 */}
         <span className="pages">
           <button className="current">1</button>
           <button>2</button>
