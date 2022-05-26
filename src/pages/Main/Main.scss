@@ -16,18 +16,18 @@
   flex-direction: column;
   margin-top: 100px;
 
-  .slideBar {
-    display: flex;
-    justify-content: flex-start;
-    width: 100% * 3;
+  .slideBox {
+    width: 100vw;
     height: 640px;
+    overflow: hidden;
 
-    .slideBox {
-      width: 100%;
+    .slideDisplay {
+      display: flex;
+      width: 100vw;
+      height: 100%;
 
       .mainSlide {
         width: 100%;
-        height: 100%;
       }
     }
   }

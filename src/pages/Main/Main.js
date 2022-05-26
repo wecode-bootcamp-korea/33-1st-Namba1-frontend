@@ -1,22 +1,20 @@
 import React from 'react';
-import './Main.scss';
-import Menu from '../../components/Main/Menu';
-import MdMenu from '../../components/Main/MdMenu';
-import Review from '../../components/Main/Review';
-import NewProduct from '../../components/Main/NewProduct';
 import { Link } from 'react-router-dom';
+import MdMenu from '../../components/Main/MdMenu';
+import Menu from '../../components/Main/Menu';
+import NewProduct from '../../components/Main/NewProduct';
+import Review from '../../components/Main/Review';
+import './Main.scss';
 
 function Main() {
   return (
     <div className="main">
-      <div className="slideBar">
-        {MAIN_SLIDE.map(slide => {
-          return (
-            <div className="slideBox" key={slide.id}>
-              <img className="mainSlide" src={slide.src} alt={slide.alt} />
-            </div>
-          );
-        })}
+      <div className="slideBox">
+        <div className="slideDisplay">
+          {MAIN_SLIDE.map(({ id, src, alt }) => {
+            return <img key={id} className="mainSlide" src={src} alt={alt} />;
+          })}
+        </div>
       </div>
       <div className="recommend">
         <div className="recommendDrop">
@@ -34,11 +32,11 @@ function Main() {
             </select> */}
           </div>
           <div className="recommendMsg">메뉴</div>
-          <div className="recommendMsg">추천드려요</div>
+          <div className="recommendMsg">추천드려요 :D</div>
         </div>
         <div className="recommendPhoto">
-          {RECOMMEND_PHOTO.map(photo => {
-            return <img key={photo.id} src={photo.src} alt={photo.alt} />;
+          {RECOMMEND_PHOTO.map(({ id, src, alt }) => {
+            return <img key={id} src={src} alt={alt} />;
           })}
         </div>
       </div>
@@ -54,7 +52,7 @@ function Main() {
           View All
         </Link>
         <div className="reviewBox">
-          {/* 리뷰 어떤 식으로 데이터 받아올지 회의 후 목데이터 작업하기 */}
+          {/* TO DO : 리뷰 어떤 식으로 데이터 받아올지 회의 후 목데이터 작업하기 */}
           <Review />
           <Review />
         </div>
@@ -71,7 +69,8 @@ function Main() {
 const MAIN_SLIDE = [
   { id: 1, src: '/images/main/meat.jpg', alt: 'meat' },
   { id: 2, src: '/images/main/dinner.jpg', alt: 'dinner' },
-  { id: 3, src: '/images/main/dinner.jpg', alt: 'dinner' },
+  { id: 3, src: '/images/main/salad.jpg', alt: 'salad' },
+  { id: 4, src: '/images/main/dinner.jpg', alt: 'dinner' },
 ];
 
 const RECOMMEND_PHOTO = [
