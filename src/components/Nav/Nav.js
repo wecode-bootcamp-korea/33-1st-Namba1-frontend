@@ -1,8 +1,8 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './Nav.scss';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import './Nav.scss';
 
 const Nav = () => {
   return (
@@ -13,11 +13,11 @@ const Nav = () => {
         </Link>
       </h1>
       <ul className="pageMenu">
-        {PAGENAV_LIST.map(menu => {
+        {PAGENAV_LIST.map(({ id, url, page }) => {
           return (
-            <li key={menu.id}>
-              <Link to={menu.url} className="pageLink">
-                {menu.page}
+            <li key={id}>
+              <Link to={url} className="pageLink">
+                {page}
               </Link>
             </li>
           );
@@ -25,7 +25,7 @@ const Nav = () => {
       </ul>
       <div className="myMenu">
         <ul>
-          {MYNAV_LIST.map(myMenu => {
+          {MY_NAV_LIST.map(myMenu => {
             return (
               <li key={myMenu.id}>
                 <Link to={myMenu.url} className="myLink">
@@ -46,7 +46,7 @@ const PAGENAV_LIST = [
   { id: 3, page: '마이페이지', url: 'mypage' },
 ];
 
-const MYNAV_LIST = [
+const MY_NAV_LIST = [
   { id: 1, page: '로그인', url: '/signin' },
   {
     id: 2,
