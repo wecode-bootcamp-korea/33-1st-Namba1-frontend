@@ -1,0 +1,43 @@
+@import '../../../../styles/variables.scss';
+
+@mixin flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+$borderColor: #c4c4c4;
+
+.order {
+  @include primaryFont;
+  height: 85px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+
+  .title {
+    font-size: 1.7em;
+    font-weight: 800;
+  }
+
+  .content {
+    @include flexBetween;
+    padding-top: 15px;
+
+    .description {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .filterList {
+      @include flexBetween;
+      width: 220px;
+      font-size: 0.9em;
+
+      .border {
+        padding: 0 10px;
+        border-right: 1px solid $borderColor;
+        border-left: 1px solid $borderColor;
+      }
+    }
+  }
+}

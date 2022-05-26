@@ -1,8 +1,6 @@
-@import '../../../styles/variables.scss';
+@import '../../../../styles/variables.scss';
 
 $borderColor: #c4c4c4;
-
-// ----------
 
 .addToCart {
   .flexRight {
@@ -13,20 +11,20 @@ $borderColor: #c4c4c4;
 
   .cartBox {
     width: 100%;
-    border: 1px solid $borderColor;
     margin-top: 10px;
+    border: 1px solid $borderColor;
 
     .itemHeader {
-      height: 45px;
-      border-bottom: 1px solid $borderColor;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 45px;
+      border-bottom: 1px solid $borderColor;
       font-size: 1.1em;
 
       .itemHeaderTitle {
-        font-weight: 800;
         margin-left: 33px;
+        font-weight: 800;
       }
 
       .cancelBtn {
@@ -36,16 +34,16 @@ $borderColor: #c4c4c4;
 
       .cancelIcon {
         margin-right: 33px;
-        font-size: 1.3em;
         color: rgb(108, 108, 108);
+        font-size: 1.3em;
       }
     }
 
     .itemInput {
-      height: 60px;
       display: flex;
       justify-content: space-around;
       align-items: center;
+      height: 60px;
 
       .itemName {
         font-size: 0.95em;
@@ -53,22 +51,22 @@ $borderColor: #c4c4c4;
       }
 
       .itemForm {
-        border: 1px solid $borderColor;
         height: 30px;
         padding: 4px 5px 0 5px;
+        border: 1px solid $borderColor;
 
         .itemCount {
           width: 40px;
-          font-size: 1em;
-          text-align: center;
           border: none;
           outline: none;
+          font-size: 1em;
+          text-align: center;
           -webkit-appearance: none;
         }
 
         .iconBtn {
-          border: none;
           background-color: #fff;
+          border: none;
         }
       }
 
@@ -80,10 +78,10 @@ $borderColor: #c4c4c4;
   }
 
   .itemTotal {
-    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 30px;
 
     .totalAmount {
       font-size: 1.2em;
@@ -91,18 +89,18 @@ $borderColor: #c4c4c4;
     }
 
     .totalPrice {
+      color: #ff0000;
       font-size: 2em;
       font-weight: 800;
-      color: #ff0000;
     }
   }
 
   .cartButtons {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 65px;
     margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
 
     .heartBtn {
       width: 15%;
@@ -110,18 +108,18 @@ $borderColor: #c4c4c4;
       border: 1px solid $borderColor;
 
       .heartIcon {
-        font-size: 25px;
         color: $borderColor;
+        font-size: 25px;
       }
     }
 
     .cartBtn {
       width: 82%;
       border: none;
-      font-size: 1.25em;
-      font-weight: 800;
       color: $subColor;
       background-color: $mainColor;
+      font-size: 1.25em;
+      font-weight: 800;
     }
   }
 }

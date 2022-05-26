@@ -1,0 +1,86 @@
+@import '../../../../styles/variables.scss';
+
+$borderColor: #6e6e6e;
+
+.menuDisplay {
+  @include primaryFont;
+  width: 260px;
+  height: 480px;
+
+  .image {
+    width: 100%;
+    height: 66%;
+    object-fit: cover;
+  }
+
+  .prep {
+    @include flexBetween;
+    width: 220px;
+    margin-top: 15px;
+    color: $borderColor;
+    font-size: 0.85em;
+
+    .middle {
+      padding: 0 5px;
+      border-right: 1px solid $borderColor;
+      border-left: 1px solid $borderColor;
+    }
+
+    .hot {
+      color: #ff0000;
+    }
+  }
+
+  .productName {
+    margin: 15px 0;
+    font-size: 1.11em;
+    font-weight: bold;
+  }
+
+  .productPrice {
+    margin: 20px 0;
+    font-size: 1.2em;
+    font-weight: 800;
+  }
+
+  .customerReview {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.9em;
+
+    .stars {
+      padding-right: 10px;
+      color: $mainColor;
+    }
+
+    .review {
+      border-left: 1px solid $borderColor;
+      padding-left: 10px;
+      font-size: 0.85em;
+    }
+  }
+
+  .customerLike {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0;
+
+    .faHeart {
+      margin-right: 15px;
+    }
+
+    .faHeart,
+    .faCart {
+      padding: 10px;
+      border: 1px solid $mainColor;
+      border-radius: 50%;
+      background-color: $mainColor;
+
+      .icon {
+        font-size: 1.3em;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+.menu {
+  width: 75%;
+  margin: 150px auto;
+
+  .contentDisplay {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    column-gap: 30px;
+    row-gap: 150px;
+  }
+}
