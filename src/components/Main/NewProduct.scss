@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+@mixin itemText {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.productItems {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    flex: 30%;
+    margin-bottom: 100px;
+  }
+
+  .productItem {
+    .productImg {
+      width: 90%;
+    }
+
+    .productName {
+      @include itemText();
+    }
+
+    .productPrice {
+      @include itemText();
+
+      .productServings {
+        font-size: 15px;
+        font-weight: normal;
+      }
+    }
+  }
+}

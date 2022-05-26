@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './Main.scss';
 import Menu from '../../components/Main/Menu';
+import MdMenu from '../../components/Main/MdMenu';
+import Review from '../../components/Main/Review';
+import NewProduct from '../../components/Main/NewProduct';
+import { Link } from 'react-router-dom';
 
 function Main() {
-  const [newProduct, setNewProduct] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3000/data/newProduct.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setNewProduct(data);
-      });
-  });
-
   return (
     <div className="main">
-      {/* NAV바 컴포넌트 넣는 부분 */}
       <div className="slideBar">
-        <img src="/images/main/meat.jpg" alt="meat" />
+        {MAIN_SLIDE.map(slide => {
+          return (
+            <div className="slideBox" key={slide.id}>
+              <img className="mainSlide" src={slide.src} alt={slide.alt} />
+            </div>
+          );
+        })}
       </div>
       <div className="recommend">
         <div className="recommendDrop">
@@ -41,35 +37,15 @@ function Main() {
           <div className="recommendMsg">추천드려요</div>
         </div>
         <div className="recommendPhoto">
-          <img src="/images/main/salad.jpg" alt="salad" />
+          {RECOMMEND_PHOTO.map(photo => {
+            return <img key={photo.id} src={photo.src} alt={photo.alt} />;
+          })}
         </div>
       </div>
       <div className="newProducts">
         <h1 className="newProductTitle">신메뉴</h1>
         <div className="newProduct">
-          <ul className="productItems">
-            {newProduct.map(newProduct => {
-              return (
-                <li key={newProduct.id}>
-                  <div className="productItem">
-                    <img
-                      className="productImg"
-                      src={newProduct.productImg}
-                      alt="meat"
-                    />
-                    <div className="productName">{newProduct.productName}</div>
-                    <div className="productPrice">
-                      {newProduct.productPrice}
-                      <span className="productServings">
-                        {' '}
-                        / {newProduct.servings}
-                      </span>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+          <NewProduct />
         </div>
       </div>
       <div className="review">
@@ -77,29 +53,30 @@ function Main() {
         <Link to="/review" className="reviewAll">
           View All
         </Link>
-        <div className="reviewContents">
-          <div className="reviewContentBox">
-            <div className="reviewContentTitle">소고기듬뿍잡채</div>
-            <div className="reviewContent">
-              "일단 육즙이 팡 터지구요 존맛탱구리에요"
-            </div>
-          </div>
-          <div className="reviewPhoto">
-            <img
-              className="reviewImg"
-              src="/images/main/lunch.jpg"
-              alt="lunch"
-            />
-          </div>
+        <div className="reviewBox">
+          {/* 리뷰 어떤 식으로 데이터 받아올지 회의 후 목데이터 작업하기 */}
+          <Review />
+          <Review />
         </div>
       </div>
       <div className="product">
         <Menu />
         <div className="empty" />
-        <Menu />
+        <MdMenu />
       </div>
     </div>
   );
 }
 
+const MAIN_SLIDE = [
+  { id: 1, src: '/images/main/meat.jpg', alt: 'meat' },
+  { id: 2, src: '/images/main/dinner.jpg', alt: 'dinner' },
+  { id: 3, src: '/images/main/dinner.jpg', alt: 'dinner' },
+];
+
+const RECOMMEND_PHOTO = [
+  { id: 1, src: '/images/main/salad.jpg', alt: 'salad' },
+  { id: 2, src: '/images/main/salad.jpg', alt: 'salad' },
+  { id: 3, src: '/images/main/salad.jpg', alt: 'salad' },
+];
 export default Main;
