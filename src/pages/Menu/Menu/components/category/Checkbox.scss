@@ -1,0 +1,25 @@
+@import '../../../../../styles/variables.scss';
+
+$borderColor: #c4c4c4;
+
+.checkbox {
+  @include flexBetween;
+  width: 400px;
+
+  .menuCategory {
+    @include flexBetween;
+    width: 100%;
+
+    #menuAll {
+      padding-right: 15px;
+      border-right: 1px solid $borderColor;
+      font-size: 1.3em;
+    }
+
+    .catBtn {
+      border: none;
+      background: none;
+      font-size: 1.1em;
+    }
+  }
+}

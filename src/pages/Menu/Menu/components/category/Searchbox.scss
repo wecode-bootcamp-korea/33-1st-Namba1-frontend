@@ -1,0 +1,24 @@
+@import '../../../../../styles/variables.scss';
+
+$borderColor: #c4c4c4;
+
+.searchBox {
+  position: relative;
+
+  .searchInput {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: 1.5px solid $borderColor;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .searchIcon {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    color: $borderColor;
+    font-size: 25px;
+  }
+}

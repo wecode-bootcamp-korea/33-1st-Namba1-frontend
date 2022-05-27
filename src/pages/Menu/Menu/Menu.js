@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './Menu.scss';
-import Category from './components/Category';
+import Category from './components/category/Category';
 import Order from './components/Order';
 import MenuDisplay from './components/MenuDisplay';
 import Top from '../../../components/Top/Top';
+import './Menu.scss';
 
 const Menu = () => {
   const [menuDisplay, setMenuDisplay] = useState([]);
@@ -12,7 +12,7 @@ const Menu = () => {
     fetch('/data/Products.json')
       .then(response => response.json())
       .then(data => setMenuDisplay(data));
-  });
+  }, []);
 
   return (
     <div className="menu">
@@ -52,6 +52,9 @@ const Menu = () => {
             />
           )
         )}
+      </div>
+      <div className="pageNum">
+        <button className="pageBtn">1</button>
       </div>
       <Top />
     </div>
