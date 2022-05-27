@@ -2,9 +2,22 @@ import React, { useEffect, useState, useRef } from 'react';
 import '../../components/Review/ReviewAdd.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+import UserFileImg from './UserFileImg';
 
-const ReviewAdd = ({ reviewAdd, isReviewAdd }) => {
+const ReviewAdd = ({
+  reviewAdd,
+  isReviewAdd,
+  saveReviewInput,
+  saveReviewMenu,
+  onCreatReview,
+}) => {
   const [menu, setMenu] = useState([]);
+  const [userImg, setUserImg] = useState(true);
+  const outSection = useRef();
+
+  const isRemoveImg = () => {
+    setUserImg(false);
+  };
 
   useEffect(() => {
     const escKeyModalClose = e => {
@@ -15,7 +28,6 @@ const ReviewAdd = ({ reviewAdd, isReviewAdd }) => {
     window.addEventListener('keydown', escKeyModalClose);
     return () => window.removeEventListener('keydown', escKeyModalClose);
   }, [isReviewAdd]);
-  // 세터 함수를 넣는게 맞나요...?
 
   useEffect(() => {
     fetch('/data/menu.json')
@@ -23,9 +35,7 @@ const ReviewAdd = ({ reviewAdd, isReviewAdd }) => {
       .then(data => {
         setMenu(data);
       });
-  }, [isReviewAdd]);
-
-  const outSection = useRef();
+  }, [setMenu]);
 
   return (
     <section className="reviewadd">
@@ -42,7 +52,8 @@ const ReviewAdd = ({ reviewAdd, isReviewAdd }) => {
           <div className="reviewWriteFrom">
             <h3 className="reviewWriteHead">리뷰 쓰기</h3>
 
-            <select name="상품선택">
+            <select name="상품선택" onChange={saveReviewMenu} required>
+              <option disabled>메뉴를 선택해주세요.</option>
               {menu.map(({ id, menuName }) => (
                 <option key={id}>{menuName}</option>
               ))}
@@ -55,6 +66,8 @@ const ReviewAdd = ({ reviewAdd, isReviewAdd }) => {
                 (최대 1장)
               </p>
 
+              {userImg ? <UserFileImg onRemove={isRemoveImg} /> : null}
+
               <div className="reviewFileUplode">
                 <label className="reviewFileUplodeTitle">사진 첨부하기</label>
                 <input className="reviewFileUplodeInput" type="file" />
@@ -63,6 +76,7 @@ const ReviewAdd = ({ reviewAdd, isReviewAdd }) => {
               <div className="review">
                 <label className="userReviewWrite">리뷰 작성</label>
                 <textarea
+                  onChange={saveReviewInput}
                   placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다 (최소 20자 이상)"
                   required
                   maxLength="100"
@@ -70,7 +84,9 @@ const ReviewAdd = ({ reviewAdd, isReviewAdd }) => {
                 />
               </div>
 
-              <button className="reviewSubmitBtn">완료</button>
+              <button className="reviewSubmitBtn" onClick={onCreatReview}>
+                완료
+              </button>
             </form>
 
             <details>

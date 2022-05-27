@@ -52,11 +52,16 @@
 
       .reviewFileDesc {
         font-size: 13px;
+        margin-bottom: 15px;
       }
 
       .reviewFileUplode {
         position: relative;
         @include formBtn();
+
+        &:hover {
+          background-color: $mainDarkColor;
+        }
 
         .reviewFileUplodeTitle {
           position: absolute;
@@ -100,6 +105,10 @@
 
       .reviewSubmitBtn {
         @include formBtn;
+
+        &:hover {
+          background-color: $mainDarkColor;
+        }
       }
     }
 

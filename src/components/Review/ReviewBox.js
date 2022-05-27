@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleLeft,
@@ -15,7 +15,34 @@ const ReviewBox = () => {
   const [review, setReview] = useState([]);
   const [filterReview, setFilterReview] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [reviewAdd, setReviewAdd] = useState(false);
+  const [reviewAddForm, setReviewAddForm] = useState(false);
+  const [reviewValue, setreviewValue] = useState([]);
+  const [selectMenu, setSelectMenu] = useState([]);
+
+  const saveReviewInput = e => {
+    setreviewValue(e.target.value);
+  };
+
+  const saveReviewMenu = e => {
+    setSelectMenu(e.target.value);
+  };
+
+  const nextId = useRef(4);
+  const onCreatReview = e => {
+    e.preventDefault();
+    setReview([
+      ...review,
+      {
+        id: nextId.current,
+        reviewTitle: selectMenu,
+        date: '2022-05-23',
+        userId: 'lemon',
+        userInput: reviewValue,
+      },
+    ]);
+
+    nextId.current += 1;
+  };
 
   useEffect(() => {
     fetch('/data/review.json')
@@ -27,7 +54,7 @@ const ReviewBox = () => {
   }, []);
 
   const isReviewAdd = () => {
-    setReviewAdd(true);
+    setReviewAddForm(true);
   };
 
   const searchUser = e => {
@@ -50,7 +77,7 @@ const ReviewBox = () => {
       <SearchBox searchUser={searchUser} searchReview={searchReview} />
 
       <div className="reviewListHead">
-        <h2 className="reviewSum">리뷰 190,004건(임의)</h2>
+        <h2 className="reviewSum">리뷰 {review.length}건</h2>
         <div className="reviewListRight">
           <button className="reviewAdd" onClick={isReviewAdd}>
             <FontAwesomeIcon icon={faPlus} />
@@ -65,8 +92,18 @@ const ReviewBox = () => {
       </div>
       <hr />
 
-      {reviewAdd && (
-        <ReviewAdd reviewAdd={reviewAdd} isReviewAdd={setReviewAdd} />
+      {reviewAddForm && (
+        <ReviewAdd
+          reviewAdd={reviewAddForm}
+          isReviewAdd={setReviewAddForm}
+          setReview={setReview}
+          //
+          reviewValue={reviewValue}
+          setreviewValue={setreviewValue}
+          saveReviewInput={saveReviewInput}
+          onCreatReview={onCreatReview}
+          saveReviewMenu={saveReviewMenu}
+        />
       )}
 
       <ReviewList
