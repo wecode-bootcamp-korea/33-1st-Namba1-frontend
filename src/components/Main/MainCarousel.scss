@@ -1,0 +1,36 @@
+@mixin arrowBtn {
+  position: absolute;
+  border: none;
+  width: 50px;
+  height: 50px;
+  background-color: #ddd8d0;
+  opacity: 60%;
+}
+
+.slideBox {
+  position: relative;
+  width: 100vw;
+  height: 640px;
+
+  .slideDisplay {
+    display: flex;
+    width: 100vw;
+    height: 100%;
+
+    .mainSlide {
+      width: 100%;
+    }
+  }
+
+  .prevButton {
+    @include arrowBtn();
+    left: 10px;
+    top: 50%;
+  }
+
+  .nextButton {
+    @include arrowBtn();
+    right: 10px;
+    top: 50%;
+  }
+}

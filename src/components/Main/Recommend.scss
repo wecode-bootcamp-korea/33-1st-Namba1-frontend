@@ -1,0 +1,62 @@
+@import '../../styles/variables.scss';
+
+.recommend {
+  @include flexCenter;
+  margin-top: 100px;
+  width: 80%;
+
+  .recommendDrop {
+    flex: 1;
+
+    .drop {
+      text-align: left;
+
+      // .taste {
+      //   @include primaryFont();
+      //   border: none;
+      //   border-bottom: solid 4px black;
+      //   width: 240px;
+      //   background-color: white;
+      //   text-align: left;
+      //   font-size: 40px;
+      //   font-weight: bold;
+      //   cursor: pointer;
+
+      //   span {
+      //     margin-right: 30px;
+      //   }
+      // }
+
+      .taste {
+        @include primaryFont();
+        border: none;
+        border-bottom: solid 4px black;
+        width: 240px;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+
+        option {
+          background-color: white;
+        }
+      }
+    }
+
+    .recommendMsg {
+      padding-top: 20px;
+      font-size: 30px;
+    }
+  }
+
+  .recommendPhoto {
+    flex: 2;
+    display: flex;
+    overflow-x: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      padding-left: 20px;
+    }
+  }
+}
