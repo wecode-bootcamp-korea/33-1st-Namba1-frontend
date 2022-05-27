@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+
+.review {
+  @include primaryFont();
+  width: 1180px;
+  margin: 0 auto;
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .starBox {
+    font-size: 1rem;
+
+    .star {
+      margin-right: 10px;
+      font-size: 1.5rem;
+      color: $mainColor;
+    }
+  }
+
+  .reviewHeader {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 32px 0;
+  }
+
+  hr {
+    background-color: #000;
+    border: 0 none;
+    color: #000;
+    height: 3px;
+  }
+}
