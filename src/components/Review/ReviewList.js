@@ -6,12 +6,13 @@ import '../../components/Review/ReviewList.scss';
 const ReviewList = ({ review }) => {
   return (
     <ul className="reviewlist">
-      {review.map(({ id, reviewTitle, date, userId, userInput }) => (
+      {review.map(({ id, reviewTitle, date, userId, userInput, imageSrc }) => (
         <ReviewListItem
           key={id}
           reviewTitle={reviewTitle}
           date={date}
           userId={userId}
+          imageSrc={imageSrc}
           userInput={userInput}
         />
       ))}

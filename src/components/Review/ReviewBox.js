@@ -18,6 +18,7 @@ const ReviewBox = () => {
   const [reviewAddForm, setReviewAddForm] = useState(false);
   const [reviewValue, setreviewValue] = useState([]);
   const [selectMenu, setSelectMenu] = useState([]);
+  const [imageSrc, setImageSrc] = useState('');
 
   const saveReviewInput = e => {
     setreviewValue(e.target.value);
@@ -25,6 +26,21 @@ const ReviewBox = () => {
 
   const saveReviewMenu = e => {
     setSelectMenu(e.target.value);
+  };
+
+  const isRemoveImg = () => {
+    setImageSrc(false);
+  };
+
+  const encodeFileToBase64 = fileBlob => {
+    const reader = new FileReader();
+    reader.readAsDataURL(fileBlob);
+    return new Promise(resolve => {
+      reader.onload = () => {
+        setImageSrc(reader.result);
+        resolve();
+      };
+    });
   };
 
   const nextId = useRef(4);
@@ -37,6 +53,7 @@ const ReviewBox = () => {
         reviewTitle: selectMenu,
         date: '2022-05-23',
         userId: 'lemon',
+        imageSrc: imageSrc,
         userInput: reviewValue,
       },
     ]);
@@ -97,12 +114,14 @@ const ReviewBox = () => {
           reviewAdd={reviewAddForm}
           isReviewAdd={setReviewAddForm}
           setReview={setReview}
-          //
           reviewValue={reviewValue}
           setreviewValue={setreviewValue}
           saveReviewInput={saveReviewInput}
           onCreatReview={onCreatReview}
           saveReviewMenu={saveReviewMenu}
+          imageSrc={imageSrc}
+          isRemoveImg={isRemoveImg}
+          encodeFileToBase64={encodeFileToBase64}
         />
       )}
 
@@ -110,6 +129,7 @@ const ReviewBox = () => {
         searchReview={searchReview}
         review={searchInput === '' ? review : filterReview}
         setReview={setReview}
+        imageSrc={imageSrc}
       />
 
       <div className="pagination">

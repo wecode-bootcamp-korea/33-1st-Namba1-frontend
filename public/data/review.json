@@ -4,6 +4,7 @@
     "reviewTitle": "찜양식 어복쟁반",
     "date": "2022-05-23",
     "userId": "lemon",
+    "imageSrc": "/images/review/food1.jpg",
     "userInput": "솔직히 기대안하고 주문했는데 어지간한 식당보다 맛있어요"
   },
   {
@@ -11,6 +12,7 @@
     "reviewTitle": "토마토비프스튜",
     "date": "2022-05-23",
     "userId": "lemon",
+    "imageSrc": "/images/review/food2.jpg",
     "userInput": "솔직히 기대안하고 주문했는데 어지간한 식당보다 맛있어요"
   },
   {
@@ -18,6 +20,7 @@
     "reviewTitle": "수삼양지수육전골",
     "date": "2022-05-23",
     "userId": "lemon",
+    "imageSrc": "/images/review/food3.jpg",
     "userInput": "솔직히 기대안하고 주문했는데 어지간한 식당보다 맛있어요"
   }
 ]

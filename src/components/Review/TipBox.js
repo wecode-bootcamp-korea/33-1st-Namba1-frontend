@@ -5,7 +5,9 @@ const TipBox = () => {
   return (
     <div className="tipBox">
       <span className="tipHead">Tip</span>
-      <p className="tipDesc">쌈채소 준비해서 같이 드세보세요</p>
+      <p className="tipDesc">
+        포토 리뷰 5번 작성하시면 10% 할인쿠폰을 드립니다!
+      </p>
     </div>
   );
 };
