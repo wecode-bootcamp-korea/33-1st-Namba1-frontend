@@ -1,9 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../../components/Review/BestReview.scss';
 import Arrows from './Arrows';
 
 const BestReview = () => {
   const [slider, setSlider] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const TOTAL_SLIDES = slider.length;
+  const slideRef = useRef(null);
+
+  const nextSlide = () => {
+    if (currentSlide >= TOTAL_SLIDES - 1) {
+      setCurrentSlide(0);
+    } else {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+  const prevSlide = () => {
+    if (currentSlide === 0) {
+      setCurrentSlide(TOTAL_SLIDES);
+    } else {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
+  useEffect(() => {
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${currentSlide * 568}px)`;
+  }, [currentSlide]);
 
   useEffect(() => {
     fetch('/data/bestReview.json')
@@ -15,28 +38,33 @@ const BestReview = () => {
 
   return (
     <section className="bestReview">
-      {/* TODO : 수동 슬라이드 기능 구현 */}
       <ul className="bestSliderWarp">
-        {slider.map(({ id, title, imgSrc, imgAlt, userId, userReview }) => (
-          <li key={id} className="reviewSlider">
-            <div className="bestReviewImgBox">
-              <div className="bestBg">
-                <span className="bestTag">Best</span>
+        <div ref={slideRef}>
+          {slider.map(({ id, title, imgSrc, imgAlt, userId, userReview }) => (
+            <li key={id} className="reviewSlider">
+              <div className="bestReviewImgBox">
+                <div className="bestBg">
+                  <span className="bestTag">Best</span>
+                </div>
+                <img className="bestReviewImg" src={imgSrc} alt={imgAlt} />
               </div>
-              <img className="bestReviewImg" src={imgSrc} alt={imgAlt} />
-            </div>
-            <h2 className="reviewTitle">{title}</h2>
-            <div className="starBox">
-              <span className="star">★★★★★</span>
-              {/* TODO : id 3글자 이후 * 처리 */}
+              <h2 className="reviewTitle">{title}</h2>
+              <div className="starBox">
+                <span className="star">★★★★★</span>
+                {/* TODO : id 3글자 이후 * 처리 */}
 
-              <span>{userId}</span>
-            </div>
-            <p className="bestReviewDesc">{userReview}</p>
-          </li>
-        ))}
+                <span>{userId}</span>
+              </div>
+              <p className="bestReviewDesc">{userReview}</p>
+            </li>
+          ))}
+        </div>
       </ul>
-      <Arrows />
+      <Arrows
+        prevSlide={prevSlide}
+        nextSlide={nextSlide}
+        currentSlide={currentSlide}
+      />
     </section>
   );
 };
