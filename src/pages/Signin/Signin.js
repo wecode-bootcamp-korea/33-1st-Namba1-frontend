@@ -1,41 +1,50 @@
 import React from 'react';
 import './Signin.scss';
-// import { Navigate, useNavigate } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
-// import { useState } from 'react';
+import { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Signin = () => {
-  // const [inputId, setInputId] = useState('');
-  // const [inputPw, setInputPassword] = useState('');
+  const [inputId, setInputId] = useState('');
+  const [inputPw, setInputPassword] = useState('');
 
-  // const handleIdInput = e => {
-  //   setInputId(e.target.value);
-  // };
-  // const handlePwInput = e => {
-  //   setInputPassword(e.target.value);
-  // };
+  const handleIdInput = e => {
+    setInputId(e.target.value);
+  };
+  const handlePwInput = e => {
+    setInputPassword(e.target.value);
+  };
 
-  // const navigate = useNavigate();
-  // const goToMain = e => {
-  //   e.preventDefault();
+  const navigate = useNavigate();
+  const goToSignUp = e => {
+    e.preventDefault();
+    fetch('http://10.58.1.230:8000/user/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: inputId,
+        password: inputPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.Token) {
+          console.log(result.Token);
+          localStorage.setItem('Token', result.Token);
+        } else {
+          alert('로그인 실패!');
+        }
+      });
 
-  //   fetch('주소', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       email: inputId,
-  //       password: inputPw,
-  //       name: 'hyesu',
-  //       mobile_number: '010-4816-4270',
-  //       date_of_birth: '2022-05-18',
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => {});
+    navigate('/쿡킷메인페이지');
+  };
 
-  //   navigate('/main-hyesu');
-  // };
+  const idCondition =
+    /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
-  // const disable = inputId.includes('@') && inputPw.length >= 1 ? true : false;
+  const pwCondition = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
+
+  const isValidId = idCondition.test(inputId);
+  const isValidPw = pwCondition.test(inputPw);
+  const valid = isValidId && isValidPw;
 
   return (
     <div>
@@ -45,13 +54,13 @@ const Signin = () => {
         </div>
         <form className="userForm">
           <input
-            // onChange={handleIdInput}
+            onChange={handleIdInput}
             className="userName"
             type="text"
             placeholder="아이디"
           />
           <input
-            // onChange={handlePwInput}
+            onChange={handlePwInput}
             className="password"
             type="password"
             placeholder="비밀번호"
@@ -64,16 +73,18 @@ const Signin = () => {
         </div>
 
         <button
-          // onClick={goToMain}
           type="button"
+          onClick={goToSignUp}
           className="loginBtn"
-          // disabled={!disable}
+          disabled={!valid}
         >
           로그인
         </button>
 
         <ul className="footerText">
-          <li>회원가입</li>
+          <li>
+            <a href="./signup">회원가입</a>{' '}
+          </li>
           <li>아이디 찾기</li>
           <li>비밀번호 찾기</li>
         </ul>

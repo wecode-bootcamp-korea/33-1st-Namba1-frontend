@@ -1,0 +1,19 @@
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  .title {
+    font-size: 0.75rem;
+  }
+  .userId {
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
+}

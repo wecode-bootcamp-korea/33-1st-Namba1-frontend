@@ -6,13 +6,12 @@
   margin: auto;
   border-radius: 0.125rem;
   margin-top: 6.25rem;
-}
-
-.logIn {
-  h2 {
-    margin-top: 3.125rem;
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 1.875rem;
+  .logIn {
+    h2 {
+      margin-top: 3.125rem;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 1.875rem;
+    }
   }
 }
 
@@ -27,28 +26,34 @@ a {
   input::placeholder {
     color: #e0e0e0;
   }
-}
-
-input.userName {
-  text-align: left;
-  margin: auto;
-  width: 25rem;
-  height: 3.75rem;
-  background: white;
-  border: 0.063rem solid #fabf01;
-  border-radius: 0.313rem;
-  margin-bottom: 1.875rem;
-}
-
-input.password {
-  text-align: left;
-  margin: auto;
-  width: 25rem;
-  height: 3.75rem;
-  background: white;
-  border: 0.063rem solid #fabf01;
-  border-radius: 0.313rem;
-  margin-bottom: 0.625rem;
+  .userName {
+    text-align: left;
+    margin: auto;
+    width: 25rem;
+    height: 3.75rem;
+    background: white;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    margin-bottom: 1.875rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
+  .password {
+    text-align: left;
+    margin: auto;
+    width: 25rem;
+    height: 3.75rem;
+    margin-bottom: 0.625rem;
+    background: white;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
 }
 
 .saveId {
@@ -116,4 +121,9 @@ span {
 
 input::placeholder {
   padding: 0.625rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
