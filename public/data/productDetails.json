@@ -111,7 +111,7 @@
     "servings": 3,
     "cookTime": 20,
     "prepTime": 40,
-    "spice": "약간",
+    "spice": "",
     "price": 29800,
     "totalReviews": 0,
     "image": "/images/menu/bulgogi.jpeg"
@@ -137,7 +137,7 @@
     "servings": 3,
     "cookTime": 30,
     "prepTime": 60,
-    "spice": "적당히",
+    "spice": "아주",
     "price": 29800,
     "totalReviews": 0,
     "image": "/images/menu/spicyChickenStew.jpeg"

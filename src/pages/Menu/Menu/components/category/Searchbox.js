@@ -5,7 +5,7 @@ import './Searchbox.scss';
 
 function Searchbox() {
   return (
-    <div className="searchBox">
+    <div className="categorySearchBox">
       <input
         className="searchInput"
         type="text"

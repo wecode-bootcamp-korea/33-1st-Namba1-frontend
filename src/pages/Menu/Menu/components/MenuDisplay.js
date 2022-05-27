@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartShopping,
   faHeart,
-  faPepperHot,
   faStar,
 } from '@fortawesome/free-solid-svg-icons';
 import './MenuDisplay.scss';
@@ -21,16 +20,15 @@ const MenuDisplay = ({
     <div className="menuDisplay">
       <img className="image" src={image} alt={name} />
       <div className="prep">
-        <p>{servings}인분</p>
-        <p className="middle">조리 {cookTime}분</p>
-        <p>{spice} 매운맛</p>
-        <FontAwesomeIcon icon={faPepperHot} className="hot" />
+        <p className="first">{servings}인분</p>
+        <p className="second">조리 {cookTime}분</p>
+        <p className="third">{!spice ? null : `${spice} 매운맛`}</p>
       </div>
       <p className="productName">{name}</p>
       <p className="productPrice">
-        <span className="price">{price}</span>원
+        {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
       </p>
-      <div className="customerReview">
+      <div className="itemReview">
         <div className="stars">
           <FontAwesomeIcon icon={faStar} />
           <FontAwesomeIcon icon={faStar} />

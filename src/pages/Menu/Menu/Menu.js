@@ -9,7 +9,7 @@ const Menu = () => {
   const [menuDisplay, setMenuDisplay] = useState([]);
 
   useEffect(() => {
-    fetch('/data/Products.json')
+    fetch('/data/productDetails.json')
       .then(response => response.json())
       .then(data => setMenuDisplay(data));
   }, []);

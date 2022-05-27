@@ -1,5 +1,11 @@
 @import '../../../../styles/variables.scss';
 
+@mixin flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 $borderColor: #6e6e6e;
 
 .menuDisplay {
@@ -14,20 +20,23 @@ $borderColor: #6e6e6e;
   }
 
   .prep {
-    @include flexBetween;
-    width: 220px;
+    @include flexStart;
     margin-top: 15px;
     color: $borderColor;
     font-size: 0.85em;
 
-    .middle {
-      padding: 0 5px;
-      border-right: 1px solid $borderColor;
+    .first {
+      padding-right: 8px;
+    }
+
+    .second {
+      padding: 0 8px;
       border-left: 1px solid $borderColor;
     }
 
-    .hot {
-      color: #ff0000;
+    .third {
+      padding-left: 8px;
+      border-left: 1px solid $borderColor;
     }
   }
 
@@ -43,13 +52,14 @@ $borderColor: #6e6e6e;
     font-weight: 800;
   }
 
-  .customerReview {
+  .itemReview {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     font-size: 0.9em;
 
     .stars {
+      display: inline-flex;
       padding-right: 10px;
       color: $mainColor;
     }
