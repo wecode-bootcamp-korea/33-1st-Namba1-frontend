@@ -4,7 +4,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import './MainCarousel.scss';
 
 const MainCarousel = () => {
-  const TOTAL_SLIDES = 3;
+  const TOTAL_SLIDES = MAIN_SLIDE.length - 1;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
@@ -30,11 +30,12 @@ const MainCarousel = () => {
   }, [currentSlide]);
 
   return (
-    <div className="slideBox">
-      <div className="slideDisplay" ref={slideRef}>
-        {MAIN_SLIDE.map(({ id, src, alt }) => {
-          return <img key={id} className="mainSlide" src={src} alt={alt} />;
-        })}
+    <div className="mainCarousel">
+      <div className="mainCarouselDisplay" ref={slideRef}>
+        {MAIN_SLIDE.map(({ id, src, alt }) => (
+          <img key={id} className="mainCarouselImg" src={src} alt={alt} />
+        ))}
+        ;
       </div>
       <button className="prevButton" type="button" onClick={prevSlide}>
         <FontAwesomeIcon icon={faArrowLeft} />

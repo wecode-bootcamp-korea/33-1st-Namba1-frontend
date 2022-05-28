@@ -5,7 +5,7 @@
   font-weight: bold;
 }
 
-.itemInfo {
+.menuInfo {
   display: flex;
   border-top: 1px solid $mainColor;
 
@@ -17,7 +17,7 @@
     }
   }
 
-  .menuInfo {
+  .menuData {
     flex: 2;
     display: flex;
     flex-direction: column;

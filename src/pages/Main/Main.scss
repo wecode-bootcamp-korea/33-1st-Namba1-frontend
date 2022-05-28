@@ -11,43 +11,43 @@
 }
 
 .main {
-  @include primaryFont();
   @include flexCenter();
+  @include primaryFont();
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 80px;
   overflow: hidden;
 
-  .newProducts {
+  .newProductsContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
     width: 80%;
+    margin-top: 100px;
 
-    .newProductTitle {
+    .newProductsTitle {
       @include title();
     }
 
-    .newProduct {
+    .newProducts {
       display: flex;
       margin-top: 30px;
     }
   }
 
-  .review {
+  .reviewContainer {
     margin-top: 50px;
     width: 80%;
 
     .reviewTitle {
+      @include title();
       position: relative;
       text-align: left;
-      @include title();
     }
 
     .reviewAll {
       position: absolute;
       right: 10%;
-      font-weight: bold;
       color: inherit;
+      font-weight: bold;
       text-decoration: none;
     }
 

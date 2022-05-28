@@ -3,42 +3,42 @@
     "id": 1,
     "productName": "단호박크림파스타",
     "productPrice": "25000",
-    "productImg": "/images/main/burger.jpg",
+    "productImg": "/images/main/pasta.jpg",
     "servings": "2"
   },
   {
     "id": 2,
     "productName": "토마토비프스튜",
     "productPrice": "21000",
-    "productImg": "/images/main/burger.jpg",
+    "productImg": "/images/main/pasta.jpg",
     "servings": "4"
   },
   {
     "id": 3,
     "productName": "소고기듬뿍잡채",
     "productPrice": "20000",
-    "productImg": "/images/main/burger.jpg",
+    "productImg": "/images/main/pasta.jpg",
     "servings": "1"
   },
   {
     "id": 4,
     "productName": "닭한마리와 칼국수",
     "productPrice": "18000",
-    "productImg": "/images/main/burger.jpg",
+    "productImg": "/images/main/pasta.jpg",
     "servings": "3"
   },
   {
     "id": 5,
     "productName": "고추장수제비와 배추전",
     "productPrice": "17000",
-    "productImg": "/images/main/burger.jpg",
+    "productImg": "/images/main/pasta.jpg",
     "servings": "2"
   },
   {
     "id": 6,
     "productName": "스파이시 치킨크림스튜",
     "productPrice": "9500",
-    "productImg": "/images/main/burger.jpg",
+    "productImg": "/images/main/pasta.jpg",
     "servings": "1"
   }
 ]

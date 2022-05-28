@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import RecommendDrop from './RecommendDrop.js';
 import './Recommend.scss';
 
 const Recommend = () => {
-  const TOTAL_SLIDES = 3;
+  const TOTAL_SLIDES = RECOMMEND_PHOTO.length - 1;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
@@ -30,31 +31,28 @@ const Recommend = () => {
 
   return (
     <div className="recommend">
-      <div className="recommendDrop">
-        <div className="drop">
-          {/* <button type="button" className="taste">
-            <span>매콤한맛</span> <FontAwesomeIcon icon={faAngleDown} />
-          </button> */}
-          <select name="taste" className="taste">
-            <option value="매콤한맛">매콤한맛</option>
-            <option value="짭짤한맛">짭짤한맛</option>
-            <option value="새콤한맛">새콤한맛</option>
-            <option value="담백한맛">담백한맛</option>
-            <option value="이국적인맛">이국적인맛</option>
-            <option value="얼큰한맛">얼큰한맛</option>
-          </select>
-        </div>
+      <div className="recommendContent">
+        <RecommendDrop />
         <div className="recommendMsg">메뉴</div>
         <div className="recommendMsg">추천드려요 :D</div>
-        <div className="recommendBtns">
-          <button onClick={prevSlide}>좌측</button>
-          <button onClick={nextSlide}>우측</button>
+        <div className="recommendCarouselBtns">
+          <button className="recommendBtn" onClick={prevSlide}>
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </button>
+          <span className="currentSlide">
+            {currentSlide + 1}/{RECOMMEND_PHOTO.length}
+          </span>
+          <button className="recommendBtn" onClick={nextSlide}>
+            <FontAwesomeIcon icon={faArrowRight} />
+          </button>
         </div>
       </div>
-      <div className="recommendPhoto" ref={slideRef}>
-        {RECOMMEND_PHOTO.map(({ id, src, alt }) => {
-          return <img key={id} src={src} alt={alt} />;
-        })}
+      <div className="recommendPhoto">
+        <div className="recommendPhotoDisplay" ref={slideRef}>
+          {RECOMMEND_PHOTO.map(({ id, src, alt }) => {
+            return <img key={id} src={src} alt={alt} />;
+          })}
+        </div>
       </div>
     </div>
   );

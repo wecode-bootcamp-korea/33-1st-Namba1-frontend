@@ -5,10 +5,10 @@
   margin-top: 100px;
   width: 80%;
 
-  .recommendDrop {
+  .recommendContent {
     flex: 1;
 
-    .drop {
+    .recommendDrop {
       text-align: left;
 
       // .taste {
@@ -27,14 +27,15 @@
       //   }
       // }
 
-      .taste {
+      .recommendSelectBox {
         @include primaryFont();
+        width: 240px;
         border: none;
         border-bottom: solid 4px black;
-        width: 240px;
         font-size: 40px;
         font-weight: bold;
         cursor: pointer;
+        appearance: none;
 
         option {
           background-color: white;
@@ -46,12 +47,30 @@
       padding-top: 20px;
       font-size: 30px;
     }
+
+    .recommendCarouselBtns {
+      .recommendBtn {
+        padding: 10px;
+        margin-top: 50px;
+        border: none;
+        background-color: white;
+        font-size: 20px;
+      }
+
+      .currentSlide {
+        font-size: 20px;
+      }
+    }
   }
 
   .recommendPhoto {
     flex: 2;
-    display: flex;
-    overflow-x: hidden;
+    overflow: hidden;
+
+    .recommendPhotoDisplay {
+      display: flex;
+      width: 100%;
+    }
 
     img {
       width: 100%;

@@ -5,7 +5,7 @@ const NewProduct = () => {
   const [newProduct, setNewProduct] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/newProduct.json', {
+    fetch('/data/newProduct.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -15,28 +15,23 @@ const NewProduct = () => {
   });
 
   return (
-    <ul className="productItems">
-      {newProduct.map(newProduct => {
-        return (
-          <li key={newProduct.id}>
-            <div className="productItem">
-              <img
-                className="productImg"
-                src={newProduct.productImg}
-                alt="meat"
-              />
-              <div className="productName">{newProduct.productName}</div>
-              <div className="productPrice">
-                {newProduct.productPrice}
-                <span className="productServings">
-                  {' '}
-                  / {newProduct.servings}
-                </span>
+    <ul className="newProduct">
+      {newProduct.map(
+        ({ id, productName, productPrice, productImg, servings }) => {
+          return (
+            <li key={id}>
+              <div className="productItem">
+                <img className="productImg" src={productImg} alt="meat" />
+                <div className="productName">{productName}</div>
+                <div className="productPrice">
+                  {productPrice}
+                  <span className="productServings"> / {servings}</span>
+                </div>
               </div>
-            </div>
-          </li>
-        );
-      })}
+            </li>
+          );
+        }
+      )}
     </ul>
   );
 };
