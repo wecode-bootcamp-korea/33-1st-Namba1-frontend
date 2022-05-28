@@ -4,7 +4,7 @@ import Nav from '../../components/Nav/Nav.js';
 import MainCarousel from '../../components/Main/MainCarousel';
 import Recommend from '../../components/Main/Recommend';
 import Menu from '../../components/Main/Menu';
-import NewProduct from '../../components/Main/NewProduct';
+import NewProducts from '../../components/Main/NewProducts';
 import Review from '../../components/Main/Review';
 import './Main.scss';
 
@@ -16,9 +16,7 @@ function Main() {
       <Recommend />
       <div className="newProductsContainer">
         <h1 className="newProductsTitle">신메뉴</h1>
-        <div className="newProducts">
-          <NewProduct />
-        </div>
+        <NewProducts />
       </div>
       <div className="reviewContainer">
         <h1 className="reviewTitle">생생한 리뷰</h1>

@@ -10,14 +10,14 @@
     "id": 2,
     "productName": "토마토비프스튜",
     "productPrice": "21000",
-    "productImg": "/images/main/pasta.jpg",
+    "productImg": "/images/main/salad.jpg",
     "servings": "4"
   },
   {
     "id": 3,
     "productName": "소고기듬뿍잡채",
     "productPrice": "20000",
-    "productImg": "/images/main/pasta.jpg",
+    "productImg": "/images/main/burger.jpg",
     "servings": "1"
   },
   {
