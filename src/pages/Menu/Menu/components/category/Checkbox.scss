@@ -21,5 +21,17 @@ $borderColor: #c4c4c4;
       background: none;
       font-size: 1.1em;
     }
+
+    .active {
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+    .activated {
+      padding: 15px;
+      border-radius: 30px;
+      color: #fff;
+      background-color: $subColor;
+    }
   }
 }

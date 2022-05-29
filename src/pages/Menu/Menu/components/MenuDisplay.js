@@ -19,7 +19,7 @@ const MenuDisplay = ({
 }) => {
   return (
     <div className="menuDisplay">
-      <a href={`/products/list/${key}`}>
+      <a href={`/products/list${key}`}>
         <img className="image" src={image} alt={name} />
       </a>
       <div className="prep">
