@@ -27,7 +27,7 @@ const Signin = () => {
       .then(res => res.json())
       .then(result => {
         if (result.Token) {
-          console.log(result.Token);
+          // console.log(result.Token);
           localStorage.setItem('Token', result.Token);
         } else {
           alert('로그인 실패!');
@@ -66,11 +66,6 @@ const Signin = () => {
             placeholder="비밀번호"
           />
         </form>
-
-        <div className="saveId">
-          <input type="checkbox" />
-          <span className="isSaveIdCheck">아이디 저장</span>
-        </div>
 
         <button
           type="button"

@@ -146,29 +146,30 @@
   }
 }
 
-.signUpBtn {
-  margin-top: 1.875rem;
+// .signUpBtn {
+//   margin-top: 1.875rem;
 
-  .userSignUp {
-    cursor: pointer;
+.userSignUp {
+  cursor: pointer;
+  width: 25rem;
+  height: 2.5rem;
+  margin-top: 30px;
+  background: #fabf01;
+  border: none;
+  border-radius: 0.313rem;
+  color: white;
+  font-size: 0.938rem;
+  font-weight: bold;
+
+  &:disabled {
     width: 25rem;
     height: 2.5rem;
-    background: #fabf01;
+    background: #eee;
     border: none;
     border-radius: 0.313rem;
     color: white;
     font-size: 0.938rem;
     font-weight: bold;
-
-    &:disabled {
-      width: 25rem;
-      height: 2.5rem;
-      background: #eee;
-      border: none;
-      border-radius: 0.313rem;
-      color: white;
-      font-size: 0.938rem;
-      font-weight: bold;
-    }
   }
 }
+// }
