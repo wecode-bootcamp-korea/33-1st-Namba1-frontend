@@ -28,29 +28,6 @@
     }
   }
 
-  .reviewContainer {
-    margin-top: 100px;
-    width: 80%;
-
-    .reviewTitle {
-      @include title();
-      position: relative;
-      text-align: left;
-    }
-
-    .reviewAll {
-      position: absolute;
-      right: 10%;
-      color: inherit;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .reviewBox {
-      display: flex;
-    }
-  }
-
   .product {
     display: flex;
     justify-content: space-around;
