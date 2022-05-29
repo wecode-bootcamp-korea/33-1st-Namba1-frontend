@@ -8,6 +8,7 @@ import {
 import './MenuDisplay.scss';
 
 const MenuDisplay = ({
+  key,
   name,
   servings,
   cookTime,
@@ -18,7 +19,9 @@ const MenuDisplay = ({
 }) => {
   return (
     <div className="menuDisplay">
-      <img className="image" src={image} alt={name} />
+      <a href={`/products/list/${key}`}>
+        <img className="image" src={image} alt={name} />
+      </a>
       <div className="prep">
         <p className="first">{servings}인분</p>
         <p className="second">조리 {cookTime}분</p>

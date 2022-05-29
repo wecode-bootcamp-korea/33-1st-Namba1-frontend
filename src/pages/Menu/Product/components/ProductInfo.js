@@ -7,24 +7,35 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import './ProductInfo.scss';
 
-const ProductInfo = () => {
+const ProductInfo = ({
+  name,
+  description,
+  servings,
+  cookTime,
+  prepTime,
+  spice,
+  price,
+}) => {
   return (
     <section className="productInfo">
       <div className="productContent">
-        <h2 className="productDescription">단호박을 직접 으깨어 만든 파스타</h2>
-        <h2 className="productTitle">단호박크림파스타</h2>
+        <h2 className="productDescription">{description}</h2>
+        <h2 className="productTitle">{name}</h2>
         <p className="productOrigin">원산지 : 상품정보 참조</p>
       </div>
       <div className="productPrep">
-        <p className="productAmount">3인분</p>
-        <p className="productTime">조리 40분</p>
-        <p className="productPreparation">준비 15분</p>
-        <FontAwesomeIcon icon={faCircleQuestion} />
+        <p className="productAmount">{servings}인분</p>
+        <p className="productTime">조리 {cookTime}분</p>
+        <p className="productPreparation">준비 {prepTime}분</p>
+        <FontAwesomeIcon icon={faCircleQuestion} className="questionIcon" />
+        <p className="spiceLevel">{!spice ? null : `${spice} 매운맛`}</p>
       </div>
       <div className="productDetail">
         <div className="priceBox">
           <h4 className="price">판매가</h4>
-          <p className="productPrice">21,800원</p>
+          <p className="productPrice">
+            {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+          </p>
         </div>
         <div className="pointsBox">
           <h4 className="gray">포인트적립</h4>

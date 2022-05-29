@@ -9,9 +9,9 @@ const Menu = () => {
   const [menuDisplay, setMenuDisplay] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productDetails.json')
+    fetch('http://10.58.0.209:8000/products/list')
       .then(response => response.json())
-      .then(data => setMenuDisplay(data));
+      .then(data => setMenuDisplay(data.product_list));
   }, []);
 
   return (
@@ -26,10 +26,8 @@ const Menu = () => {
         {menuDisplay.map(
           ({
             id,
-            theme,
             name,
-            description,
-            servings,
+            serving,
             cookTime,
             prepTime,
             spice,
@@ -39,10 +37,8 @@ const Menu = () => {
           }) => (
             <MenuDisplay
               key={id}
-              theme={theme}
               name={name}
-              description={description}
-              servings={servings}
+              servings={serving}
               cookTime={cookTime}
               prepTime={prepTime}
               spice={spice}
