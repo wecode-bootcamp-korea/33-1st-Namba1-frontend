@@ -50,10 +50,10 @@ const ReviewBox = () => {
       ...review,
       {
         id: nextId.current,
-        reviewTitle: selectMenu,
+        title: selectMenu,
         date: '2022-05-23',
-        userId: 'lemon',
         imageSrc: imageSrc,
+        userId: 'lemon',
         userInput: reviewValue,
       },
     ]);
@@ -84,7 +84,7 @@ const ReviewBox = () => {
   const searchReview = e => {
     e.preventDefault();
     const result = filterReview.filter(review => {
-      return review.reviewTitle.includes(searchInput);
+      return review.title.includes(searchInput);
     });
     setFilterReview(result);
   };
@@ -122,6 +122,7 @@ const ReviewBox = () => {
           imageSrc={imageSrc}
           isRemoveImg={isRemoveImg}
           encodeFileToBase64={encodeFileToBase64}
+          selectMenu={selectMenu}
         />
       )}
 

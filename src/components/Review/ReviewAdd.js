@@ -13,6 +13,8 @@ const ReviewAdd = ({
   imageSrc,
   isRemoveImg,
   encodeFileToBase64,
+  selectMenu,
+  reviewValue,
 }) => {
   const [menu, setMenu] = useState([]);
   const outSection = useRef();
@@ -34,6 +36,8 @@ const ReviewAdd = ({
         setMenu(data);
       });
   }, [setMenu]);
+
+  const isDisabled = selectMenu === '' || reviewValue.length < 20;
 
   return (
     <section className="reviewadd">
@@ -87,12 +91,16 @@ const ReviewAdd = ({
                   onChange={saveReviewInput}
                   placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다 (최소 20자 이상)"
                   required
-                  maxLength="100"
+                  maxLength="150"
                   minLength="20"
                 />
               </div>
 
-              <button className="reviewSubmitBtn" onClick={onCreatReview}>
+              <button
+                className="reviewSubmitBtn"
+                onClick={onCreatReview}
+                disabled={isDisabled && true}
+              >
                 완료
               </button>
             </form>

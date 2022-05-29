@@ -109,6 +109,11 @@
         &:hover {
           background-color: $mainDarkColor;
         }
+
+        &:disabled {
+          background-color: $mainDarkColor;
+          cursor: default;
+        }
       }
     }
 

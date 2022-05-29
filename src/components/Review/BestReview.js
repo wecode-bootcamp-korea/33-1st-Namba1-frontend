@@ -17,7 +17,7 @@ const BestReview = () => {
   };
   const prevSlide = () => {
     if (currentSlide === 0) {
-      setCurrentSlide(TOTAL_SLIDES);
+      setCurrentSlide(TOTAL_SLIDES - 1);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
@@ -40,20 +40,20 @@ const BestReview = () => {
     <section className="bestReview">
       <ul className="bestSliderWarp">
         <div ref={slideRef}>
-          {slider.map(({ id, title, imgSrc, imgAlt, userId, userReview }) => (
+          {slider.map(({ id, title, imgSrc, userId, userReview }) => (
             <li key={id} className="reviewSlider">
               <div className="bestReviewImgBox">
                 <div className="bestBg">
                   <span className="bestTag">Best</span>
                 </div>
-                <img className="bestReviewImg" src={imgSrc} alt={imgAlt} />
+                <img className="bestReviewImg" src={imgSrc} alt={title} />
               </div>
               <h2 className="reviewTitle">{title}</h2>
               <div className="starBox">
                 <span className="star">★★★★★</span>
                 {/* TODO : id 3글자 이후 * 처리 */}
 
-                <span>{userId}</span>
+                <span className="userId">{userId}</span>
               </div>
               <p className="bestReviewDesc">{userReview}</p>
             </li>

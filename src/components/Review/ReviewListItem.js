@@ -3,11 +3,11 @@ import ReviewImg from './ReviewImg';
 import TipBox from './TipBox';
 import '../../components/Review/ReviewListItem.scss';
 
-const ReviewListItem = ({ reviewTitle, date, userId, userInput, imageSrc }) => {
+const ReviewListItem = ({ title, date, userId, userInput, imageSrc }) => {
   return (
     <li className="reviewlistitem">
       <div className="reviewHead">
-        <h3 className="reviewMenu">{reviewTitle}</h3>
+        <h3 className="reviewMenu">{title}</h3>
         <span>{date}</span>
       </div>
       <div className="starBox">
@@ -18,7 +18,7 @@ const ReviewListItem = ({ reviewTitle, date, userId, userInput, imageSrc }) => {
 
       {imageSrc ? (
         <div className="reviewBoxWrap">
-          <ReviewImg imageSrc={imageSrc} />
+          <ReviewImg imageSrc={imageSrc} title={title} />
           <div>
             {userInput}
             <TipBox />

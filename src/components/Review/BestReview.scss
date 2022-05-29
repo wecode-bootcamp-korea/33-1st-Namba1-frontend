@@ -67,9 +67,15 @@
     font-weight: 700;
   }
 
+  .starBox {
+    .userId {
+      line-height: 1.6;
+    }
+  }
+
   .bestReviewDesc {
     margin: 32px 0;
-    font-size: 12px;
+    font-size: 16px;
     color: $gray;
     line-height: 1.5;
   }
