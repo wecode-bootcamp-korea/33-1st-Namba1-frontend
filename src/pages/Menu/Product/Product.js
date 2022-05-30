@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import './Product.scss';
 import ProductImages from './components/ProductImages';
 import ProductInfo from './components/ProductInfo';
@@ -19,8 +20,10 @@ const Product = () => {
     image,
   } = product;
 
+  const params = useParams();
+
   useEffect(() => {
-    fetch('http://10.58.0.209:8000/products/list')
+    fetch(`http://10.58.1.100:8000/products/${params.id}`)
       .then(response => response.json())
       .then(data => setProduct(data.product_list));
   });

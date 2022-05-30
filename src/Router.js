@@ -12,8 +12,8 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/review" element={<Review />} />
-        <Route path="/products/list" element={<Menu />} />
-        <Route path="/products/list/:id" element={<Product />} />
+        <Route path="/products" element={<Menu />} />
+        <Route path="/products/:id" element={<Product />} />
       </Routes>
     </BrowserRouter>
   );

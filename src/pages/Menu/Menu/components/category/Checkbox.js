@@ -1,51 +1,56 @@
 import React, { useState } from 'react';
 import './Checkbox.scss';
 
-function Checkbox() {
-  const [isMenuAllOpen, setIsMenuAllOpen] = useState(false);
+function Checkbox({ titleHandler }) {
+  const [isMenuAllOpen, setIsMenuAllOpen] = useState(true);
   const [isKidsOpen, setIsKidsOpen] = useState(false);
   const [isNewOpen, setIsNewOpen] = useState(false);
   const [isKoreanOpen, setIsKoreanOpen] = useState(false);
   const [isSpicyOpen, setIsSpicyOpen] = useState(false);
 
-  const menuAllBtnHandler = () => {
+  const menuAllBtnHandler = event => {
     setIsMenuAllOpen(true);
     setIsKidsOpen(false);
     setIsNewOpen(false);
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
+    titleHandler(event);
   };
 
-  const kidsBtnHandler = () => {
+  const kidsBtnHandler = event => {
     setIsKidsOpen(true);
     setIsMenuAllOpen(false);
     setIsNewOpen(false);
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
+    titleHandler(event);
   };
 
-  const newBtnHandler = () => {
+  const newBtnHandler = event => {
     setIsNewOpen(true);
     setIsMenuAllOpen(false);
     setIsKidsOpen(false);
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
+    titleHandler(event);
   };
 
-  const koreanBtnHandler = () => {
+  const koreanBtnHandler = event => {
     setIsKoreanOpen(true);
     setIsMenuAllOpen(false);
     setIsKidsOpen(false);
     setIsNewOpen(false);
     setIsSpicyOpen(false);
+    titleHandler(event);
   };
 
-  const spicyBtnHandler = () => {
+  const spicyBtnHandler = event => {
     setIsSpicyOpen(true);
     setIsMenuAllOpen(false);
     setIsKidsOpen(false);
     setIsNewOpen(false);
     setIsKoreanOpen(false);
+    titleHandler(event);
   };
 
   return (

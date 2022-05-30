@@ -3,11 +3,18 @@ import Checkbox from './Checkbox';
 import Searchbox from './Searchbox';
 import './Category.scss';
 
-const Category = () => {
-  const [currentTab, setCurrentTab] = useState(false);
+const Category = ({ titleHandler }) => {
+  const [isCheckboxOpen, setIsCheckboxOpen] = useState(false);
+  const [isSearchboxOpen, setIsSearchboxOpen] = useState(false);
 
-  const currentTabHandler = () => {
-    setCurrentTab(true);
+  const checkboxHandler = () => {
+    setIsCheckboxOpen(true);
+    setIsSearchboxOpen(false);
+  };
+
+  const searchboxHandler = () => {
+    setIsSearchboxOpen(true);
+    setIsCheckboxOpen(false);
   };
 
   return (
@@ -17,22 +24,22 @@ const Category = () => {
         <div className="flexLeft">
           <button
             type="button"
-            className={`menuBtn ${currentTabHandler ? 'active' : ''}`}
-            onClick={currentTab}
+            className={`menuBtn ${isCheckboxOpen ? 'active' : ''}`}
+            onClick={checkboxHandler}
           >
             테마별
           </button>
           <button
             type="button"
-            className={`menuBtn ${currentTabHandler ? 'active' : ''}`}
-            onClick={currentTab}
+            className={`menuBtn ${isSearchboxOpen ? 'active' : ''}`}
+            onClick={searchboxHandler}
           >
             메뉴검색
           </button>
         </div>
         <div className="flexRight">
-          {currentTab ? <Checkbox /> : null}
-          {currentTab ? <Searchbox /> : null}
+          {isCheckboxOpen ? <Checkbox titleHandler={titleHandler} /> : null}
+          {isSearchboxOpen ? <Searchbox /> : null}
         </div>
       </div>
     </div>

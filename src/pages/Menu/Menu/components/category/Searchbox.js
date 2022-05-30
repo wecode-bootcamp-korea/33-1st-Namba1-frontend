@@ -11,6 +11,7 @@ function Searchbox() {
         type="text"
         placeholder="메뉴명으로 검색해 주세요."
       />
+
       <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon" />
     </div>
   );

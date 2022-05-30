@@ -1,10 +1,10 @@
 import React from 'react';
 import './Order.scss';
 
-const Order = () => {
+const Order = ({ title }) => {
   return (
     <div className="order">
-      <h1 className="title">#전체 추천 메뉴입니다.</h1>
+      <h1 className="title">#{title} 추천 메뉴입니다.</h1>
       <div className="content">
         <div className="description">
           NAMBA1KIT의 주문 마감은 오전 7시입니다.

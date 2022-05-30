@@ -6,9 +6,10 @@ import {
   faStar,
 } from '@fortawesome/free-solid-svg-icons';
 import './MenuDisplay.scss';
+import { Link } from 'react-router-dom';
 
 const MenuDisplay = ({
-  key,
+  id,
   name,
   servings,
   cookTime,
@@ -19,9 +20,10 @@ const MenuDisplay = ({
 }) => {
   return (
     <div className="menuDisplay">
-      <a href={`/products/list${key}`}>
+      <Link to={`${id}`}>
         <img className="image" src={image} alt={name} />
-      </a>
+      </Link>
+
       <div className="prep">
         <p className="first">{servings}인분</p>
         <p className="second">조리 {cookTime}분</p>

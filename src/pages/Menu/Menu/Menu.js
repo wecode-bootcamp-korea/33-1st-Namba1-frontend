@@ -7,9 +7,14 @@ import './Menu.scss';
 
 const Menu = () => {
   const [menuDisplay, setMenuDisplay] = useState([]);
+  const [title, setTitle] = useState('전체');
+
+  const titleHandler = event => {
+    setTitle(event.target.innerText);
+  };
 
   useEffect(() => {
-    fetch('http://10.58.0.209:8000/products/list')
+    fetch('http://10.58.1.100:8000/products')
       .then(response => response.json())
       .then(data => setMenuDisplay(data.product_list));
   }, []);
@@ -17,10 +22,10 @@ const Menu = () => {
   return (
     <div className="menu">
       <header className="category">
-        <Category />
+        <Category titleHandler={titleHandler} />
       </header>
       <div className="filter">
-        <Order />
+        <Order title={title} />
       </div>
       <div className="contentDisplay">
         {menuDisplay.map(
@@ -37,6 +42,7 @@ const Menu = () => {
           }) => (
             <MenuDisplay
               key={id}
+              id={id}
               name={name}
               servings={serving}
               cookTime={cookTime}
