@@ -22,8 +22,16 @@ function Main() {
       <Review />
       <div className="product">
         {/* TO DO : Menu와 MDMenu 하나의 컴포넌트로 재사용할 수 있는 방법이 있을 것 같네요! */}
-        <Menu />
-        <Menu />
+        <Menu
+          className="menu1"
+          title="남바완 메뉴 보기"
+          src="/images/main/market.jpg"
+        />
+        <Menu
+          className="menu2"
+          title="한정 수량 MD의 추천"
+          src="/images/main/market2.jpg"
+        />
       </div>
     </div>
   );

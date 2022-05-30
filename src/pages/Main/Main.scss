@@ -20,7 +20,7 @@
   .newProductsContainer {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 75%;
     margin-top: 100px;
 
     .newProductsTitle {
@@ -32,7 +32,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 150px;
-    width: 80%;
+    width: 75%;
     margin-top: 100px;
   }
 }
