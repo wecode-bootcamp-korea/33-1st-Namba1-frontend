@@ -15,5 +15,30 @@
   font-weight: 800;
 }
 
+@mixin positionCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+@mixin formLabel {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+@mixin formBtn {
+  width: 100%;
+  margin: 30px 0;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: $mainColor;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+}
+
 $mainColor: #fabf01;
+$mainDarkColor: #d6a401;
 $subColor: #231915;
+$gray: #606060;
