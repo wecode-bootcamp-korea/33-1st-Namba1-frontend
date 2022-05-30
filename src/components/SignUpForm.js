@@ -2,7 +2,7 @@
 import './SignUpForm.scss';
 
 const SignUpForm = ({ input, onChange }) => {
-  const { name, value, id, title, type } = input;
+  const { name, id, title, type } = input;
   return (
     <div>
       <div className="signUpForm" key={id}>
