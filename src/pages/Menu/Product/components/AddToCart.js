@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AddToCart.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,7 +9,25 @@ import {
   faHeart,
 } from '@fortawesome/free-solid-svg-icons';
 
-const AddToCart = () => {
+const AddToCart = ({ price, name }) => {
+  const [isOptionOpen, setIsOptionOpen] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+
+  const closeHandler = () => {
+    setIsOptionOpen(false);
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity === 1) {
+      return;
+    }
+    setQuantity(previous => previous - 1);
+  };
+
+  const increaseQuantity = () => {
+    setQuantity(previous => previous + 1);
+  };
+
   return (
     <div className="addToCart">
       <div className="flexRight">
@@ -18,29 +36,41 @@ const AddToCart = () => {
         <FontAwesomeIcon icon={faCircleQuestion} />
       </div>
       <div className="cartBox">
-        <div className="itemHeader">
+        <div
+          className={`itemHeader ${isOptionOpen ? 'active' : ''}`}
+          onClick={() => setIsOptionOpen(true)}
+        >
           <h3 className="itemHeaderTitle">옵션</h3>
           <button className="cancelBtn">
-            <FontAwesomeIcon icon={faX} className="cancelIcon" />
+            <FontAwesomeIcon
+              icon={faX}
+              className="cancelIcon"
+              onClick={closeHandler}
+            />
           </button>
         </div>
         <div className="itemInput">
-          <p className="itemName">단호박크림파스타</p>
+          <p className="itemName">{name}</p>
           <form className="itemForm">
-            <button className="iconBtn">
+            <div className="iconBtn" onClick={decreaseQuantity}>
               <FontAwesomeIcon icon={faMinus} />
-            </button>
-            <input type="number" className="itemCount" min="1" step="1" />
-            <button className="iconBtn">
+            </div>
+            <input
+              type="text"
+              className="itemCount"
+              value={quantity}
+              onChange={event => setQuantity(event.target.value)}
+            />
+            <div className="iconBtn" onClick={increaseQuantity}>
               <FontAwesomeIcon icon={faPlus} />
-            </button>
+            </div>
           </form>
-          <p className="unitPrice">21,800원</p>
+          <p className="unitPrice">{price}원</p>
         </div>
       </div>
       <div className="itemTotal">
         <p className="totalAmount">수량 1개</p>
-        <p className="totalPrice">21,800원</p>
+        <p className="totalPrice">{price}원</p>
       </div>
       <div className="cartButtons">
         <button className="heartBtn">

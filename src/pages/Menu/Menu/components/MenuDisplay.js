@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartShopping,
@@ -6,7 +7,6 @@ import {
   faStar,
 } from '@fortawesome/free-solid-svg-icons';
 import './MenuDisplay.scss';
-import { Link } from 'react-router-dom';
 
 const MenuDisplay = ({
   id,

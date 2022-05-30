@@ -63,7 +63,7 @@ const ProductInfo = ({
         </div>
       </div>
       <div className="cartSection">
-        <AddToCart />
+        <AddToCart price={price} name={name} />
       </div>
     </section>
   );
