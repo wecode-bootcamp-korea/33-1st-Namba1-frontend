@@ -2,18 +2,6 @@
   box-sizing: border-box;
 }
 
-// #footer {
-//   position: relative;
-//   .footerContent {
-//     display: flex;
-//     margin-left: 80px;
-//     margin-right: 80px;
-//   }
-//   .footerCenter {
-//     float: left;
-//   }
-// }
-
 #footer {
   position: relative;
   .footerWrap {
@@ -21,7 +9,7 @@
     min-width: 1260px;
     height: 290px;
     margin: 0 auto;
-    background-color: #202020;
+    background-color: rgb(243, 222, 167);
     color: white;
     text-align: center;
   }
@@ -34,9 +22,8 @@
       float: left;
       width: 300px;
       padding-top: 36px;
-      .logo {
-        font-size: 50px;
-        font-weight: 800;
+      .namba1 {
+        width: 180px;
       }
     }
     .footerCenter {

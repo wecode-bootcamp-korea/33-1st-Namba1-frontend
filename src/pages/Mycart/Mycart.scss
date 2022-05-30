@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  .container {
+    width: 1180px;
+    margin: 0 auto;
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 120px 0 140px;
+      margin: 10px auto;
+      .myCart {
+        font-size: 40px;
+      }
+      .cartIcon {
+        display: flex;
+        font-size: 15px;
+        p {
+          margin-top: 10px;
+          margin-left: 10px;
+        }
+        .background {
+          width: 80px;
+          height: 80px;
+          border: 2px solid none;
+          border-radius: 50%;
+          background-color: #fabf01;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          margin-right: 30px;
+          p {
+            margin-top: 20px;
+          }
+          .icons {
+            margin-top: 15px;
+            font-size: 30px;
+            padding-top: 9px;
+          }
+        }
+      }
+    }
+    .checkCount {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #202020;
+      margin-left: 10px;
+      .deleteItem {
+        width: 95%;
+      }
+      .deleteItem2 {
+        padding: 20px;
+      }
+    }
+    .deliveryDate {
+      display: flex;
+      border-bottom: 2px solid #202020;
+      .delivery {
+        padding: 20px 30px;
+      }
+    }
+    .foodContent {
+      .foodList {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .firstItem {
+        display: flex;
+        .foodPhoto {
+          width: 90px;
+          margin-bottom: 20px;
+        }
+        .food1 {
+          width: 100%;
+          border-bottom: 2px solid #202020;
+        }
+      }
+    }
+
+    .foodList2 {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #202020;
+      .foodPhoto2 {
+        width: 90px;
+        margin-bottom: 20px;
+      }
+      .food2 {
+        width: 75%;
+      }
+    }
+    .totalPayment {
+      margin-top: 56px;
+      border-top: 2px solid #202020;
+      padding: 33px 0 34px;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: center;
+    }
+  }
+}

@@ -74,6 +74,7 @@ const Signup = () => {
         password: password,
         passwordConfirm: passwordConfirm,
         phoneNumber: phoneNumber,
+        birth: birth,
       }),
     })
       .then(res => {
@@ -86,7 +87,7 @@ const Signup = () => {
       .then(result => {
         navigator('/login');
         // localStorage.setItem(‘TOKEN’, result.access_token);
-        console.log(result);
+        // console.log(result);
       });
   };
 
@@ -96,7 +97,7 @@ const Signup = () => {
   const emailCondition = email.includes('@') && email.includes('.');
   const isValid = passwordCondition && emailCondition;
 
-  console.log(isValid);
+  // console.log(isValid);
 
   /*-----휴대폰 번호 하이픈 넣는 함수-----*/
   const handlePress = e => {

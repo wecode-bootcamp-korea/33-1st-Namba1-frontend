@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import './SignUpForm.scss';
 
 const SignUpForm = ({ input, handleInput }) => {

@@ -9,22 +9,24 @@ const Footer = () => {
         <div className="footerContent">
           <div className="footerLeft">
             <div className="logo">
-              <span className="namba1">남바완</span>
+              <img
+                className="namba1"
+                src="/images/logo/namba1_logo.png"
+                alt="namba1"
+              />
             </div>
           </div>
           <div className="footerCenter">
             <div className="menu">
               <p>이용약관 </p>
-              <p>
-                <a href="#">개인정보처리 방침 </a>
-              </p>
+              <p>{/* <a href="#">개인정보처리 방침 </a> */}</p>
               <p>법적고지 </p>
               <p>사업자정보 확인 </p>
             </div>
             <div className="footerInfo">
               <div className="footerInfoContent">
                 <div className="infoContent1">
-                  <p>NAMBAWAN CORPERATION</p>
+                  <p>NAMBAWAN CORPORATION</p>
                   <p>대표이사 : 최현민, 임한구, 박주영, 천은별, 김혜수</p>
                 </div>
                 <div className="infoContent2">
