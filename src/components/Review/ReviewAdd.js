@@ -85,7 +85,7 @@ const ReviewAdd = ({
                 />
               </div>
 
-              <div className="review">
+              <div className="reviewWrite">
                 <label className="userReviewWrite">리뷰 작성</label>
                 <textarea
                   onChange={saveReviewInput}

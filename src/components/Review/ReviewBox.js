@@ -4,6 +4,7 @@ import {
   faAngleLeft,
   faAngleRight,
   faPlus,
+  faPlusCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck';
 import ReviewList from '../../components/Review/ReviewList';
@@ -19,6 +20,8 @@ const ReviewBox = () => {
   const [reviewValue, setreviewValue] = useState([]);
   const [selectMenu, setSelectMenu] = useState([]);
   const [imageSrc, setImageSrc] = useState('');
+  const [filterPhoto, setfilterPhoto] = useState([]);
+  const [isPhotoFilter, setIsFilterPhoto] = useState(false);
 
   const saveReviewInput = e => {
     setreviewValue(e.target.value);
@@ -70,6 +73,14 @@ const ReviewBox = () => {
       });
   }, []);
 
+  useEffect(() => {
+    fetch('/data/photoReview.json')
+      .then(res => res.json())
+      .then(data => {
+        setfilterPhoto(data);
+      });
+  }, []);
+
   const isReviewAdd = () => {
     setReviewAddForm(true);
   };
@@ -89,6 +100,10 @@ const ReviewBox = () => {
     setFilterReview(result);
   };
 
+  const handlePhotoFilter = e => {
+    setIsFilterPhoto(current => !current);
+  };
+
   return (
     <section className="reviewbox">
       <SearchBox searchUser={searchUser} searchReview={searchReview} />
@@ -101,8 +116,14 @@ const ReviewBox = () => {
             <span className="reviewAddDesc">리뷰 쓰기</span>
           </button>
 
-          <button className="reviewAdd">
-            <FontAwesomeIcon icon={faCircleCheck} size="1.5x" />
+          <button
+            className={isPhotoFilter ? 'reviewAdd' : 'reviewAdd filterPhoto'}
+            onClick={handlePhotoFilter}
+          >
+            <FontAwesomeIcon
+              icon={isPhotoFilter ? faPlusCircle : faCircleCheck}
+              size="1.5x"
+            />
             <span className="reviewAddDesc">포토리뷰만 보기</span>
           </button>
         </div>
@@ -126,12 +147,21 @@ const ReviewBox = () => {
         />
       )}
 
-      <ReviewList
-        searchReview={searchReview}
-        review={searchInput === '' ? review : filterReview}
-        setReview={setReview}
-        imageSrc={imageSrc}
-      />
+      {!isPhotoFilter ? (
+        <ReviewList
+          searchReview={searchReview}
+          review={searchInput === '' ? review : filterReview}
+          setReview={setReview}
+          imageSrc={imageSrc}
+        />
+      ) : (
+        <ReviewList
+          searchReview={searchReview}
+          review={filterPhoto}
+          setReview={setReview}
+          imageSrc={imageSrc}
+        />
+      )}
 
       <div className="pagination">
         <button>
