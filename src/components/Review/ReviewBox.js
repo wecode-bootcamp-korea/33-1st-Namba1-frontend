@@ -1,15 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAngleLeft,
-  faAngleRight,
-  faPlus,
-  faPlusCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck';
 import ReviewList from '../../components/Review/ReviewList';
 import ReviewAdd from '../../components/Review/ReviewAdd';
 import SearchBox from '../../components/Review/SearchBox';
+import Pagination from './Pagination';
 import '../../components/Review/ReviewBox.scss';
 
 const ReviewBox = () => {
@@ -22,6 +18,10 @@ const ReviewBox = () => {
   const [imageSrc, setImageSrc] = useState('');
   const [filterPhoto, setfilterPhoto] = useState([]);
   const [isPhotoFilter, setIsFilterPhoto] = useState(false);
+
+  const limit = 10;
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   const saveReviewInput = e => {
     setreviewValue(e.target.value);
@@ -46,7 +46,7 @@ const ReviewBox = () => {
     });
   };
 
-  const nextId = useRef(4);
+  const nextId = useRef(12);
   const onCreatReview = e => {
     e.preventDefault();
     setReview([
@@ -149,6 +149,8 @@ const ReviewBox = () => {
 
       {!isPhotoFilter ? (
         <ReviewList
+          offset={offset}
+          limit={limit}
           searchReview={searchReview}
           review={searchInput === '' ? review : filterReview}
           setReview={setReview}
@@ -156,6 +158,8 @@ const ReviewBox = () => {
         />
       ) : (
         <ReviewList
+          offset={offset}
+          limit={limit}
           searchReview={searchReview}
           review={filterPhoto}
           setReview={setReview}
@@ -163,23 +167,12 @@ const ReviewBox = () => {
         />
       )}
 
-      <div className="pagination">
-        <button>
-          <FontAwesomeIcon icon={faAngleLeft} size="1.5x" />
-        </button>
-        <span className="pages">
-          <button className="current">1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>7</button>
-        </span>
-        <button>
-          <FontAwesomeIcon icon={faAngleRight} size="1.5x" />
-        </button>
-      </div>
+      <Pagination
+        total={review.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
     </section>
   );
 };

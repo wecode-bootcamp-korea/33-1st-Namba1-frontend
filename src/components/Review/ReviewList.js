@@ -3,19 +3,21 @@ import '../../pages/Review/Review.scss';
 import ReviewListItem from './ReviewListItem';
 import '../../components/Review/ReviewList.scss';
 
-const ReviewList = ({ review }) => {
+const ReviewList = ({ review, offset, limit }) => {
   return (
     <ul className="reviewlist">
-      {review.map(({ id, title, date, userId, userInput, imageSrc }) => (
-        <ReviewListItem
-          key={id}
-          title={title}
-          date={date}
-          userId={userId}
-          imageSrc={imageSrc}
-          userInput={userInput}
-        />
-      ))}
+      {review
+        .slice(offset, offset + limit)
+        .map(({ id, title, date, userId, userInput, imageSrc }) => (
+          <ReviewListItem
+            key={id}
+            title={title}
+            date={date}
+            userId={userId}
+            imageSrc={imageSrc}
+            userInput={userInput}
+          />
+        ))}
     </ul>
   );
 };
