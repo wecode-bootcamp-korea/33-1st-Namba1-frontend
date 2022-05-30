@@ -16,7 +16,7 @@ const ReviewBox = () => {
   const [reviewValue, setreviewValue] = useState([]);
   const [selectMenu, setSelectMenu] = useState([]);
   const [imageSrc, setImageSrc] = useState('');
-  const [filterPhoto, setfilterPhoto] = useState([]);
+  const [filterPhoto, setFilterPhoto] = useState([]);
   const [isPhotoFilter, setIsFilterPhoto] = useState(false);
 
   const limit = 10;
@@ -77,7 +77,7 @@ const ReviewBox = () => {
     fetch('/data/photoReview.json')
       .then(res => res.json())
       .then(data => {
-        setfilterPhoto(data);
+        setFilterPhoto(data);
       });
   }, []);
 
@@ -100,7 +100,7 @@ const ReviewBox = () => {
     setFilterReview(result);
   };
 
-  const handlePhotoFilter = e => {
+  const handlePhotoFilter = () => {
     setIsFilterPhoto(current => !current);
   };
 
@@ -116,10 +116,7 @@ const ReviewBox = () => {
             <span className="reviewAddDesc">리뷰 쓰기</span>
           </button>
 
-          <button
-            className={isPhotoFilter ? 'reviewAdd' : 'reviewAdd filterPhoto'}
-            onClick={handlePhotoFilter}
-          >
+          <button className="reviewAdd" onClick={handlePhotoFilter}>
             <FontAwesomeIcon
               icon={isPhotoFilter ? faPlusCircle : faCircleCheck}
               size="1.5x"
@@ -147,12 +144,12 @@ const ReviewBox = () => {
         />
       )}
 
-      {!isPhotoFilter ? (
+      {isPhotoFilter ? (
         <ReviewList
           offset={offset}
           limit={limit}
           searchReview={searchReview}
-          review={searchInput === '' ? review : filterReview}
+          review={filterPhoto}
           setReview={setReview}
           imageSrc={imageSrc}
         />
@@ -161,7 +158,7 @@ const ReviewBox = () => {
           offset={offset}
           limit={limit}
           searchReview={searchReview}
-          review={filterPhoto}
+          review={searchInput === '' ? review : filterReview}
           setReview={setReview}
           imageSrc={imageSrc}
         />
