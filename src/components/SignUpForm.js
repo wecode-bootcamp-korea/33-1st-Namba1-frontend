@@ -1,19 +1,18 @@
 // import React, { useEffect, useState } from 'react';
 import './SignUpForm.scss';
 
-const SignUpForm = ({ input, handleInput }) => {
-  const { name, value } = input;
+const SignUpForm = ({ input, onChange }) => {
+  const { name, value, id, title, type } = input;
   return (
     <div>
-      <div className="signUpForm" key={input.id}>
-        <span className="title">{input.title}</span>
+      <div className="signUpForm" key={id}>
+        <span className="title">{title}</span>
         <input
           className="userId"
-          type={input.type}
-          value={value}
+          type={type}
           name={name}
-          // placeholder={input.placeholder}
-          onChange={handleInput}
+          placeholder={input.placeholder}
+          onChange={onChange}
         />
       </div>
     </div>

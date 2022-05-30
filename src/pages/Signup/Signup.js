@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-// import { Navigate, useNavigate } from 'react-router-dom';
 import './Signup.scss';
 import SignUpForm from '../../components/SignUpForm';
 
@@ -29,19 +28,10 @@ const Signup = () => {
         // localStorage.setItem(‘TOKEN’, result.access_token);
       });
   }, []);
-  /*---회원가입 유효성 검사 기준---*/
-  //2. 이메일은 '@'와 '.' 두개를 포함=====>ok
-  //3. 비밀번호는 8자리 이상,특수문자 1자 이상
-  //4. 체크박스는 필수항목 2개 또는 전체동의 체크되어야 함
-  //5. 위 항목 중 한가지 조건이라도 미충족 시 버튼 비활성화
 
-  // /*-----useState와 함수를 이용해서 input의 value값 받아오기-----*/
-  // const [inputId, setInputId] = useState(''); //이메일
-  // const [inputPw, setInputPassword] = useState(''); //비밀번호
-  const [numberInputValue, setNumberInputValue] = useState(''); //휴대폰번호
-  const [birthInputValue, setBirthInputValue] = useState(''); //생년월일
+  const [numberInputValue, setNumberInputValue] = useState('');
+  const [birthInputValue, setBirthInputValue] = useState('');
 
-  /*-----약관동의 state----*/
   const [allCheck, setAllCheck] = useState(false);
   const [ageCheck, setAgeCheck] = useState(false);
   const [termsCheck, setTermsCheck] = useState(false);
@@ -62,9 +52,9 @@ const Signup = () => {
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
+    console.log(inputValue);
   };
 
-  // 여기는 백엔드 통신
   const goSignUp = () => {
     fetch('http://10.58.5.168:8000/users/signup', {
       method: 'POST',
@@ -87,7 +77,6 @@ const Signup = () => {
       .then(result => {
         navigator('/login');
         // localStorage.setItem(‘TOKEN’, result.access_token);
-        // console.log(result);
       });
   };
 
@@ -95,11 +84,14 @@ const Signup = () => {
   const passwordCondition =
     passwordRegex.test(inputValue.password) && password === passwordConfirm;
   const emailCondition = email.includes('@') && email.includes('.');
-  const isValid = passwordCondition && emailCondition;
+  const isValid =
+    (passwordCondition &&
+      emailCondition &&
+      allCheck &&
+      ageCheck &&
+      termsCheck) ||
+    (ageCheck && termsCheck && passwordCondition && emailCondition);
 
-  // console.log(isValid);
-
-  /*-----휴대폰 번호 하이픈 넣는 함수-----*/
   const handlePress = e => {
     const regex = /^[0-9\b -]{0,13}$/;
     if (regex.test(e.target.value)) {
@@ -122,7 +114,6 @@ const Signup = () => {
     }
   }, [numberInputValue]);
 
-  /*-----생년월일 하이픈 넣는 함수-----*/
   const birthPress = e => {
     const regex2 = /^[0-9\b -]{0,13}$/;
     if (regex2.test(e.target.value)) {
@@ -145,7 +136,6 @@ const Signup = () => {
     }
   }, [birthInputValue]);
 
-  /*-----약관동의 이벤트 함수-----*/
   const allBtnEvent = () => {
     if (allCheck === false) {
       setAllCheck(true);
@@ -201,10 +191,7 @@ const Signup = () => {
             <SignUpForm
               key={input.id}
               input={input}
-              title={input.title}
-              type={input.type}
-              name={input.name}
-              // placeholder={input.placeholder}
+              placeholder={input.placeholder}
               onChange={handleInput}
             />
           ))}
@@ -295,8 +282,7 @@ const SIGNUP_DATA = [
     title: '아이디 *',
     type: 'text',
     name: 'email',
-    placeholder: '이메일 주소 전체를 입력해 주세요',
-    value: 'email',
+    placeholder: '이메일 주소 전체를 입력해 주세요.',
   },
 
   {
@@ -313,7 +299,7 @@ const SIGNUP_DATA = [
     title: '비밀번호 *',
     type: 'password',
     name: 'password',
-    placeholder: '8자 이상 입력해 주세요.',
+    placeholder: '8자 이상 입력해 주세요.(특수문자,숫자,영문포함)',
     value: 'password',
   },
 

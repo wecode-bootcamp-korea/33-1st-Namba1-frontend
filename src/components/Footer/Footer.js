@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.scss';
+import '../Footer/Footer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faPhone } from '@fortawesome/free-solid-svg-icons';
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
           <div className="footerCenter">
             <div className="menu">
               <p>이용약관 </p>
-              <p>{/* <a href="#">개인정보처리 방침 </a> */}</p>
+              <p>개인정보처리 방침</p>
               <p>법적고지 </p>
               <p>사업자정보 확인 </p>
             </div>

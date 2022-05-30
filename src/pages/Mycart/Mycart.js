@@ -76,13 +76,6 @@ const Mycart = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="boxBtn">
-              <button type="button" class="btnAmountMinus" />
-              <button type="button" class="btnAmountPlus" />
-            </div> */}
-            {/* <div className="foodPrice">
-              <p>27,800원</p>
-            </div> */}
 
             <p className="foodList2">
               <FontAwesomeIcon icon={faCircleCheck} />
