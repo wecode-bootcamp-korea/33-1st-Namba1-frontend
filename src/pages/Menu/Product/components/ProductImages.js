@@ -7,18 +7,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import './ProductImages.scss';
 
-const ProductImages = ({ image }) => {
+const ProductImages = ({ id, name, image }) => {
   return (
     <section className="productImages">
-      <img
-        className="bigImage"
-        src={image[0]}
-        alt="Sweet Pumpkin Cream Pasta"
-      />
+      <img className="bigImage" key={id} src={image[0]} alt={name} />
       <div className="smallImages">
         <FontAwesomeIcon icon={faChevronLeft} className="chevronIcon" />
-        {image.map(({ id, source, alt }) => (
-          <SmallImages key={id} source={source} alt={alt} />
+        {image.map(({ id, image, name }) => (
+          <SmallImages key={id} source={image} alt={name} />
         ))}
         <FontAwesomeIcon icon={faChevronRight} className="chevronIcon" />
       </div>

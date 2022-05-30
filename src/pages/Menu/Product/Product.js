@@ -27,7 +27,7 @@ const Product = () => {
 
   return (
     <div className="product">
-      <ProductImages key={id} image={image} />
+      <ProductImages key={id} name={name} image={image} />
       <ProductInfo
         key={id}
         name={name}
