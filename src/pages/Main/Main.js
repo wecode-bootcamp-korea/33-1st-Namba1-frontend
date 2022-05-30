@@ -23,7 +23,6 @@ function Main() {
       <div className="product">
         {/* TO DO : Menu와 MDMenu 하나의 컴포넌트로 재사용할 수 있는 방법이 있을 것 같네요! */}
         <Menu />
-        <div className="empty" />
         <Menu />
       </div>
     </div>
