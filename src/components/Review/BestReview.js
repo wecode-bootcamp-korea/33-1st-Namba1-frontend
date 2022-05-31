@@ -5,27 +5,50 @@ import Arrows from './Arrows';
 const BestReview = () => {
   const [slider, setSlider] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const TOTAL_SLIDES = slider.length;
+
   const slideRef = useRef(null);
 
+  // const TOTAL_SLIDES = slider.length;
+
+  // 1. 원래 배열에서 앞에는 맨 마지막 슬라이드를 복제, 뒤에는 맨 첫번째 슬라이드를 복제하는 함수
+  // const slideFirst = slider[0];
+  // const slideLast = slider[slider.length - 1];
+  // const modifiedArray = [slideFirst, ...slider, slideLast];
+
+  //2. 맨 마지막 슬라이드에서 더 갈 경우에 moveToNthSlide 함수를 실행시킴
   const nextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES - 1) {
-      setCurrentSlide(0);
-    } else {
-      setCurrentSlide(currentSlide + 1);
+    const nextCurr = currentSlide + 1;
+    setCurrentSlide(nextCurr);
+
+    if (nextCurr === 5) {
+      moveToNthSlide(0);
     }
   };
+
+  //3. 맨 처음 슬라이드에서 더 갈 경우에 moveToNthSlide 함수를 실행시킴
   const prevSlide = () => {
-    if (currentSlide === 0) {
-      setCurrentSlide(TOTAL_SLIDES - 1);
-    } else {
-      setCurrentSlide(currentSlide - 1);
+    const prevCurr = currentSlide - 1;
+    setCurrentSlide(prevCurr);
+
+    if (prevCurr === -1) {
+      moveToNthSlide(5);
     }
+  };
+
+  //4. n번째 슬라이드로 이동하는 함수.
+  const moveToNthSlide = num => {
+    setTimeout(() => {
+      slideRef.current.style.transition = null;
+      // → 2. transition을 모두 지워주고
+      setCurrentSlide(num);
+      // → 3. 캐러셀 이동
+    }, 500);
+    // 1. 하지만 그냥 이동하지 않고 transition이 일어나기까지 기다렸다가
   };
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide * 568}px)`;
+    slideRef.current.style.transform = `translateX(-${currentSlide * 50}%)`;
   }, [currentSlide]);
 
   useEffect(() => {
@@ -51,8 +74,6 @@ const BestReview = () => {
               <h2 className="reviewTitle">{title}</h2>
               <div className="starBox">
                 <span className="star">★★★★★</span>
-                {/* TODO : id 3글자 이후 * 처리 */}
-
                 <span className="userId">{userId}</span>
               </div>
               <p className="bestReviewDesc">{userReview}</p>
