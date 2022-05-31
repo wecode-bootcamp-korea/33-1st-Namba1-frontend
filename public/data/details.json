@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "name": "단호박크림파스타",
+  "description": "단호박을 직접 으깨어 만든 파스타",
+  "servings": 3,
+  "cookTime": 40,
+  "prepTime": 15,
+  "spice": "",
+  "price": 21800,
+  "image": [
+    "https://velog.velcdn.com/images/eunnb05/post/2bc00618-0916-4c0e-9c77-a11eda112a43/image.jpg",
+    "https://velog.velcdn.com/images/eunnb05/post/f391f5be-0480-4fce-aeeb-af7062ebc724/image.jpg",
+    "https://velog.velcdn.com/images/eunnb05/post/fda88290-2da0-4fea-98f7-64c357510f59/image.jpg",
+    "https://velog.velcdn.com/images/eunnb05/post/675d3ab6-7b96-45bd-93aa-de4e7ac229d7/image.jpg",
+    "https://velog.velcdn.com/images/eunnb05/post/4dea0f60-06d7-43ca-acbe-2619a65a48f9/image.jpg",
+    "https://velog.velcdn.com/images/eunnb05/post/6c7f3482-2a17-452d-ac79-3b7a9b2b4a5a/image.jpg"
+  ]
+}

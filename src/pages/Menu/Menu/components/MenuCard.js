@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import './MenuCard.scss';
 
-const MenuCard = ({ id, name, serving, cookTime, spice, price, image }) => {
+const MenuCard = ({ id, name, servings, cookTime, spice, price, image }) => {
   const navigate = useNavigate();
 
   const goToDetail = () => {
@@ -20,7 +20,7 @@ const MenuCard = ({ id, name, serving, cookTime, spice, price, image }) => {
       <img className="image" src={image} alt={name} onClick={goToDetail} />
 
       <div className="prep">
-        <p className="first">{serving}인분</p>
+        <p className="first">{servings}인분</p>
         <p className="second">조리 {cookTime}분</p>
         <p className="third">{!spice ? null : `${spice} 매운맛`}</p>
       </div>

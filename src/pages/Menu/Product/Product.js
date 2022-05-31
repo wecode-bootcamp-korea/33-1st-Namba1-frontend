@@ -8,12 +8,11 @@ import Top from '../../../components/Top/Top';
 const Product = () => {
   const [product, setProduct] = useState({});
   const params = useParams();
-
   const {
     id,
     name,
     description,
-    serving,
+    servings,
     cookTime,
     prepTime,
     price,
@@ -22,9 +21,13 @@ const Product = () => {
   } = product;
 
   useEffect(() => {
-    fetch(`http://10.58.1.100:8000/products/${params.id}`)
-      .then(response => response.json())
-      .then(data => setProduct(data.product_detail));
+    fetch(`/data/details.json`)
+      // fetch(`http://10.58.1.100:8000/products/${params.id}`)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => setProduct(data));
+    // .then(data => setProduct(data.product_detail));
   }, [params.id]);
 
   return (
@@ -35,7 +38,7 @@ const Product = () => {
           <ProductInfo
             name={name}
             description={description}
-            servings={serving}
+            servings={servings}
             cookTime={cookTime}
             prepTime={prepTime}
             spice={spice}
