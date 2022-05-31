@@ -23,13 +23,17 @@
     .logoLink {
       color: inherit;
       text-decoration: none;
+
+      img {
+        width: 180px;
+      }
     }
   }
 
   .pageMenu {
     flex: 5;
     @include flexCenter;
-    font-size: 25px;
+    font-size: 23px;
 
     li {
       margin: 0 40px;
@@ -46,12 +50,13 @@
 
     ul {
       @include flexCenter;
-      font-size: 25px;
+      font-size: 23px;
 
       li {
         margin: 0 15px;
 
         .myLink {
+          margin-left: 60px;
           color: inherit;
           text-decoration: none;
         }
