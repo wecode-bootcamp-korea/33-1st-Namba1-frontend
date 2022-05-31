@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './Checkbox.scss';
 
 function Checkbox({ titleHandler }) {
-  const [isMenuAllOpen, setIsMenuAllOpen] = useState(true);
-  const [isKidsOpen, setIsKidsOpen] = useState(false);
+  const [isMenuAllOpen, setIsMenuAllOpen] = useState(false);
+  const [isKidsOpen, setIsKidsOpen] = useState(true);
   const [isNewOpen, setIsNewOpen] = useState(false);
   const [isKoreanOpen, setIsKoreanOpen] = useState(false);
   const [isSpicyOpen, setIsSpicyOpen] = useState(false);

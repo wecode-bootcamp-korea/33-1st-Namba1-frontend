@@ -1,38 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartShopping,
   faHeart,
   faStar,
 } from '@fortawesome/free-solid-svg-icons';
-import './MenuDisplay.scss';
+import './MenuCard.scss';
 
-const MenuDisplay = ({
-  id,
-  name,
-  servings,
-  cookTime,
-  spice,
-  price,
-  totalReviews,
-  image,
-}) => {
+const MenuCard = ({ id, name, serving, cookTime, spice, price, image }) => {
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/products/${id}`);
+  };
+
   return (
-    <div className="menuDisplay">
-      <Link to={`${id}`}>
-        <img className="image" src={image} alt={name} />
-      </Link>
+    <div className="menuCard">
+      <img className="image" src={image} alt={name} onClick={goToDetail} />
 
       <div className="prep">
-        <p className="first">{servings}인분</p>
+        <p className="first">{serving}인분</p>
         <p className="second">조리 {cookTime}분</p>
         <p className="third">{!spice ? null : `${spice} 매운맛`}</p>
       </div>
+
       <p className="productName">{name}</p>
       <p className="productPrice">
         {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
       </p>
+
       <div className="itemReview">
         <div className="stars">
           <FontAwesomeIcon icon={faStar} />
@@ -41,10 +38,8 @@ const MenuDisplay = ({
           <FontAwesomeIcon icon={faStar} />
           <FontAwesomeIcon icon={faStar} />
         </div>
-        <p className="review">
-          리뷰 <span className="reviewAmount">{totalReviews}</span>
-        </p>
       </div>
+
       <div className="customerLike">
         <button className="faHeart">
           <FontAwesomeIcon icon={faHeart} className="icon" />
@@ -57,4 +52,4 @@ const MenuDisplay = ({
   );
 };
 
-export default MenuDisplay;
+export default MenuCard;

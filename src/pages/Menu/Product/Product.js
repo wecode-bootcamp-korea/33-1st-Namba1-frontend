@@ -7,25 +7,24 @@ import Top from '../../../components/Top/Top';
 
 const Product = () => {
   const [product, setProduct] = useState([]);
-  // const productId = product.match.params.productId;
+  const params = useParams();
+
   const {
     id,
     name,
     description,
-    servings,
+    serving,
     cookTime,
     prepTime,
-    spice,
     price,
+    spice,
     image,
   } = product;
-
-  const params = useParams();
 
   useEffect(() => {
     fetch(`http://10.58.1.100:8000/products/${params.id}`)
       .then(response => response.json())
-      .then(data => setProduct(data.product_list));
+      .then(data => setProduct(data.product_detail));
   });
 
   return (
@@ -35,7 +34,7 @@ const Product = () => {
         key={id}
         name={name}
         description={description}
-        servings={servings}
+        servings={serving}
         cookTime={cookTime}
         prepTime={prepTime}
         spice={spice}

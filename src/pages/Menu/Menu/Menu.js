@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Category from './components/category/Category';
 import Order from './components/Order';
-import MenuDisplay from './components/MenuDisplay';
+import MenuCard from './components/MenuCard';
 import Top from '../../../components/Top/Top';
 import './Menu.scss';
 
 const Menu = () => {
-  const [menuDisplay, setMenuDisplay] = useState([]);
+  const [menuCard, setMenuCard] = useState([]);
   const [title, setTitle] = useState('전체');
 
   const titleHandler = event => {
@@ -16,7 +16,7 @@ const Menu = () => {
   useEffect(() => {
     fetch('http://10.58.1.100:8000/products')
       .then(response => response.json())
-      .then(data => setMenuDisplay(data.product_list));
+      .then(data => setMenuCard(data.product_list));
   }, []);
 
   return (
@@ -28,32 +28,9 @@ const Menu = () => {
         <Order title={title} />
       </div>
       <div className="contentDisplay">
-        {menuDisplay.map(
-          ({
-            id,
-            name,
-            serving,
-            cookTime,
-            prepTime,
-            spice,
-            price,
-            totalReviews,
-            image,
-          }) => (
-            <MenuDisplay
-              key={id}
-              id={id}
-              name={name}
-              servings={serving}
-              cookTime={cookTime}
-              prepTime={prepTime}
-              spice={spice}
-              price={price}
-              totalReviews={totalReviews}
-              image={image}
-            />
-          )
-        )}
+        {menuCard.map(({ id }, menu) => (
+          <MenuCard key={id} {...menu} />
+        ))}
       </div>
       <div className="pageNum">
         <button className="pageBtn">1</button>
