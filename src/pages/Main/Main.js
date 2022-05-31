@@ -4,7 +4,7 @@ import MainCarousel from '../../components/Main/MainCarousel';
 import Recommend from '../../components/Main/Recommend';
 import Menu from '../../components/Main/Menu';
 import NewProducts from '../../components/Main/NewProducts';
-import Review from '../../components/Main/Review/Review.js';
+import MainReview from '../../components/Main/Review/MainReview.js';
 import './Main.scss';
 
 function Main() {
@@ -34,7 +34,7 @@ function Main() {
       </div>
 
       {/* TO DO : 리뷰 어떤 식으로 데이터 받아올지 회의 후 목데이터 작업하기 */}
-      <Review />
+      <MainReview />
       <div className="product">
         {MENU.map(({ id, className, title, src }) => (
           <Menu key={id} className={className} title={title} src={src} />

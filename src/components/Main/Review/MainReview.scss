@@ -5,7 +5,8 @@
   font-weight: bold;
 }
 
-.review {
+.mainReview {
+  position: relative;
   margin-top: 100px;
   width: 75%;
   overflow: hidden;
@@ -18,9 +19,15 @@
 
   .reviewAll {
     position: absolute;
-    right: 10%;
-    color: inherit;
-    font-weight: bold;
-    text-decoration: none;
+    right: 0;
+    top: 10px;
+
+    button {
+      @include primaryFont();
+      border: none;
+      background-color: white;
+      font-weight: bold;
+      font-size: 15px;
+    }
   }
 }
