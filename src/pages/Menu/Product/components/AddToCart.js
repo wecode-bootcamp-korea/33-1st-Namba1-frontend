@@ -32,9 +32,9 @@ const AddToCart = ({ price, name }) => {
     <div className="addToCart">
       <div className="flexRight">
         <p>주문마감시간 오전 7시</p>
-        &nbsp;
-        <FontAwesomeIcon icon={faCircleQuestion} />
+        <FontAwesomeIcon icon={faCircleQuestion} className="questionIcon" />
       </div>
+
       <div className="cartBox">
         <div
           className={`itemHeader ${isOptionOpen ? 'active' : ''}`}
@@ -49,6 +49,7 @@ const AddToCart = ({ price, name }) => {
             />
           </button>
         </div>
+
         <div className="itemInput">
           <p className="itemName">{name}</p>
           <form className="itemForm">
@@ -65,13 +66,17 @@ const AddToCart = ({ price, name }) => {
               <FontAwesomeIcon icon={faPlus} />
             </div>
           </form>
-          <p className="unitPrice">{price}원</p>
+          <p className="unitPrice">{price.toLocaleString()}원</p>
         </div>
       </div>
+
       <div className="itemTotal">
-        <p className="totalAmount">수량 1개</p>
-        <p className="totalPrice">{price}원</p>
+        <p className="totalAmount">{`수량 ${quantity}개`}</p>
+        <p className="totalPrice">
+          {(quantity * (price ?? 0)).toLocaleString()}원
+        </p>
       </div>
+
       <div className="cartButtons">
         <button className="heartBtn">
           <FontAwesomeIcon icon={faHeart} className="heartIcon" />

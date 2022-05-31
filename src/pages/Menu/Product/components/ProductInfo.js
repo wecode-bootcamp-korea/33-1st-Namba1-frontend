@@ -23,6 +23,7 @@ const ProductInfo = ({
         <h2 className="productTitle">{name}</h2>
         <p className="productOrigin">원산지 : 상품정보 참조</p>
       </div>
+
       <div className="productPrep">
         <p className="productAmount">{servings}인분</p>
         <p className="productTime">조리 {cookTime}분</p>
@@ -30,13 +31,13 @@ const ProductInfo = ({
         <FontAwesomeIcon icon={faCircleQuestion} className="questionIcon" />
         <p className="spiceLevel">{!spice ? null : `${spice} 매운맛`}</p>
       </div>
+
       <div className="productDetail">
         <div className="priceBox">
           <h4 className="price">판매가</h4>
-          <p className="productPrice">
-            {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-          </p>
+          <p className="productPrice">{price.toLocaleString()}원</p>
         </div>
+
         <div className="pointsBox">
           <h4 className="gray">포인트적립</h4>
           <div className="flex">
@@ -46,6 +47,7 @@ const ProductInfo = ({
             <FontAwesomeIcon icon={faCircleQuestion} />
           </div>
         </div>
+
         <div className="deliveryMethodBox">
           <h4 className="gray">배송방법</h4>
           <div className="flex">
@@ -55,6 +57,7 @@ const ProductInfo = ({
             <p className="emphasize">배송가능여부 조회</p>
           </div>
         </div>
+
         <div className="deliveryPriceBox">
           <h4 className="gray">배송비</h4>
           <p>
@@ -62,6 +65,7 @@ const ProductInfo = ({
           </p>
         </div>
       </div>
+
       <div className="cartSection">
         <AddToCart price={price} name={name} />
       </div>

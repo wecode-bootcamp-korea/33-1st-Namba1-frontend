@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Product.scss';
-import ProductImages from './components/ProductImages';
+import ProductCarousel from './components/ProductCarousel';
 import ProductInfo from './components/ProductInfo';
 import Top from '../../../components/Top/Top';
 
@@ -34,7 +34,7 @@ const Product = () => {
     <div className="product">
       {id && (
         <>
-          <ProductImages key={id} name={name} image={image} />
+          <ProductCarousel key={id} name={name} image={image} />
           <ProductInfo
             name={name}
             description={description}
