@@ -1,7 +1,7 @@
 import React from 'react';
-import './MainReview.scss';
 import { Link } from 'react-router-dom';
 import ReviewCarousel from './ReviewCarousel';
+import './MainReview.scss';
 
 const Review = () => {
   return (

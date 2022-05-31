@@ -17,17 +17,6 @@
   margin-top: 80px;
   overflow: hidden;
 
-  .newProductsContainer {
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    margin-top: 100px;
-
-    .newProductsTitle {
-      @include title();
-    }
-  }
-
   .product {
     display: grid;
     grid-template-columns: 1fr 1fr;

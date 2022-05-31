@@ -1,10 +1,10 @@
 import React from 'react';
+import MainCarousel from '../../components/Main/MainCarousel/MainCarousel.js';
+import MainReview from '../../components/Main/MainReview/MainReview.js';
+import Menu from '../../components/Main/Menu/Menu.js';
+import NewProducts from '../../components/Main/NewProduct/NewProducts.js';
+import Recommend from '../../components/Main/Recommend/Recommend.js';
 import Nav from '../../components/Nav/Nav.js';
-import MainCarousel from '../../components/Main/MainCarousel';
-import Recommend from '../../components/Main/Recommend';
-import Menu from '../../components/Main/Menu';
-import NewProducts from '../../components/Main/NewProducts';
-import MainReview from '../../components/Main/Review/MainReview.js';
 import './Main.scss';
 
 function Main() {
@@ -28,12 +28,7 @@ function Main() {
       <Nav />
       <MainCarousel />
       <Recommend />
-      <div className="newProductsContainer">
-        <h1 className="newProductsTitle">신메뉴</h1>
-        <NewProducts />
-      </div>
-
-      {/* TO DO : 리뷰 어떤 식으로 데이터 받아올지 회의 후 목데이터 작업하기 */}
+      <NewProducts />
       <MainReview />
       <div className="product">
         {MENU.map(({ id, className, title, src }) => (
