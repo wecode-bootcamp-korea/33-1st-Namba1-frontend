@@ -9,6 +9,14 @@ const Recommend = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
+  // query string 
+  //
+  // state 
+  //
+  //
+  // useEffect(()=>{
+  // },[])
+
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
@@ -58,6 +66,11 @@ const Recommend = () => {
   );
 };
 
+// constant data
+// constant
+// front
+
+// mock data
 const RECOMMEND_PHOTO = [
   { id: 1, src: '/images/main/salad.jpg', alt: 'salad' },
   { id: 2, src: '/images/main/salad.jpg', alt: 'salad' },

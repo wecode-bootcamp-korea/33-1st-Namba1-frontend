@@ -24,6 +24,8 @@ const ReviewCarousel = () => {
     }
   };
 
+  // what?
+  // 관심사
   useEffect(() => {
     slideRef.current.style.transition = 'all 1.0s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
