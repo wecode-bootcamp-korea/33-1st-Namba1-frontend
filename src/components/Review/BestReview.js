@@ -25,6 +25,7 @@ const BestReview = () => {
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    // DOM. card width
     slideRef.current.style.transform = `translateX(-${currentSlide * 568}px)`;
   }, [currentSlide]);
 

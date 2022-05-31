@@ -38,6 +38,7 @@ const ReviewBox = () => {
   const encodeFileToBase64 = fileBlob => {
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
+
     return new Promise(resolve => {
       reader.onload = () => {
         setImageSrc(reader.result);
@@ -46,6 +47,16 @@ const ReviewBox = () => {
     });
   };
 
+  // useRef?
+  // state vs useRef
+  //
+  // components re-render?
+  // state change
+  // val change => UI re-render
+  // props change
+  // parent re-render
+  //
+  // rendering optimize
   const nextId = useRef(12);
   const onCreatReview = e => {
     e.preventDefault();
