@@ -7,7 +7,6 @@ import {
   faMinus,
   faPlus,
   faEquals,
-  faX,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faCircleCheck,
