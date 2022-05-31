@@ -1,0 +1,81 @@
+@import '../../../styles/variables.scss';
+
+.recommend {
+  @include flexCenter;
+  margin-top: 100px;
+  width: 75%;
+
+  .recommendContent {
+    flex: 1;
+
+    .recommendDrop {
+      text-align: left;
+
+      // .taste {
+      //   @include primaryFont();
+      //   border: none;
+      //   border-bottom: solid 4px black;
+      //   width: 240px;
+      //   background-color: white;
+      //   text-align: left;
+      //   font-size: 40px;
+      //   font-weight: bold;
+      //   cursor: pointer;
+
+      //   span {
+      //     margin-right: 30px;
+      //   }
+      // }
+
+      .recommendSelectBox {
+        @include primaryFont();
+        width: 240px;
+        border: none;
+        border-bottom: solid 4px black;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        appearance: none;
+
+        option {
+          background-color: white;
+        }
+      }
+    }
+
+    .recommendMsg {
+      padding-top: 20px;
+      font-size: 30px;
+    }
+
+    .recommendCarouselBtns {
+      .recommendBtn {
+        padding: 10px;
+        margin-top: 50px;
+        border: none;
+        background-color: white;
+        font-size: 20px;
+      }
+
+      .currentSlide {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .recommendPhoto {
+    flex: 2;
+    overflow: hidden;
+
+    .recommendPhotoDisplay {
+      display: flex;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      padding-left: 20px;
+    }
+  }
+}
