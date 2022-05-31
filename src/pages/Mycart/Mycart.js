@@ -1,5 +1,6 @@
 import React from 'react';
 import './Mycart.scss';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartShopping,
@@ -14,6 +15,24 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import MyCartForm from '../../components/MyCartForm';
 const Mycart = () => {
+  const [count, setCount] = useState(1);
+  const [productList, setProductList] = useState();
+
+  const handleCountUpdate = () => {
+    setCount(count + 1);
+  };
+
+  const handleCountMinus = () => {
+    setCount(count - 1);
+  };
+  useEffect(() => {
+    fetch('/data/mycart.json')
+      .then(res => res.json())
+      .then(data => {
+        setProductList(data);
+      });
+  }, []);
+
   return (
     <div>
       <div className="wrapper">
@@ -67,7 +86,12 @@ const Mycart = () => {
                 <p>2022-06-30(목) 도착예정</p>
               </span>
             </p>
-            <MyCartForm />
+            <MyCartForm
+              productList={productList}
+              handleCountMinus={handleCountMinus}
+              count={count}
+              handleCountUpdate={handleCountUpdate}
+            />
             <MyCartForm />
           </div>
           <div className="totalPayment">

@@ -1,34 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+
 import './Signup.scss';
 import SignUpForm from '../../components/SignUpForm';
 
 const Signup = () => {
-  useEffect(() => {
-    fetch('http://10.58.1.100:8000/user/signup', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: '',
-        name: '',
-        password: '',
-        passwordConfirm: '',
-        phoneNumber: '',
-        birth: '',
-      }),
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          alert('이메일과 비밀번호를 다시 한번 확인해주세요!');
-        }
-      })
-      .then(result => {
-        navigator('/쿡킷메인');
-        // localStorage.setItem(‘TOKEN’, result.access_token);
-      });
-  }, []);
-
   const [numberInputValue, setNumberInputValue] = useState('');
   const [birthInputValue, setBirthInputValue] = useState('');
 
@@ -42,12 +18,9 @@ const Signup = () => {
     name: '',
     password: '',
     passwordConfirm: '',
-    phoneNumber: '',
-    birth: '',
   });
 
-  const { email, name, password, passwordConfirm, phoneNumber, birth } =
-    inputValue;
+  const { email, name, password, passwordConfirm } = inputValue;
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
@@ -61,8 +34,8 @@ const Signup = () => {
         name: name,
         password: password,
         passwordConfirm: passwordConfirm,
-        phoneNumber: phoneNumber,
-        birth: birth,
+        phoneNumber: numberInputValue,
+        birth: birthInputValue,
       }),
     })
       .then(res => {
@@ -73,7 +46,7 @@ const Signup = () => {
         }
       })
       .then(result => {
-        navigator('/login');
+        navigator('/signup');
         // localStorage.setItem(‘TOKEN’, result.access_token);
       });
   };

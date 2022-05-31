@@ -1,10 +1,16 @@
 import React from 'react';
 import './MyCartForm.scss';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faX } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 
-function MyCartForm() {
+function MyCartForm({
+  productList,
+  handleCountMinus,
+  count,
+  handleCountUpdate,
+}) {
   return (
     <div>
       <p className="foodList1">
@@ -12,7 +18,7 @@ function MyCartForm() {
         <span className="firstItem">
           <img
             className="foodPhoto1"
-            src="/images/menu/쿵팟퐁커리.png"
+            src={productList && productList[0].img}
             alt="curry"
           />
         </span>
@@ -22,11 +28,19 @@ function MyCartForm() {
           <p>27,800원</p>
         </div>
         <div className="boxBtn">
-          <button type="button" class="btnAmountMinus">
+          <button
+            type="button"
+            className="btnAmountMinus"
+            onClick={handleCountMinus}
+          >
             <FontAwesomeIcon icon={faMinus} />
           </button>
-          <span className="numberCount">숫자</span>
-          <button type="button" class="btnAmountPlus">
+          <span className="numberCount">{count}</span>
+          <button
+            type="button"
+            className="btnAmountPlus"
+            onClick={handleCountUpdate}
+          >
             <FontAwesomeIcon icon={faPlus} />
           </button>
         </div>
