@@ -39,7 +39,7 @@ const BestReview = () => {
   return (
     <section className="bestReview">
       <ul className="bestSliderWarp">
-        <div ref={slideRef}>
+        <div className="bestSliderCarousel" ref={slideRef}>
           {slider.map(({ id, title, imgSrc, userId, userReview }) => (
             <li key={id} className="reviewSlider">
               <div className="bestReviewImgBox">

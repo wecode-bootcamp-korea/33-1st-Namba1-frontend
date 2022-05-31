@@ -22,10 +22,11 @@
       );
     }
 
-    div {
+    .bestSliderCarousel {
       display: flex;
 
       .reviewSlider {
+        width: 80%;
         margin-right: 48px;
 
         .bestReviewImgBox {
