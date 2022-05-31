@@ -1,42 +1,37 @@
 [
   {
     "id": 1,
-    "title": "버섯강된장과 간장불고기",
-    "imgSrc": "/images/review/food1.jpg",
-    "imgAlt": "음식 사진 1 (임시)",
+    "title": "로제떡볶이",
+    "imgSrc": "https://velog.velcdn.com/images/remon/post/792b6531-8b3b-432f-8c14-0b0d00260d9c/image.jpg",
     "userId": "lemon",
-    "userReview": "저번에 먹고 맛있어서 재구매했어요. 조리도 간단하고 정말 맛있어요. 쌈 싸먹기 너무 좋고 강된장이 전혀 안짜서 많이 퍼먹기 좋아요."
+    "userReview": "떡이 완전 쫄깃쫄깃해요. 매콤하지만 로제의 크림향이 어우러져서 너무 맛있어요!"
   },
   {
     "id": 2,
-    "title": "눈꽃치즈닭갈비",
-    "imgSrc": "/images/review/food2.jpg",
-    "imgAlt": "음식 사진 2 (임시)",
+    "title": "토마토비프스튜",
+    "imgSrc": "https://velog.velcdn.com/images/remon/post/38504406-6ad2-4fe8-b355-d76879b2769d/image.jpg",
     "userId": "lemon",
-    "userReview": "두번째 리뷰 저번에 먹고 맛있어서 재구매했어요. 조리도 간단하고 정말 맛있어요. 쌈 싸먹기 너무 좋고 강된장이 전혀 안짜서 많이 퍼먹기 좋아요."
+    "userReview": "토마토 스튜 처음 먹어봤는데, 생각보다 부드럽고 맛있네요! 토마토 향이 많이 나서 너무 좋았어요:)"
   },
   {
     "id": 3,
-    "title": "매운 치즈순살찜닭",
-    "imgSrc": "/images/review/food3.jpg",
-    "imgAlt": "음식 사진 3 (임시)",
+    "title": "닭한마리와 칼국수",
+    "imgSrc": "https://velog.velcdn.com/images/remon/post/f2b09544-03e4-429c-80d3-809c577fdb69/image.jpg",
     "userId": "lemon",
-    "userReview": "세번째 리뷰 저번에 먹고 맛있어서 재구매했어요. 조리도 간단하고 정말 맛있어요. 쌈 싸먹기 너무 좋고 강된장이 전혀 안짜서 많이 퍼먹기 좋아요."
+    "userReview": "칼국수 너무 좋아해서 주문해봤는데, 맛있어요!! 국물이 진하고 얼큰해서 좋네요. 잘 먹었습니다."
   },
   {
     "id": 4,
-    "title": "매운 치즈순살찜닭",
-    "imgSrc": "/images/review/food4.jpg",
-    "imgAlt": "음식 사진 4 (임시)",
+    "title": "수제비와 배추천",
+    "imgSrc": "https://velog.velcdn.com/images/remon/post/5bd1f297-4068-4b63-bb17-3e2f6e8890fc/image.jpg",
     "userId": "lemon",
-    "userReview": "세번째 리뷰 저번에 먹고 맛있어서 재구매했어요. 조리도 간단하고 정말 맛있어요. 쌈 싸먹기 너무 좋고 강된장이 전혀 안짜서 많이 퍼먹기 좋아요."
+    "userReview": "배추전이라는 메뉴가 생소해서 시켜봤는데, 처음 먹어보는 맛인데 너무 맛있네요. 재주문 의사 있습니다. 많이 파세요~"
   },
   {
     "id": 5,
     "title": "매운 치즈순살찜닭",
-    "imgSrc": "/images/review/food5.jpg",
-    "imgAlt": "음식 사진 5 (임시)",
+    "imgSrc": "https://velog.velcdn.com/images/remon/post/97079a0a-d7c9-421d-bbff-6853049a17ad/image.jpg",
     "userId": "lemon",
-    "userReview": "세번째 리뷰 저번에 먹고 맛있어서 재구매했어요. 조리도 간단하고 정말 맛있어요. 쌈 싸먹기 너무 좋고 강된장이 전혀 안짜서 많이 퍼먹기 좋아요."
+    "userReview": "치즈 양이 많아서 너무 맛있어요!! 이렇게 많이 주는 곳은 처음이네요ㅎㅎ"
   }
 ]

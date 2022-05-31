@@ -1,0 +1,42 @@
+@import '../../../styles/variables.scss';
+@mixin itemText {
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.menuInfo {
+  display: grid;
+  grid-template-columns: 130px 1fr 50px;
+  align-items: center;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+
+  .menuPhotoBox {
+    height: 130px;
+
+    .menuPhoto {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .menuData {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+
+    .menuName {
+      @include itemText();
+      padding-bottom: 10px;
+    }
+  }
+
+  .menuCart {
+    @include flexCenter();
+    height: 50px;
+    border-radius: 50%;
+    background-color: $mainColor;
+    cursor: pointer;
+  }
+}

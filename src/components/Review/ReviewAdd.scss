@@ -78,7 +78,7 @@
         }
       }
 
-      .review {
+      .reviewWrite {
         width: 100%;
 
         label {
@@ -108,6 +108,11 @@
 
         &:hover {
           background-color: $mainDarkColor;
+        }
+
+        &:disabled {
+          background-color: $mainDarkColor;
+          cursor: default;
         }
       }
     }

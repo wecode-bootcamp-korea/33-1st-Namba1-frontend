@@ -1,25 +1,14 @@
 import React from 'react';
 import './UserFileImg.scss';
 
-const UserFileImg = ({ onRemove }) => {
-  const userImg = [
-    {
-      id: 1,
-      img: '/images/review/food5.jpg',
-    },
-  ];
-
+const UserFileImg = ({ onRemove, imageSrc }) => {
   return (
-    <>
-      {userImg.map(({ id, img }) => (
-        <div key={id} className="userfileimg">
-          <button className="delete" onClick={onRemove}>
-            삭제
-          </button>
-          <img src={img} alt="임시 사진" />
-        </div>
-      ))}
-    </>
+    <div className="userfileimg">
+      <button className="delete" onClick={onRemove}>
+        삭제
+      </button>
+      <img src={imageSrc} alt="preview-img" />
+    </div>
   );
 };
 

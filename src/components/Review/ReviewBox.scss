@@ -22,25 +22,4 @@
       }
     }
   }
-
-  .pagination {
-    text-align: center;
-    margin: 50px;
-
-    .pages {
-      margin: 0 10px;
-
-      button {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-        font-weight: 700;
-
-        &.current {
-          color: #fff;
-          background-color: #2f3438;
-        }
-      }
-    }
-  }
 }

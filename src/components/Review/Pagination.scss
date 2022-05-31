@@ -1,0 +1,30 @@
+.pagination {
+  text-align: center;
+  margin: 50px;
+
+  .prevBtn,
+  .nextBtn {
+    font-size: 20px;
+    margin: 15px;
+  }
+
+  .paginationBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+
+    &[disabled] {
+      background: grey;
+      cursor: revert;
+      transform: revert;
+    }
+
+    &[aria-current] {
+      color: #fff;
+      background-color: #2f3438;
+      cursor: revert;
+      transform: revert;
+    }
+  }
+}
