@@ -9,11 +9,12 @@ const Recommend = () => {
   const totalSlide = RECOMMEND_PHOTO.length - 1;
   const [tasteOption, setTasteOption] = useState('매콤한맛');
   const [tasteImg, setTasteImg] = useState([]);
+  const navigate = useNavigate();
   const location = useLocation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
-  console.log('here', location);
+  console.log(location.search);
 
   const nextSlide = () => {
     if (currentSlide >= totalSlide) {
@@ -36,15 +37,16 @@ const Recommend = () => {
   }, [currentSlide]);
 
   useEffect(() => {
-    fetch('/data/newProduct.json')
+    fetch(`/data/newProduct.json${location.search}`)
       .then(res => res.json())
       .then(data => {
         setTasteImg(data.allMenu);
       });
-  }, [tasteOption]);
+  }, [location.search]);
 
-  const getTasteBtn = () => {
-    console.log('hi');
+  const getTasteBtn = tasteOption => {
+    const queryString = `?taste=${tasteOption}`;
+    navigate(`${queryString}`);
   };
 
   return (

@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ReviewCarousel.scss';
 
 const ReviewCarousel = () => {
-  const TOTAL_SLIDES = REVIEW_LIST.length - 1;
+  const TOTAL_SLIDES = 3;
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [review, setReview] = useState([]);
   const slideRef = useRef(null);
 
   const nextSlide = () => {
@@ -29,18 +30,26 @@ const ReviewCarousel = () => {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
+  useEffect(() => {
+    fetch('/data/bestReview.json')
+      .then(res => res.json())
+      .then(data => {
+        setReview(data);
+      });
+  }, []);
+
   return (
     <div className="reviewCarousel">
       <div className="reviewDisplay" ref={slideRef}>
-        {REVIEW_LIST.map(({ id, name, content, src, alt }) => {
+        {review.map(({ id, title, userReview, imgSrc, imgAlt }) => {
           return (
             <div key={id} className="reviewBox">
               <div className="reviewContentBox">
-                <div className="reviewContentTitle">{name}</div>
-                <div className="reviewContentText">{content}</div>
+                <div className="reviewContentTitle">{title}</div>
+                <div className="reviewContentText">{userReview}</div>
               </div>
               <div className="reviewImgBox">
-                <img className="reviewImg" src={src} alt={alt} />
+                <img className="reviewImg" src={imgSrc} alt={imgAlt} />
               </div>
             </div>
           );
@@ -50,7 +59,7 @@ const ReviewCarousel = () => {
         <button className="recommendBtn">
           <FontAwesomeIcon icon={faArrowLeft} onClick={prevSlide} />
         </button>
-        {currentSlide + 1} / {REVIEW_LIST.length}
+        {currentSlide + 1} / {review.length}
         <button className="recommendBtn">
           <FontAwesomeIcon icon={faArrowRight} onClick={nextSlide} />
         </button>
@@ -58,29 +67,5 @@ const ReviewCarousel = () => {
     </div>
   );
 };
-
-const REVIEW_LIST = [
-  {
-    id: 1,
-    name: '소고기듬뿍잡채',
-    content: '대박대박대박마싯ㅇ어용',
-    src: '/images/main/lunch.jpg',
-    alt: 'lunch',
-  },
-  {
-    id: 2,
-    name: '소고기듬뿍잡채',
-    content: '야용',
-    src: '/images/main/lunch.jpg',
-    alt: 'lunch',
-  },
-  {
-    id: 3,
-    name: '소고기듬뿍잡채',
-    content: '대박대박대박마싯ㅇ어용',
-    src: '/images/main/lunch.jpg',
-    alt: 'lunch',
-  },
-];
 
 export default ReviewCarousel;

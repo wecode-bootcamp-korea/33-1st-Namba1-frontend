@@ -25,10 +25,10 @@ const RecommendDrop = ({ taste, setTaste, getTasteBtn }) => {
             return (
               <li
                 key={id}
-                onClick={() => {
+                onClick={e => {
                   setTaste(taste);
                   activateDropdown();
-                  getTasteBtn();
+                  getTasteBtn(e.target.innerHTML);
                 }}
               >
                 {taste}
