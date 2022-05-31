@@ -7,7 +7,8 @@
 
 .menuInfo {
   display: grid;
-  grid-template-columns: 130px 1fr;
+  grid-template-columns: 130px 1fr 50px;
+  align-items: center;
   border-top: 1px solid #ebebeb;
   border-bottom: 1px solid #ebebeb;
 
@@ -23,12 +24,19 @@
   .menuData {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     padding-left: 10px;
 
     .menuName {
       @include itemText();
       padding-bottom: 10px;
     }
+  }
+
+  .menuCart {
+    @include flexCenter();
+    height: 50px;
+    border-radius: 50%;
+    background-color: $mainColor;
+    cursor: pointer;
   }
 }

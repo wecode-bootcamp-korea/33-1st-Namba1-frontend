@@ -8,6 +8,21 @@ import Review from '../../components/Main/Review/Review.js';
 import './Main.scss';
 
 function Main() {
+  const MENU = [
+    {
+      id: 1,
+      className: 'menu1',
+      title: '남바완 메뉴 보기',
+      src: '/images/main/market.jpg',
+    },
+    {
+      id: 2,
+      className: 'menu2',
+      title: '한정 수량 MD의 추천',
+      src: '/images/main/market2.jpg',
+    },
+  ];
+
   return (
     <div className="main">
       <Nav />
@@ -21,17 +36,9 @@ function Main() {
       {/* TO DO : 리뷰 어떤 식으로 데이터 받아올지 회의 후 목데이터 작업하기 */}
       <Review />
       <div className="product">
-        {/* TO DO : Menu와 MDMenu 하나의 컴포넌트로 재사용할 수 있는 방법이 있을 것 같네요! */}
-        <Menu
-          className="menu1"
-          title="남바완 메뉴 보기"
-          src="/images/main/market.jpg"
-        />
-        <Menu
-          className="menu2"
-          title="한정 수량 MD의 추천"
-          src="/images/main/market2.jpg"
-        />
+        {MENU.map(({ id, className, title, src }) => (
+          <Menu key={id} className={className} title={title} src={src} />
+        ))}
       </div>
     </div>
   );

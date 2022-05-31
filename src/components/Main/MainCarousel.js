@@ -43,15 +43,18 @@ const MainCarousel = () => {
       <button className="nextButton" type="button" onClick={nextSlide}>
         <FontAwesomeIcon icon={faArrowRight} />
       </button>
+      <div className="currentSlide">
+        {currentSlide + 1} / {MAIN_SLIDE.length}
+      </div>
     </div>
   );
 };
 
 const MAIN_SLIDE = [
-  { id: 1, src: '/images/main/meat.jpg', alt: 'meat' },
-  { id: 2, src: '/images/main/dinner.jpg', alt: 'dinner' },
-  { id: 3, src: '/images/main/salad.jpg', alt: 'salad' },
-  { id: 4, src: '/images/main/dinner.jpg', alt: 'dinner' },
+  { id: 1, src: '/images/main/banner1.png', alt: 'meat' },
+  { id: 2, src: '/images/main/banner2.png', alt: 'dinner' },
+  { id: 3, src: '/images/main/banner3.png', alt: 'salad' },
+  { id: 4, src: '/images/main/banner4.png', alt: 'dinner' },
 ];
 
 export default MainCarousel;
