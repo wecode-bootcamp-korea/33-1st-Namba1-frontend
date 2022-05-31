@@ -3,14 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import RecommendDrop from './RecommendDrop.js';
 import './Recommend.scss';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Recommend = () => {
-  const TOTAL_SLIDES = RECOMMEND_PHOTO.length - 1;
+  const totalSlide = RECOMMEND_PHOTO.length - 1;
+  const [tasteOption, setTasteOption] = useState('매콤한맛');
+  const [tasteImg, setTasteImg] = useState([]);
+  const location = useLocation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
+  console.log('here', location);
+
   const nextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES) {
+    if (currentSlide >= totalSlide) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
@@ -18,7 +24,7 @@ const Recommend = () => {
   };
   const prevSlide = () => {
     if (currentSlide === 0) {
-      setCurrentSlide(TOTAL_SLIDES);
+      setCurrentSlide(totalSlide);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
@@ -29,10 +35,26 @@ const Recommend = () => {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
+  useEffect(() => {
+    fetch('/data/newProduct.json')
+      .then(res => res.json())
+      .then(data => {
+        setTasteImg(data.allMenu);
+      });
+  }, [tasteOption]);
+
+  const getTasteBtn = () => {
+    console.log('hi');
+  };
+
   return (
     <div className="recommend">
       <div className="recommendContent">
-        <RecommendDrop />
+        <RecommendDrop
+          getTasteBtn={getTasteBtn}
+          taste={tasteOption}
+          setTaste={setTasteOption}
+        />
         <div className="recommendMsg">메뉴</div>
         <div className="recommendMsg">추천드려요 :D</div>
         <div className="recommendCarouselBtns">
@@ -40,7 +62,7 @@ const Recommend = () => {
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <span className="currentSlide">
-            {currentSlide + 1}/{RECOMMEND_PHOTO.length}
+            {currentSlide + 1}/{tasteOption.length}
           </span>
           <button className="recommendBtn" onClick={nextSlide}>
             <FontAwesomeIcon icon={faArrowRight} />
@@ -49,8 +71,8 @@ const Recommend = () => {
       </div>
       <div className="recommendPhoto">
         <div className="recommendPhotoDisplay" ref={slideRef}>
-          {RECOMMEND_PHOTO.map(({ id, src, alt }) => {
-            return <img key={id} src={src} alt={alt} />;
+          {tasteImg.map(({ id, name, image }) => {
+            return <img key={id} src={image} alt={name} />;
           })}
         </div>
       </div>

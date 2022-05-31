@@ -3,16 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import './RecommendDrop.scss';
 
-const RecommendDrop = () => {
+const RecommendDrop = ({ taste, setTaste, getTasteBtn }) => {
   const dropdownRef = useRef(null);
-  const [tasteOption, setTasteOption] = useState('매콤한맛');
   const [isActive, setIsActive] = useState(false);
   const activateDropdown = () => setIsActive(!isActive);
 
   return (
     <div className="recommendDrop">
       <button onClick={activateDropdown} className="recommendDropTrigger">
-        <span>{tasteOption}</span>
+        <span>{taste}</span>
         <span>
           <FontAwesomeIcon icon={faAngleDown} />
         </span>
@@ -27,8 +26,9 @@ const RecommendDrop = () => {
               <li
                 key={id}
                 onClick={() => {
-                  setTasteOption(taste);
+                  setTaste(taste);
                   activateDropdown();
+                  getTasteBtn();
                 }}
               >
                 {taste}
