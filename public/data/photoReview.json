@@ -65,30 +65,6 @@
   },
   {
     "id": 9,
-    "title": "김치찌개",
-    "date": "2022-05-23",
-    "imageSrc": "",
-    "userId": "lemon",
-    "userInput": "이거 먹은 후로 일주일에 한번씩은 계속 생각나네요. 이번에 또 재주문 하려고요ㅠㅜ"
-  },
-  {
-    "id": 10,
-    "title": "매운 치즈순살찜닭",
-    "date": "2022-05-23",
-    "imageSrc": "",
-    "userId": "lemon",
-    "userInput": "고추는 확실히 매우니 진짜 조절 잘 하셔야 할거예요. 저희집 식구들은 매운거 정말 못먹어서 거의 안넣다시피 했는데도 다들 맛있다고 잘 먹었어요"
-  },
-  {
-    "id": 11,
-    "title": "치즈닭갈비",
-    "date": "2022-05-23",
-    "imageSrc": "",
-    "userId": "lemon",
-    "userInput": "맛이 있어서 늘 주문하는 메뉴 중의 하나 입니다. 닭은 항상 지니죠. 이번에도 맛있게 먹었어요."
-  },
-  {
-    "id": 12,
     "title": "비빔국수",
     "date": "2022-05-23",
     "imageSrc": "https://velog.velcdn.com/images/remon/post/9d059c57-eef5-43ff-9813-7d37fec2b494/image.jpg",

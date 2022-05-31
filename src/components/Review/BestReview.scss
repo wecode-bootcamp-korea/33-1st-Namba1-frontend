@@ -5,7 +5,6 @@
 
   .bestSliderWarp {
     position: relative;
-    display: flex;
     overflow: hidden;
 
     &::after {
@@ -23,36 +22,40 @@
       );
     }
 
-    .reviewSlider {
-      margin-right: 48px;
+    div {
+      display: flex;
 
-      .bestReviewImgBox {
-        position: relative;
-        width: 520px;
-        height: 324px;
-        overflow: hidden;
+      .reviewSlider {
+        margin-right: 48px;
 
-        .bestBg {
-          position: absolute;
-          top: 0;
-          left: 30px;
-          width: 66px;
-          height: 66px;
-          background-color: rgba(250, 191, 1, 0.8);
-          z-index: 50;
+        .bestReviewImgBox {
+          position: relative;
+          width: 520px;
+          height: 324px;
+          overflow: hidden;
 
-          .bestTag {
+          .bestBg {
             position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #fff;
-            font-weight: 700;
-          }
-        }
+            top: 0;
+            left: 30px;
+            width: 66px;
+            height: 66px;
+            background-color: rgba(250, 191, 1, 0.8);
+            z-index: 50;
 
-        .bestReviewImg {
-          @include positionCenter;
+            .bestTag {
+              position: absolute;
+              bottom: 10px;
+              left: 50%;
+              transform: translateX(-50%);
+              color: #fff;
+              font-weight: 700;
+            }
+          }
+
+          .bestReviewImg {
+            @include positionCenter;
+          }
         }
       }
     }
@@ -64,9 +67,15 @@
     font-weight: 700;
   }
 
+  .starBox {
+    .userId {
+      line-height: 1.6;
+    }
+  }
+
   .bestReviewDesc {
     margin: 32px 0;
-    font-size: 12px;
+    font-size: 16px;
     color: $gray;
     line-height: 1.5;
   }
