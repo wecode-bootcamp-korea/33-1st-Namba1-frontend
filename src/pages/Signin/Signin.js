@@ -1,7 +1,7 @@
 import React from 'react';
 import './Signin.scss';
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signin = () => {
   const [inputId, setInputId] = useState('');
@@ -27,7 +27,6 @@ const Signin = () => {
       .then(res => res.json())
       .then(result => {
         if (result.Token) {
-          // console.log(result.Token);
           localStorage.setItem('Token', result.Token);
         } else {
           alert('로그인 실패!');
@@ -38,7 +37,7 @@ const Signin = () => {
   };
 
   const idCondition =
-    /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
   const pwCondition = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
 

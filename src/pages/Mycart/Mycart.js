@@ -1,11 +1,19 @@
 import React from 'react';
 import './Mycart.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faReceipt } from '@fortawesome/free-solid-svg-icons';
 import {
-  faCreditCard,
+  faCartShopping,
+  faReceipt,
+  faMinus,
+  faPlus,
+  faEquals,
+  faX,
+} from '@fortawesome/free-solid-svg-icons';
+import {
   faCircleCheck,
+  faCreditCard,
 } from '@fortawesome/free-regular-svg-icons';
+import MyCartForm from '../../components/MyCartForm';
 const Mycart = () => {
   return (
     <div>
@@ -13,6 +21,7 @@ const Mycart = () => {
         <div className="container">
           <header>
             <div className="myCart">장바구니</div>
+
             <div className="cartIcon">
               <div className="myCartIcon">
                 <div className="background">
@@ -24,7 +33,7 @@ const Mycart = () => {
               </div>
 
               <div className="paymentIcon">
-                <div className="background">
+                <div className="background2">
                   <span className="icons">
                     <FontAwesomeIcon icon={faCreditCard} />
                   </span>
@@ -32,7 +41,7 @@ const Mycart = () => {
                 <p>주문결제</p>
               </div>
               <div className="checkAccount">
-                <div className="background">
+                <div className="background3">
                   <span className="icons">
                     <FontAwesomeIcon icon={faReceipt} />
                   </span>
@@ -59,63 +68,29 @@ const Mycart = () => {
                 <p>2022-06-30(목) 도착예정</p>
               </span>
             </p>
-            <div class="foodContent">
-              <p className="foodList">
-                <FontAwesomeIcon icon={faCircleCheck} />
-              </p>
-              <div className="firstItem">
-                <img
-                  className="foodPhoto"
-                  src="/images/menu/쿵팟퐁커리.png"
-                  alt="curry"
-                />
-                <div className="food1">
-                  <p>품절임박 6개</p>
-                  <p>햇반과 쿵팟퐁커리</p>
-                  <p>27,800원</p>
-                </div>
-              </div>
-            </div>
-
-            <p className="foodList2">
-              <FontAwesomeIcon icon={faCircleCheck} />
-              <span className="secondItem">
-                <img
-                  className="foodPhoto2"
-                  src="/images/menu/쿵팟퐁커리.png"
-                  alt="curry"
-                />
-              </span>
-              <div className="food2">
-                <p>품절임박 6개</p>
-                <p>햇반과 쿵팟퐁커리</p>
-                <p>27,800원</p>
-              </div>
-              <div className="boxBtn">
-                <button type="button" class="btnAmountMinus" />
-                <button type="button" class="btnAmountPlus" />
-              </div>
-              <div className="foodPrice">
-                <p>27,800원</p>
-              </div>
-            </p>
+            <MyCartForm />
+            <MyCartForm />
           </div>
           <div className="totalPayment">
-            <span>
-              총 상품금액 <strong>18,800원</strong>
+            <span className="totalPrice">총 상품금액</span>
+            <span className="minus">
+              <FontAwesomeIcon icon={faMinus} />
             </span>
-            <span className="minus">빼기</span>
-            <span className="discount">
-              총 할인금액 <strong>0원</strong>
+            <span className="discount">총 할인금액</span>
+            <span className="plus">
+              <FontAwesomeIcon icon={faPlus} />
             </span>
-            <span className="plus">더하기</span>
-            <span className="deliveryFee">
-              총 배송비 <strong>3,000원</strong>
+            <span className="deliveryFee">총 배송비</span>
+            <span className="equal">
+              <FontAwesomeIcon icon={faEquals} />
             </span>
-            <span className="equal">는</span>
-            <span className="total">
-              총 결제예정금액 <strong>21,800원</strong>
-            </span>
+            <span className="total">총 결제예정금액</span>
+          </div>
+          <div className="paymentArea">
+            <span className="priceArea">10,000원</span>
+            <span className="discountArea">2,000원</span>
+            <span className="deliveryArea">3,000원</span>
+            <span className="totalCount">11,000원</span>
           </div>
         </div>
       </div>

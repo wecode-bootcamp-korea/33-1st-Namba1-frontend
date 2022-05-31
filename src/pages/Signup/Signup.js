@@ -5,7 +5,7 @@ import SignUpForm from '../../components/SignUpForm';
 
 const Signup = () => {
   useEffect(() => {
-    fetch('http://10.58.5.168:8000/users/signup', {
+    fetch('http://10.58.1.100:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: '',
@@ -24,7 +24,7 @@ const Signup = () => {
         }
       })
       .then(result => {
-        navigator('/login');
+        navigator('/쿡킷메인');
         // localStorage.setItem(‘TOKEN’, result.access_token);
       });
   }, []);
@@ -48,7 +48,6 @@ const Signup = () => {
 
   const { email, name, password, passwordConfirm, phoneNumber, birth } =
     inputValue;
-
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
@@ -288,7 +287,7 @@ const SIGNUP_DATA = [
     id: 2,
     title: '이름 *',
     type: 'text',
-    name: 'userName',
+    name: 'name',
     placeholder: '',
     value: 'username',
   },
