@@ -1,6 +1,4 @@
 import React from 'react';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
 
@@ -9,7 +7,7 @@ const Nav = () => {
     <nav className="nav">
       <h1 className="logo">
         <Link to="/" className="logoLink">
-          남바완
+          <img src="/images/nav/namba1_logo.png" alt="nambaLogo" />
         </Link>
       </h1>
       <ul className="pageMenu">
@@ -43,16 +41,9 @@ const Nav = () => {
 const PAGENAV_LIST = [
   { id: 1, page: '메뉴', url: '/menu' },
   { id: 2, page: '리뷰', url: '/review' },
-  { id: 3, page: '마이페이지', url: 'mypage' },
+  { id: 3, page: '마이카트', url: 'mycart' },
 ];
 
-const MY_NAV_LIST = [
-  { id: 1, page: '로그인', url: '/signin' },
-  {
-    id: 2,
-    page: <FontAwesomeIcon icon={faCartShopping} className="cart" />,
-    url: '/cart',
-  },
-];
+const MY_NAV_LIST = [{ id: 1, page: '로그인', url: '/signin' }];
 
 export default Nav;

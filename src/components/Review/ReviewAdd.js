@@ -10,14 +10,14 @@ const ReviewAdd = ({
   saveReviewInput,
   saveReviewMenu,
   onCreatReview,
+  imageSrc,
+  isRemoveImg,
+  encodeFileToBase64,
+  selectMenu,
+  reviewValue,
 }) => {
   const [menu, setMenu] = useState([]);
-  const [userImg, setUserImg] = useState(true);
   const outSection = useRef();
-
-  const isRemoveImg = () => {
-    setUserImg(false);
-  };
 
   useEffect(() => {
     const escKeyModalClose = e => {
@@ -37,6 +37,8 @@ const ReviewAdd = ({
       });
   }, [setMenu]);
 
+  const isDisabled = selectMenu === '' || reviewValue.length < 20;
+
   return (
     <section className="reviewadd">
       {reviewAdd ? (
@@ -53,7 +55,9 @@ const ReviewAdd = ({
             <h3 className="reviewWriteHead">리뷰 쓰기</h3>
 
             <select name="상품선택" onChange={saveReviewMenu} required>
-              <option disabled>메뉴를 선택해주세요.</option>
+              <option disabled defaultValue>
+                메뉴를 선택해주세요.
+              </option>
               {menu.map(({ id, menuName }) => (
                 <option key={id}>{menuName}</option>
               ))}
@@ -66,25 +70,37 @@ const ReviewAdd = ({
                 (최대 1장)
               </p>
 
-              {userImg ? <UserFileImg onRemove={isRemoveImg} /> : null}
+              {imageSrc && (
+                <UserFileImg onRemove={isRemoveImg} imageSrc={imageSrc} />
+              )}
 
               <div className="reviewFileUplode">
                 <label className="reviewFileUplodeTitle">사진 첨부하기</label>
-                <input className="reviewFileUplodeInput" type="file" />
+                <input
+                  className="reviewFileUplodeInput"
+                  type="file"
+                  onChange={e => {
+                    encodeFileToBase64(e.target.files[0]);
+                  }}
+                />
               </div>
 
-              <div className="review">
+              <div className="reviewWrite">
                 <label className="userReviewWrite">리뷰 작성</label>
                 <textarea
                   onChange={saveReviewInput}
                   placeholder="자세하고 솔직한 리뷰는 다른 고객에게 큰 도움이 됩니다 (최소 20자 이상)"
                   required
-                  maxLength="100"
+                  maxLength="150"
                   minLength="20"
                 />
               </div>
 
-              <button className="reviewSubmitBtn" onClick={onCreatReview}>
+              <button
+                className="reviewSubmitBtn"
+                onClick={onCreatReview}
+                disabled={isDisabled && true}
+              >
                 완료
               </button>
             </form>

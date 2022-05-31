@@ -1,0 +1,52 @@
+@import '../../../styles/variables.scss';
+
+.recommendDrop {
+  position: relative;
+
+  .recommendDropTrigger {
+    @include primaryFont();
+    display: flex;
+    justify-content: space-between;
+    width: 230px;
+    height: 50px;
+    border: none;
+    border-bottom: 4px solid black;
+    background-color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .recommendNav {
+    background: #ffffff;
+    border-radius: 5px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 240px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    font-size: 35px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 15px 10px;
+        border-bottom: 1px solid #dddddd;
+      }
+    }
+  }
+
+  .active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}

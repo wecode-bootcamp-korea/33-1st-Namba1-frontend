@@ -18,6 +18,11 @@
 
 $mainColor: #fabf01;
 $subColor: #231915;
+@mixin mainTitleSize {
+  font-size: 2.5em;
+  font-weight: 800;
+}
+
 @mixin positionCenter {
   position: absolute;
   top: 50%;
