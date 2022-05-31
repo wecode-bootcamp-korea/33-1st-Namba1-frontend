@@ -13,7 +13,7 @@ const ProductImages = ({ id, name, image }) => {
       <img className="bigImage" key={id} src={image[0]} alt={name} />
       <div className="smallImages">
         <FontAwesomeIcon icon={faChevronLeft} className="chevronIcon" />
-        {image.map(({ id, image, name }) => (
+        {image.map(item => (
           <SmallImages key={id} source={image} alt={name} />
         ))}
         <FontAwesomeIcon icon={faChevronRight} className="chevronIcon" />
