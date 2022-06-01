@@ -19,10 +19,13 @@ const ReviewAdd = ({
 }) => {
   const [menu, setMenu] = useState([]);
   const [menuSelect, setMenuSelect] = useState('');
+  const [show, setShow] = useState(false);
 
   const outSection = useRef();
-
   const isDisabled = selectMenu === '' || reviewValue.length < 20;
+  const isMenuSelectShow = () => {
+    setShow(!show);
+  };
 
   useEffect(() => {
     const escKeyModalClose = e => {
@@ -41,6 +44,7 @@ const ReviewAdd = ({
         setMenu(data);
       });
   }, [setMenu]);
+
   return (
     <section className="reviewadd">
       {reviewAdd ? (
@@ -57,10 +61,8 @@ const ReviewAdd = ({
             <h3 className="reviewWriteHead">리뷰 쓰기</h3>
 
             <ul
-              className="menuSelect"
-              name="상품선택"
-              onClick={saveReviewMenu}
-              required
+              onClick={isMenuSelectShow}
+              className={show ? 'menuSelect show' : 'menuSelect'}
             >
               {menuSelect === '' ? '메뉴를 선택해주세요.' : menuSelect}
               <div className="menuSelectBox">
@@ -70,6 +72,7 @@ const ReviewAdd = ({
                     onClick={e => {
                       e.preventDefault();
                       saveMenuId(id);
+                      saveReviewMenu(e.target.innerText);
                       setMenuSelect(e.target.innerText);
                     }}
                   >
