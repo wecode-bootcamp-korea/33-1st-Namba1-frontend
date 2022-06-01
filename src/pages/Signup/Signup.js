@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
 import SignUpForm from '../../components/SignUpForm';
 
@@ -25,30 +25,29 @@ const Signup = () => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
-
-  const goSignUp = () => {
-    fetch('http://10.58.5.168:8000/users/signup', {
+  const navigate = useNavigate();
+  const goSignUp = e => {
+    fetch('http://10.58.0.124:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
         name: name,
         password: password,
-        passwordConfirm: passwordConfirm,
         phoneNumber: numberInputValue,
         birth: birthInputValue,
+        agreement: {
+          allCheck: allCheck,
+          ageCheck: ageCheck,
+          termsCheck: termsCheck,
+          marketingCheck: marketingCheck,
+        },
       }),
     })
       .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          alert('이메일과 비밀번호를 다시 한번 확인해주세요!');
-        }
+        res.json();
       })
-      .then(result => {
-        navigator('/signup');
-        // localStorage.setItem(‘TOKEN’, result.access_token);
-      });
+      .then(result => {});
+    navigate('/');
   };
 
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^~*+=-])(?=.*[0-9]).{8,}$/;

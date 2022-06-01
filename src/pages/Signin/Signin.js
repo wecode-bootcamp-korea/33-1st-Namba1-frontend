@@ -17,7 +17,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const goToSignUp = e => {
     e.preventDefault();
-    fetch('http://10.58.1.230:8000/user/login', {
+    fetch('http://10.58.0.124:8000/user/login', {
       method: 'POST',
       body: JSON.stringify({
         email: inputId,
@@ -33,7 +33,7 @@ const Signin = () => {
         }
       });
 
-    navigate('/쿡킷메인페이지');
+    navigate('/');
   };
 
   const idCondition =

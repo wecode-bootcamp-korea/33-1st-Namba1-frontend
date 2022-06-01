@@ -92,7 +92,12 @@ const Mycart = () => {
               count={count}
               handleCountUpdate={handleCountUpdate}
             />
-            <MyCartForm />
+            <MyCartForm
+              productList={productList}
+              handleCountMinus={handleCountMinus}
+              count={count}
+              handleCountUpdate={handleCountUpdate}
+            />
           </div>
           <div className="totalPayment">
             <span className="totalPrice">총 상품금액</span>

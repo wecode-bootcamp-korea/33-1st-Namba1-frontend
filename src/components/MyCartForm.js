@@ -31,6 +31,7 @@ function MyCartForm({
           <button
             type="button"
             className="btnAmountMinus"
+            disabled={count === 1}
             onClick={handleCountMinus}
           >
             <FontAwesomeIcon icon={faMinus} />
