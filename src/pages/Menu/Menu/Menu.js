@@ -9,38 +9,56 @@ import './Menu.scss';
 const Menu = () => {
   const [menuCard, setMenuCard] = useState([]);
   const [title, setTitle] = useState('전체');
+  const [searchTerms, setSearchTerms] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [filterItem, setFilterItem] = useState({
+    themeValue: '',
+    sortValue: '-id',
+  });
 
   const titleHandler = event => {
     setTitle(event.target.innerText);
   };
 
   useEffect(() => {
-    fetch('/data/productList.json')
-      // fetch('http://10.58.1.100:8000/products${location.search}')
+    fetch(`http://10.58.0.124:8000/products${location.search}`)
       .then(response => response.json())
-      .then(data => setMenuCard(data));
-    // .then(data => setMenuCard(data.product_list));
-    // }, [location.search]);
-  }, []);
+      .then(data => setMenuCard(data.product_list));
+  }, [location.search]);
+
+  useEffect(() => {
+    const queryString = `?${
+      filterItem.themeValue ? `themeId=${filterItem.themeValue}` : ''
+    }${filterItem.sortValue ? `&sort=${filterItem.sortValue}` : ''}`;
+    navigate(queryString);
+  }, [filterItem]);
 
   const getCategoryIdx = categoryIdx => {
-    const theme = categoryIdx;
-    const queryString = `?theme=${theme}`;
-    navigate(`/products${queryString}`);
+    setFilterItem(prev => {
+      return { ...prev, themeValue: categoryIdx };
+    });
   };
 
   const getOrderIdx = orderIdx => {
-    const sort = orderIdx;
-    const queryString = `?theme=${theme}&sort=${sort}`;
-    navigate(`/products${queryString}`);
+    setFilterItem(prev => {
+      return { ...prev, sortValue: orderIdx };
+    });
+  };
+
+  const updateSearchTerms = newSearchTerm => {
+    setSearchTerms(newSearchTerm);
   };
 
   return (
     <div className="menu">
       <header className="category">
-        <Category titleHandler={titleHandler} getCategoryIdx={getCategoryIdx} />
+        <Category
+          titleHandler={titleHandler}
+          getCategoryIdx={getCategoryIdx}
+          updateSearchTerms={updateSearchTerms}
+        />
       </header>
       <div className="filter">
         <Order title={title} getOrderIdx={getOrderIdx} />

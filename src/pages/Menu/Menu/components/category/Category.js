@@ -3,7 +3,7 @@ import Checkbox from './Checkbox';
 import Searchbox from './Searchbox';
 import './Category.scss';
 
-const Category = ({ titleHandler, getCategoryIdx }) => {
+const Category = ({ titleHandler, getCategoryIdx, updateSearchTerms }) => {
   const [isCheckboxOpen, setIsCheckboxOpen] = useState(false);
   const [isSearchboxOpen, setIsSearchboxOpen] = useState(false);
 
@@ -44,7 +44,9 @@ const Category = ({ titleHandler, getCategoryIdx }) => {
               getCategoryIdx={getCategoryIdx}
             />
           ) : null}
-          {isSearchboxOpen ? <Searchbox /> : null}
+          {isSearchboxOpen ? (
+            <Searchbox updateSearchTerms={updateSearchTerms} />
+          ) : null}
         </div>
       </div>
     </div>

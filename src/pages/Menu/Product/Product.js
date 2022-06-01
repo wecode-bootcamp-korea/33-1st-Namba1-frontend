@@ -21,13 +21,11 @@ const Product = () => {
   } = product;
 
   useEffect(() => {
-    fetch(`/data/details.json`)
-      // fetch(`http://10.58.1.100:8000/products/${params.id}`)
+    fetch(`http://10.58.0.124:8000/products/${params.id}`)
       .then(response => {
         return response.json();
       })
-      .then(data => setProduct(data));
-    // .then(data => setProduct(data.product_detail));
+      .then(data => setProduct(data.product_detail));
   }, [params.id]);
 
   return (

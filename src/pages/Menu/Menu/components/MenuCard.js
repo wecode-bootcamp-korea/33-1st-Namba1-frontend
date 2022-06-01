@@ -22,7 +22,7 @@ const MenuCard = ({ id, name, servings, cookTime, spice, price, image }) => {
       <div className="prep">
         <p className="first">{servings}인분</p>
         <p className="second">조리 {cookTime}분</p>
-        <p className="third">{!spice ? null : `${spice} 매운맛`}</p>
+        <p className="third">{spice === [] ? null : `${spice} 매운맛`}</p>
       </div>
 
       <p className="productName">{name}</p>

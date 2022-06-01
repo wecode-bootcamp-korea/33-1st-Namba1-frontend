@@ -15,7 +15,7 @@ function Checkbox({ titleHandler, getCategoryIdx }) {
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
     titleHandler(event);
-    getCategoryIdx(event.target.innerHTML);
+    getCategoryIdx(event.target.value);
   };
 
   const kidsBtnHandler = event => {
@@ -25,7 +25,7 @@ function Checkbox({ titleHandler, getCategoryIdx }) {
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
     titleHandler(event);
-    getCategoryIdx(event.target.innerHTML);
+    getCategoryIdx(event.target.value);
   };
 
   const newBtnHandler = event => {
@@ -35,7 +35,7 @@ function Checkbox({ titleHandler, getCategoryIdx }) {
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
     titleHandler(event);
-    getCategoryIdx(event.target.innerHTML);
+    getCategoryIdx(event.target.value);
   };
 
   const koreanBtnHandler = event => {
@@ -45,7 +45,7 @@ function Checkbox({ titleHandler, getCategoryIdx }) {
     setIsNewOpen(false);
     setIsSpicyOpen(false);
     titleHandler(event);
-    getCategoryIdx(event.target.innerHTML);
+    getCategoryIdx(event.target.value);
   };
 
   const spicyBtnHandler = event => {
@@ -55,7 +55,7 @@ function Checkbox({ titleHandler, getCategoryIdx }) {
     setIsNewOpen(false);
     setIsKoreanOpen(false);
     titleHandler(event);
-    getCategoryIdx(event.target.innerHTML);
+    getCategoryIdx(event.target.value);
   };
 
   return (
@@ -71,24 +71,28 @@ function Checkbox({ titleHandler, getCategoryIdx }) {
         <button
           className={`catBtn ${isKidsOpen ? 'activated' : ''}`}
           onClick={kidsBtnHandler}
+          value="1"
         >
           KIDS
         </button>
         <button
           className={`catBtn ${isNewOpen ? 'activated' : ''}`}
           onClick={newBtnHandler}
+          value="2"
         >
           신메뉴
         </button>
         <button
           className={`catBtn ${isKoreanOpen ? 'activated' : ''}`}
           onClick={koreanBtnHandler}
+          value="3"
         >
           한식
         </button>
         <button
           className={`catBtn ${isSpicyOpen ? 'activated' : ''}`}
           onClick={spicyBtnHandler}
+          value="4"
         >
           매운맛
         </button>
@@ -96,5 +100,13 @@ function Checkbox({ titleHandler, getCategoryIdx }) {
     </div>
   );
 }
+
+// const CATEGORY_LIST = [
+//   { id: 1, name: 'KIDS', btnHandler: 'kidsBtnHandler' },
+//   { id: 2, name: '신메뉴', btnHandler: 'newBtnHandler' },
+//   { id: 3, name: '한식', btnHandler: 'koreanBtnHandler' },
+//   { id: 4, name: '매운맛', btnHandler: 'spicyBtnHandler' },
+//   { id: 5, name: '전체', btnHandler: 'menuAllBtnHandler' },
+// ];
 
 export default Checkbox;

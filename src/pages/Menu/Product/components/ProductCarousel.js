@@ -25,7 +25,7 @@ const ProductCarousel = ({ id, name, image }) => {
     <section className="productCarousel">
       <div className="productDisplay">
         {image.map((item, index) => (
-          <img key={index} source={item} alt={name} className="bigImage" />
+          <img key={index} src={item} alt="Food Item" className="bigImage" />
         ))}
       </div>
       <div className="smallImages">

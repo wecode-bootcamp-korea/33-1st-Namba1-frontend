@@ -10,21 +10,21 @@ const Order = ({ title, getOrderIdx }) => {
     setNewBtn(true);
     setHighBtn(false);
     setLowBtn(false);
-    getOrderIdx(e.target.innerHTML);
+    getOrderIdx(e.target.value);
   };
 
   const hPriceHandler = e => {
     setHighBtn(true);
     setNewBtn(false);
     setLowBtn(false);
-    getOrderIdx(e.target.innerHTML);
+    getOrderIdx(e.target.value);
   };
 
   const lPriceHandler = e => {
     setLowBtn(true);
     setNewBtn(false);
     setHighBtn(false);
-    getOrderIdx(e.target.innerHTML);
+    getOrderIdx(e.target.value);
   };
 
   return (
@@ -35,7 +35,11 @@ const Order = ({ title, getOrderIdx }) => {
           NAMBA1KIT의 주문 마감은 오전 7시입니다.
         </div>
         <ul className="filterList">
+          {/* {CATEGORY_LIST.map((id, name) => {
+            return <button type="button" 
+          })} */}
           <button
+            value="-id"
             type="button"
             onClick={newHandler}
             className={`button ${newBtn ? 'active' : ''}`}
@@ -43,23 +47,31 @@ const Order = ({ title, getOrderIdx }) => {
             신메뉴
           </button>
           <button
+            value="-price"
             type="button"
             className={`button border ${highBtn ? 'active' : ''}`}
             onClick={hPriceHandler}
           >
-            높은 가격순
+            높은가격순
           </button>
           <button
+            value="price"
             type="button"
             className={`button ${lowBtn ? 'active' : ''}`}
             onClick={lPriceHandler}
           >
-            낮은 가격순
+            낮은가격순
           </button>
         </ul>
       </div>
     </div>
   );
 };
+
+// const CATEGORY_LIST = [
+//   { id: 1, name: '신메뉴순' },
+//   { id: 2, name: '높은가격순' },
+//   { id: 3, name: '낮은가격순' },
+// ];
 
 export default Order;
