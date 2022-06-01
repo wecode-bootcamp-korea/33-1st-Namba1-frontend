@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ReviewCarousel.scss';
 
 const ReviewCarousel = () => {
-  const TOTAL_SLIDES = 3;
+  const TOTAL_SLIDES = 4;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [review, setReview] = useState([]);
   const slideRef = useRef(null);
@@ -27,7 +27,7 @@ const ReviewCarousel = () => {
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 1.0s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+    slideRef.current.style.transform = `translateX(-${currentSlide * 2}0%)`;
   }, [currentSlide]);
 
   useEffect(() => {
@@ -40,20 +40,31 @@ const ReviewCarousel = () => {
 
   return (
     <div className="reviewCarousel">
-      <div className="reviewDisplay" ref={slideRef}>
-        {review.map(({ id, title, userReview, imgSrc, imgAlt }) => {
+      <div className="reviewContentDisplay">
+        {review.map(({ id, title, userReview }) => {
           return (
-            <div key={id} className="reviewBox">
-              <div className="reviewContentBox">
-                <div className="reviewContentTitle">{title}</div>
-                <div className="reviewContentText">{userReview}</div>
-              </div>
-              <div className="reviewImgBox">
-                <img className="reviewImg" src={imgSrc} alt={imgAlt} />
-              </div>
+            <div
+              key={id}
+              className={`reviewContentBox ${
+                id - 1 === currentSlide ? 'active' : 'hidden'
+              }`}
+            >
+              <div className="reviewContentTitle">{title}</div>
+              <div className="reviewContentText">{userReview}</div>
             </div>
           );
         })}
+      </div>
+      <div className="reviewImgDisplay">
+        <div className="reviewImgBox" ref={slideRef}>
+          {review.map(({ id, imgSrc, imgAlt }) => {
+            return (
+              <div key={id} className="reviewImgBox">
+                <img className="reviewImg" src={imgSrc} alt={imgAlt} />
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div className="carouselBtns">
         <button className="recommendBtn">

@@ -1,43 +1,57 @@
 .reviewCarousel {
-  display: flex;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  grid-column-gap: 15%;
+  height: 100%;
+  margin-top: 30px;
 
-  .reviewDisplay {
-    display: flex;
-    width: 88%;
+  .reviewContentDisplay {
+    position: relative;
 
-    .reviewBox {
-      display: flex;
-      position: relative;
-      margin: 30px 100px 0px 0px;
-      height: 420px;
-      width: 90%;
+    .reviewContentBox {
+      position: absolute;
+      left: 0;
 
-      .reviewContentBox {
-        position: absolute;
-        padding-top: 30px;
-        width: 350px;
-
-        .reviewContentTitle {
-          font-size: 25px;
-          font-weight: bold;
-        }
-
-        .reviewContentText {
-          width: 65%;
-          padding-top: 30px;
-          font-size: 25px;
-        }
+      &.hidden {
+        opacity: 0;
+        transition: opacity 800ms ease-in-out;
       }
 
-      .reviewImgBox {
-        .reviewImg {
-          margin-left: 300px;
-          height: 100%;
-        }
+      &.active {
+        opacity: 1;
+        transition: opacity 800ms ease-in-out;
+      }
+
+      .reviewContentTitle {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .reviewContentText {
+        margin-top: 30px;
+        font-size: 25px;
       }
     }
   }
+
+  .reviewImgDisplay {
+    display: flex;
+    width: 500%;
+    overflow: hidden;
+
+    .reviewImgBox {
+      display: flex;
+    }
+
+    .reviewImgBox {
+      padding-right: 50px;
+
+      .reviewImg {
+        width: 100%;
+      }
+    }
+  }
+
   .carouselBtns {
     position: absolute;
     bottom: 0px;
