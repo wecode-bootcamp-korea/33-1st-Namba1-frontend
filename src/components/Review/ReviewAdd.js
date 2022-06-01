@@ -9,7 +9,7 @@ const ReviewAdd = ({
   isReviewAdd,
   saveReviewInput,
   saveReviewMenu,
-  onCreatReview,
+  onCreateReview,
   imageSrc,
   isRemoveImg,
   encodeFileToBase64,
@@ -101,7 +101,7 @@ const ReviewAdd = ({
 
               <button
                 className="reviewSubmitBtn"
-                onClick={onCreatReview}
+                onClick={onCreateReview}
                 disabled={isDisabled && true}
               >
                 완료

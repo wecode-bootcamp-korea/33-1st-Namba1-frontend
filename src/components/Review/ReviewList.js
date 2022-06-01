@@ -7,7 +7,7 @@ const ReviewList = ({ review, offset, limit }) => {
   return (
     <ul className="reviewlist">
       {review
-        .slice(offset, offset + limit)
+        // .slice(offset, offset + limit)
         .map(({ id, title, date, userId, userInput, imageSrc }) => (
           <ReviewListItem
             key={id}
