@@ -3,7 +3,7 @@ import Checkbox from './Checkbox';
 import Searchbox from './Searchbox';
 import './Category.scss';
 
-const Category = ({ titleHandler }) => {
+const Category = ({ titleHandler, getCategoryIdx }) => {
   const [isCheckboxOpen, setIsCheckboxOpen] = useState(false);
   const [isSearchboxOpen, setIsSearchboxOpen] = useState(false);
 
@@ -38,7 +38,12 @@ const Category = ({ titleHandler }) => {
           </button>
         </div>
         <div className="flexRight">
-          {isCheckboxOpen ? <Checkbox titleHandler={titleHandler} /> : null}
+          {isCheckboxOpen ? (
+            <Checkbox
+              titleHandler={titleHandler}
+              getCategoryIdx={getCategoryIdx}
+            />
+          ) : null}
           {isSearchboxOpen ? <Searchbox /> : null}
         </div>
       </div>

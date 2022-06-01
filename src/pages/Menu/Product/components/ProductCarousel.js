@@ -24,7 +24,7 @@ const ProductCarousel = ({ id, name, image }) => {
   return (
     <section className="productCarousel">
       <div className="productDisplay">
-        {image?.map((item, index) => (
+        {image.map((item, index) => (
           <img key={index} source={item} alt={name} className="bigImage" />
         ))}
       </div>
@@ -35,7 +35,7 @@ const ProductCarousel = ({ id, name, image }) => {
           onClick={leftSlide}
         />
         <div className="collection">
-          {image?.map((item, index) => (
+          {image.map((item, index) => (
             <SmallImages
               key={index}
               source={item}

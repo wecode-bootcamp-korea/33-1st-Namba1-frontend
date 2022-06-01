@@ -33,6 +33,15 @@ $borderColor: #c4c4c4;
       width: 220px;
       font-size: 0.9em;
 
+      .button {
+        border: none;
+        background: none;
+      }
+
+      .active {
+        font-weight: 700;
+      }
+
       .border {
         padding: 0 10px;
         border-right: 1px solid $borderColor;

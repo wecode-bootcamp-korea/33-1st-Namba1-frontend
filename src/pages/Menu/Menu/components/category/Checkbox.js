@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Checkbox.scss';
 
-function Checkbox({ titleHandler }) {
+function Checkbox({ titleHandler, getCategoryIdx }) {
   const [isMenuAllOpen, setIsMenuAllOpen] = useState(false);
   const [isKidsOpen, setIsKidsOpen] = useState(true);
   const [isNewOpen, setIsNewOpen] = useState(false);
@@ -15,6 +15,7 @@ function Checkbox({ titleHandler }) {
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
     titleHandler(event);
+    getCategoryIdx(event.target.innerHTML);
   };
 
   const kidsBtnHandler = event => {
@@ -24,6 +25,7 @@ function Checkbox({ titleHandler }) {
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
     titleHandler(event);
+    getCategoryIdx(event.target.innerHTML);
   };
 
   const newBtnHandler = event => {
@@ -33,6 +35,7 @@ function Checkbox({ titleHandler }) {
     setIsKoreanOpen(false);
     setIsSpicyOpen(false);
     titleHandler(event);
+    getCategoryIdx(event.target.innerHTML);
   };
 
   const koreanBtnHandler = event => {
@@ -42,6 +45,7 @@ function Checkbox({ titleHandler }) {
     setIsNewOpen(false);
     setIsSpicyOpen(false);
     titleHandler(event);
+    getCategoryIdx(event.target.innerHTML);
   };
 
   const spicyBtnHandler = event => {
@@ -51,6 +55,7 @@ function Checkbox({ titleHandler }) {
     setIsNewOpen(false);
     setIsKoreanOpen(false);
     titleHandler(event);
+    getCategoryIdx(event.target.innerHTML);
   };
 
   return (
