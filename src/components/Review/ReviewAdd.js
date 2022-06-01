@@ -54,7 +54,7 @@ const ReviewAdd = ({
           <div className="reviewWriteFrom">
             <h3 className="reviewWriteHead">리뷰 쓰기</h3>
 
-            <select name="상품선택" onChange={saveReviewMenu} required>
+            <select name="상품선택" onClick={saveReviewMenu} required>
               <option disabled defaultValue>
                 메뉴를 선택해주세요.
               </option>

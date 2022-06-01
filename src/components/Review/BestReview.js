@@ -6,14 +6,25 @@ const BestReview = () => {
   const [slider, setSlider] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  useEffect(() => {
+    fetch('/data/bestReview.json')
+      .then(res => res.json())
+      .then(data => {
+        setSlider(data);
+      });
+  }, []);
+
+  const transitionStyle = `all 0.5s ease-in-out`;
+  const [transition, setTranstion] = useState(transitionStyle);
+
+  useEffect(() => {
+    slideRef.current.style.transition = transition;
+    slideRef.current.style.transform = `translateX(-${currentSlide * 50}%)`;
+  }, [currentSlide]);
+
   const slideRef = useRef(null);
 
   // const TOTAL_SLIDES = slider.length;
-
-  // 1. 원래 배열에서 앞에는 맨 마지막 슬라이드를 복제, 뒤에는 맨 첫번째 슬라이드를 복제하는 함수
-  // const slideFirst = slider[0];
-  // const slideLast = slider[slider.length - 1];
-  // const modifiedArray = [slideFirst, ...slider, slideLast];
 
   //2. 맨 마지막 슬라이드에서 더 갈 경우에 moveToNthSlide 함수를 실행시킴
   const nextSlide = () => {
@@ -37,27 +48,14 @@ const BestReview = () => {
 
   //4. n번째 슬라이드로 이동하는 함수.
   const moveToNthSlide = num => {
+    slideRef.current.style.transition = null;
     setTimeout(() => {
-      slideRef.current.style.transition = null;
       // → 2. transition을 모두 지워주고
       setCurrentSlide(num);
       // → 3. 캐러셀 이동
     }, 500);
     // 1. 하지만 그냥 이동하지 않고 transition이 일어나기까지 기다렸다가
   };
-
-  useEffect(() => {
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide * 50}%)`;
-  }, [currentSlide]);
-
-  useEffect(() => {
-    fetch('/data/bestReview.json')
-      .then(res => res.json())
-      .then(data => {
-        setSlider(data);
-      });
-  }, []);
 
   return (
     <section className="bestReview">

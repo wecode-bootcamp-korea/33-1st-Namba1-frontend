@@ -63,7 +63,6 @@ const ReviewBox = () => {
 
     nextId.current += 1;
   };
-
   useEffect(() => {
     fetch('/data/review.json')
       .then(res => res.json())
