@@ -4,7 +4,7 @@ import Arrows from './Arrows';
 
 const BestReview = () => {
   const [slider, setSlider] = useState([]);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(5);
 
   useEffect(() => {
     fetch('/data/bestReview.json')
@@ -14,47 +14,53 @@ const BestReview = () => {
       });
   }, []);
 
-  const transitionStyle = `all 0.5s ease-in-out`;
+  const TOTAL_SLIDES = 5;
+  const transitionTime = 500;
+  const transitionStyle = `all ${transitionTime}ms ease-in-out`;
   const [transition, setTranstion] = useState(transitionStyle);
 
   useEffect(() => {
     slideRef.current.style.transition = transition;
-    slideRef.current.style.transform = `translateX(-${currentSlide * 50}%)`;
+    slideRef.current.style.transform = `translateX(-${currentSlide * 568}px)`;
   }, [currentSlide]);
 
-  const slideRef = useRef(null);
+  const slideRef = useRef('');
 
-  // const TOTAL_SLIDES = slider.length;
+  const replaceSlide = () => {
+    setCurrentSlide(TOTAL_SLIDES * 2);
+    setTimeout(() => {
+      setTranstion('');
+      setCurrentSlide(TOTAL_SLIDES);
+    }, transitionTime);
+  };
 
-  //2. 맨 마지막 슬라이드에서 더 갈 경우에 moveToNthSlide 함수를 실행시킴
+  const replaceReverseSlide = () => {
+    setCurrentSlide(0);
+    setTimeout(() => {
+      setTranstion('');
+      setCurrentSlide(TOTAL_SLIDES);
+    }, transitionTime);
+  };
+
   const nextSlide = () => {
     const nextCurr = currentSlide + 1;
-    setCurrentSlide(nextCurr);
 
-    if (nextCurr === 5) {
-      moveToNthSlide(0);
+    if (currentSlide > TOTAL_SLIDES * 2 - 2) {
+      replaceSlide();
+    } else {
+      setCurrentSlide(nextCurr);
+      setTranstion(transitionStyle);
     }
   };
 
-  //3. 맨 처음 슬라이드에서 더 갈 경우에 moveToNthSlide 함수를 실행시킴
   const prevSlide = () => {
     const prevCurr = currentSlide - 1;
-    setCurrentSlide(prevCurr);
-
-    if (prevCurr === -1) {
-      moveToNthSlide(5);
+    if (currentSlide === 1) {
+      replaceReverseSlide();
+    } else {
+      setCurrentSlide(prevCurr);
+      setTranstion(transitionStyle);
     }
-  };
-
-  //4. n번째 슬라이드로 이동하는 함수.
-  const moveToNthSlide = num => {
-    slideRef.current.style.transition = null;
-    setTimeout(() => {
-      // → 2. transition을 모두 지워주고
-      setCurrentSlide(num);
-      // → 3. 캐러셀 이동
-    }, 500);
-    // 1. 하지만 그냥 이동하지 않고 transition이 일어나기까지 기다렸다가
   };
 
   return (

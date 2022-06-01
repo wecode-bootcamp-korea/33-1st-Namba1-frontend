@@ -8,7 +8,7 @@ const Arrows = ({ prevSlide, nextSlide, currentSlide }) => {
       <button className="paginationBtn" onClick={prevSlide}>
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
-      <span className="pagenation">{currentSlide + 1} / 5</span>
+      <span className="pagenation">{currentSlide - 4} / 5</span>
       <button className="paginationBtn" onClick={nextSlide}>
         <FontAwesomeIcon icon={faAngleRight} />
       </button>
