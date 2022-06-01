@@ -76,11 +76,11 @@ const ReviewBox = () => {
   };
 
   useEffect(() => {
-    fetch('/data/review.json')
+    fetch('http://10.58.0.124:8000/review')
       .then(res => res.json())
       .then(data => {
-        setReview(data);
-        setFilterReview(data);
+        setReview(data.review_list);
+        setFilterReview(data.review_list);
       });
   }, []);
 
