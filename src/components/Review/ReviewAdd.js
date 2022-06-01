@@ -18,7 +18,11 @@ const ReviewAdd = ({
   saveMenuId,
 }) => {
   const [menu, setMenu] = useState([]);
+  const [menuSelect, setMenuSelect] = useState('');
+
   const outSection = useRef();
+
+  const isDisabled = selectMenu === '' || reviewValue.length < 20;
 
   useEffect(() => {
     const escKeyModalClose = e => {
@@ -37,9 +41,6 @@ const ReviewAdd = ({
         setMenu(data);
       });
   }, [setMenu]);
-
-  const isDisabled = selectMenu === '' || reviewValue.length < 20;
-
   return (
     <section className="reviewadd">
       {reviewAdd ? (
@@ -55,15 +56,27 @@ const ReviewAdd = ({
           <div className="reviewWriteFrom">
             <h3 className="reviewWriteHead">리뷰 쓰기</h3>
 
-            <ul name="상품선택" onClick={saveReviewMenu} required>
-              <li disabled defaultValue>
-                메뉴를 선택해주세요.
-              </li>
-              {menu.map(({ id, menuName }) => (
-                <li key={id} onClick={() => saveMenuId(id)}>
-                  {menuName}
-                </li>
-              ))}
+            <ul
+              className="menuSelect"
+              name="상품선택"
+              onClick={saveReviewMenu}
+              required
+            >
+              {menuSelect === '' ? '메뉴를 선택해주세요.' : menuSelect}
+              <div className="menuSelectBox">
+                {menu.map(({ id, menuName }) => (
+                  <li
+                    key={id}
+                    onClick={e => {
+                      e.preventDefault();
+                      saveMenuId(id);
+                      setMenuSelect(e.target.innerText);
+                    }}
+                  >
+                    {menuName}
+                  </li>
+                ))}
+              </div>
             </ul>
 
             <form className="reviewWriteForm">

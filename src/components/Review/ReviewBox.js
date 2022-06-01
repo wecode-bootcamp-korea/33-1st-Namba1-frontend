@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+// import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck';
@@ -19,8 +19,8 @@ const ReviewBox = () => {
   const [imageSrc, setImageSrc] = useState('');
   const [filterPhoto, setFilterPhoto] = useState([]);
   const [isPhotoFilter, setIsFilterPhoto] = useState(false);
-  const [selectMenuId, setSelectMenuId] = useState([]);
-  const [totalReview, setTotalReview] = useState(0);
+  // const [selectMenuId, setSelectMenuId] = useState([]);
+  // const [totalReview, setTotalReview] = useState(0);
 
   const saveReviewInput = e => {
     setreviewValue(e.target.value);
@@ -30,9 +30,9 @@ const ReviewBox = () => {
     setSelectMenu(e.target.innerText);
   };
 
-  const saveMenuId = id => {
-    setSelectMenuId(id);
-  };
+  // const saveMenuId = id => {
+  //   setSelectMenuId(id);
+  // };
 
   const isRemoveImg = () => {
     setImageSrc(false);
@@ -180,7 +180,7 @@ const ReviewBox = () => {
           isRemoveImg={isRemoveImg}
           encodeFileToBase64={encodeFileToBase64}
           selectMenu={selectMenu}
-          saveMenuId={saveMenuId}
+          // saveMenuId={saveMenuId}
         />
       )}
 
@@ -205,7 +205,7 @@ const ReviewBox = () => {
       )}
 
       <Pagination
-        total={totalReview}
+        // total={totalReview}
         limit={limit}
         page={page}
         setPage={setPage}
