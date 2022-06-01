@@ -15,6 +15,7 @@ const ReviewAdd = ({
   encodeFileToBase64,
   selectMenu,
   reviewValue,
+  saveMenuId,
 }) => {
   const [menu, setMenu] = useState([]);
   const outSection = useRef();
@@ -54,14 +55,16 @@ const ReviewAdd = ({
           <div className="reviewWriteFrom">
             <h3 className="reviewWriteHead">리뷰 쓰기</h3>
 
-            <select name="상품선택" onChange={saveReviewMenu} required>
-              <option disabled defaultValue>
+            <ul name="상품선택" onClick={saveReviewMenu} required>
+              <li disabled defaultValue>
                 메뉴를 선택해주세요.
-              </option>
+              </li>
               {menu.map(({ id, menuName }) => (
-                <option key={id}>{menuName}</option>
+                <li key={id} onClick={() => saveMenuId(id)}>
+                  {menuName}
+                </li>
               ))}
-            </select>
+            </ul>
 
             <form className="reviewWriteForm">
               <p className="reviewFileTitle">사진 첨부 (선택)</p>

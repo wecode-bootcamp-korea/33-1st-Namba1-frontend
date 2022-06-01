@@ -23,12 +23,18 @@ const ReviewBox = () => {
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
+  const [selectMenuId, setSelectMenuId] = useState([]);
+
   const saveReviewInput = e => {
     setreviewValue(e.target.value);
   };
 
   const saveReviewMenu = e => {
-    setSelectMenu(e.target.value);
+    setSelectMenu(e.target.innerText);
+  };
+
+  const saveMenuId = id => {
+    setSelectMenuId(id);
   };
 
   const isRemoveImg = () => {
@@ -46,22 +52,27 @@ const ReviewBox = () => {
     });
   };
 
-  const nextId = useRef(12);
   const onCreatReview = e => {
     e.preventDefault();
-    setReview([
-      ...review,
-      {
-        id: nextId.current,
+    fetch('http://10.58.0.124:8000/review', {
+      method: 'POST',
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   Authorization: {
+      //     token:
+      //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0._pGlNZURO02GzlHrkrhDPddS5h45SazlACojxI18QcA',
+      //   },                                                                  6
+      // },
+      body: JSON.stringify({
         title: selectMenu,
-        date: '2022-05-23',
-        imageSrc: imageSrc,
-        userId: 'lemon',
+        product_id: selectMenuId,
         userInput: reviewValue,
-      },
-    ]);
-
-    nextId.current += 1;
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
   };
 
   useEffect(() => {
@@ -141,6 +152,7 @@ const ReviewBox = () => {
           isRemoveImg={isRemoveImg}
           encodeFileToBase64={encodeFileToBase64}
           selectMenu={selectMenu}
+          saveMenuId={saveMenuId}
         />
       )}
 
