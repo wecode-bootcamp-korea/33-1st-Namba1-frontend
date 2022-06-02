@@ -14,6 +14,8 @@ const Recommend = ({ ip }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // location.search==='' ? navigate('/?themeId=8&sort=-id') : navigate('/');
+
   const nextSlide = () => {
     if (currentSlide >= totalSlide) {
       setCurrentSlide(0);
@@ -29,19 +31,12 @@ const Recommend = ({ ip }) => {
     }
   };
 
+  // const totalSlide = tasteImg.length
+
   useEffect(() => {
     slideRef.current.style.transition = 'all 1.0s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
-
-  // useEffect(() => {
-  //   fetch(`10.58.2.60:8000?themeId=8&sort=-id`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setTasteImg(data.product_list);
-  //       setTotalSlide(tasteImg.length - 1);
-  //     });
-  // }, []);
 
   // useEffect(() => {
   //   fetch(`/data/newProduct.json`)
@@ -50,14 +45,16 @@ const Recommend = ({ ip }) => {
   //       setTasteImg(data.allMenu);
   //       setTotalSlide(tasteImg.length - 1);
   //     });
-  // }, [location.search]);
+  // }, []);
 
   useEffect(() => {
     fetch(`http://${ip}${location.search}`)
       .then(res => res.json())
       .then(data => {
+        console.log('fetch data : ', data);
         // TODO : 새로고침 혹은 주소를 바꾸지 않으면 setTasteImg가 작동하지 않는 문제
         setTasteImg(data.product_list);
+        console.log('tasteImg : ', tasteImg);
         setTotalSlide(tasteImg.length - 1);
       });
   }, [location]);

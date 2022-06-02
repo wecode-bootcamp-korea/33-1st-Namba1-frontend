@@ -53,12 +53,15 @@
 
     .recommendPhotoDisplay {
       display: flex;
+      width: 100%;
 
       .imgBox {
+        width: 100%;
+
         img {
-          width: 100vh;
+          width: 50vw;
           height: 520px;
-          object-fit: cover;
+          object-fit: fill;
         }
       }
     }
