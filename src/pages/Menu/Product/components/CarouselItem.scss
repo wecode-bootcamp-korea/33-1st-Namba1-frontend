@@ -1,0 +1,25 @@
+@import '../../../../styles/variables.scss';
+
+.smallImages {
+  .smallImage {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    opacity: 0.5;
+
+    &:active {
+      outline: 2px solid $mainColor;
+      opacity: 1;
+    }
+  }
+
+  .chevronIcon {
+    color: #6a6969;
+    opacity: 0.5;
+    font-size: 40px;
+
+    &:active {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,160 @@
+@import '../../../../styles/variables.scss';
+
+@mixin flexDetails {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+}
+
+@mixin headingText {
+  color: $subColor;
+  font-size: 1.8em;
+}
+
+@mixin grayStyle {
+  min-width: 120px;
+  color: #6a6969;
+}
+
+.productInfo {
+  @include primaryFont;
+  padding-left: 70px;
+
+  .productContent {
+    line-height: 35px;
+
+    .productDescription {
+      @include headingText;
+      margin-top: 20px;
+      font-weight: 800;
+    }
+
+    .productTitle {
+      @include headingText;
+      font-weight: 800;
+    }
+
+    .productOrigin {
+      @include headingText;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .productPrep {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.9em;
+
+    .productAmount,
+    .productTime {
+      height: 100%;
+      border-right: 1px solid $subColor;
+      padding-right: 6px;
+    }
+
+    .productTime,
+    .productPreparation {
+      height: 100%;
+      padding-left: 6px;
+    }
+
+    .productPreparation {
+      padding-right: 3px;
+    }
+
+    .questionIcon {
+      padding-right: 6px;
+    }
+
+    .spiceLevel {
+      padding-left: 6px;
+      border-left: 1px solid $subColor;
+    }
+  }
+
+  .productDetail {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 0.8em;
+
+    .priceBox {
+      @include flexDetails;
+      border-top: 1px solid #d4d4d4;
+      border-bottom: 1px solid #d4d4d4;
+      font-weight: bold;
+
+      .price {
+        width: 120px;
+      }
+
+      .productPrice {
+        font-size: 1.9em;
+        font-weight: 800;
+      }
+    }
+
+    .pointsBox {
+      @include flexDetails;
+
+      .gray {
+        @include grayStyle;
+      }
+
+      .flex {
+        display: flex;
+
+        .yellow {
+          color: $mainColor;
+          padding-right: 3px;
+        }
+      }
+    }
+
+    .deliveryMethodBox {
+      @include flexDetails;
+      border-top: 1px solid #d4d4d4;
+
+      .gray {
+        @include grayStyle;
+      }
+
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 185px;
+
+        .emphasize {
+          font-size: 1em;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .deliveryPriceBox {
+      @include flexDetails;
+      padding: 0;
+
+      .gray {
+        @include grayStyle;
+      }
+
+      .lighter {
+        font-size: 0.85em;
+      }
+    }
+  }
+
+  .cartSection {
+    margin-top: 35px;
+    padding-top: 35px;
+    border-top: 2px solid $subColor;
+
+    @media screen and (max-width: 980px) {
+      margin-bottom: 50px;
+    }
+  }
+}

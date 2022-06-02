@@ -6,6 +6,8 @@ import Signin from './pages/Signin/Signin.js';
 import Signup from './pages/Signup/Signup.js';
 import Footer from './components/Footer/Footer.js';
 import Review from './pages/Review/Review.js';
+import Menu from './pages/Menu/Menu/Menu.js';
+import Product from './pages/Menu/Product/Product.js';
 import Mycart from './pages/Mycart/Mycart.js';
 
 function Router() {
@@ -18,6 +20,8 @@ function Router() {
         <Route path="/footer" element={<Footer />} />
         <Route path="/mycart" element={<Mycart />} />
         <Route path="/review" element={<Review />} />
+        <Route path="/products" element={<Menu />} />
+        <Route path="/products/:id" element={<Product />} />
       </Routes>
     </BrowserRouter>
   );

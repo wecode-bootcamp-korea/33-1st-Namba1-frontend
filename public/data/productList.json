@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "단호박크림파스타",
+    "servings": 3,
+    "cookTime": 40,
+    "spice": "",
+    "price": 21800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/2bc00618-0916-4c0e-9c77-a11eda112a43/image.jpg"
+  },
+  {
+    "id": 2,
+    "name": "토마토비프스튜",
+    "servings": 2,
+    "cookTime": 30,
+    "spice": "",
+    "price": 24800,
+    "totalReviews": 0,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/97204eb8-a3b4-4e0b-91e7-43497f06e735/image.jpg"
+  },
+  {
+    "id": 3,
+    "name": "소고기버섯잡채",
+    "servings": 4,
+    "cookTime": 25,
+    "spice": "",
+    "price": 28800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/6afbf7e8-75d2-4d1a-8657-3ef4181192fb/image.jpg"
+  },
+  {
+    "id": 4,
+    "name": "매운 치즈찜닭",
+    "servings": 3,
+    "cookTime": 25,
+    "spice": "적당히",
+    "price": 27800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/5e2b637a-8ec6-4fe2-9a05-ecc14c205781/image.png"
+  },
+  {
+    "id": 5,
+    "name": "로제떡볶이",
+    "servings": 3,
+    "cookTime": 30,
+    "spice": "",
+    "price": 41800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/7b451af5-96e9-4d3d-b779-8ee4c15f6702/image.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "비빔국수",
+    "servings": 3,
+    "cookTime": 20,
+    "spice": "적당히",
+    "price": 33800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/bf6e2e33-9e65-4fdc-a57b-92a74fa0c44b/image.jpeg"
+  },
+  {
+    "id": 7,
+    "name": "닭한마리와 칼국수",
+    "servings": 3,
+    "cookTime": 40,
+    "spice": "",
+    "price": 27800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/79b5f88c-6bf9-4d0c-a0c0-f7b2eca708d6/image.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "수제비와 배추천",
+    "servings": 3,
+    "cookTime": 35,
+    "spice": "적딩히",
+    "price": 22800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/933084fa-5cb3-4e01-a631-304398edfb77/image.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "간장불고기",
+    "servings": 3,
+    "cookTime": 20,
+    "spice": "",
+    "price": 29800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/6f75f4f2-d5e4-4837-a132-f48b4fc2cdea/image.jpeg"
+  },
+  {
+    "id": 10,
+    "name": "김치찌개",
+    "description": "담백한 장어와 아삭한 파김치의 만남",
+    "servings": 3,
+    "cookTime": 20,
+    "spice": "적당히",
+    "price": 34800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/f2035138-28e6-4d1c-b5a6-a4507a958f57/image.jpg"
+  },
+  {
+    "id": 11,
+    "name": "매운 치킨크림스튜",
+    "servings": 3,
+    "cookTime": 30,
+    "spice": "아주",
+    "price": 29800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/855b4950-b253-4ce8-af1f-aa71369219dd/image.jpg"
+  },
+  {
+    "id": 12,
+    "name": "치즈닭갈비",
+    "servings": 3,
+    "cookTime": 20,
+    "spice": "적당히",
+    "price": 26800,
+    "image": "https://velog.velcdn.com/images/eunnb05/post/d1ef2429-76a2-4ccf-a6a3-0ca73c280fd4/image.jpeg"
+  }
+]

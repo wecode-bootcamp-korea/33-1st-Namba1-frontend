@@ -1,0 +1,96 @@
+@import '../../../../styles/variables.scss';
+
+@mixin flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+$borderColor: #6e6e6e;
+
+.menuCard {
+  @include primaryFont;
+  width: 260px;
+  height: 480px;
+
+  .image {
+    width: 100%;
+    height: 66%;
+    object-fit: cover;
+  }
+
+  .prep {
+    @include flexStart;
+    margin-top: 15px;
+    color: $borderColor;
+    font-size: 0.85em;
+
+    .first {
+      padding-right: 8px;
+    }
+
+    .second {
+      padding: 0 8px;
+      border-left: 1px solid $borderColor;
+    }
+
+    .third {
+      padding-left: 8px;
+      border-left: 1px solid $borderColor;
+    }
+  }
+
+  .productName {
+    margin: 15px 0;
+    font-size: 1.11em;
+    font-weight: bold;
+  }
+
+  .productPrice {
+    margin: 20px 0;
+    font-size: 1.2em;
+    font-weight: 800;
+  }
+
+  .itemReview {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.9em;
+
+    .stars {
+      display: inline-flex;
+      padding-right: 10px;
+      color: $mainColor;
+    }
+
+    .review {
+      border-left: 1px solid $borderColor;
+      padding-left: 10px;
+      font-size: 0.85em;
+    }
+  }
+
+  .customerLike {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0;
+
+    .faHeart {
+      margin-right: 15px;
+    }
+
+    .faHeart,
+    .faCart {
+      padding: 10px;
+      border: 1px solid $mainColor;
+      border-radius: 50%;
+      background-color: $mainColor;
+
+      .icon {
+        font-size: 1.3em;
+      }
+    }
+  }
+}

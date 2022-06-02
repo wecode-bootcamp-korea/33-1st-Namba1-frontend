@@ -10,6 +10,14 @@
   align-items: center;
 }
 
+@mixin flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+$mainColor: #fabf01;
+$subColor: #231915;
 @mixin mainTitleSize {
   font-size: 2.5em;
   font-weight: 800;
