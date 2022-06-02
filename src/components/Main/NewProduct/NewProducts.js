@@ -13,14 +13,14 @@ const NewProduct = ({ ip }) => {
 
   // ******* server data *******
   useEffect(() => {
-    fetch(`http://${ip}?is_new=1&sort=-id`, {
+    fetch(`http://${ip}/products?is_new=1&sort=-id`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         setNewProduct(data.product_list);
       });
-  }, []);
+  }, [ip]);
 
   // ******* mock data *******
   // useEffect(() => {
@@ -43,8 +43,8 @@ const NewProduct = ({ ip }) => {
               <div className="productImgBox">
                 <img className="productImg" src={image} alt="meat" />
               </div>
-              <div className="productContent">
-                <div className="productInfo">
+              <div className="newProductContent">
+                <div className="newProductInfo">
                   <div className="productName">{name}</div>
                   <div className="productPrice">
                     {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원

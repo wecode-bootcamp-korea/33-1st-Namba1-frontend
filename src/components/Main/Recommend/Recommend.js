@@ -16,7 +16,7 @@ const Recommend = ({ ip }) => {
 
   useEffect(() => {
     location.search === '' ? navigate('/?themeId=8&sort=-id') : navigate('/');
-  }, []);
+  }, [ip, navigate, location.search]);
 
   const nextSlide = () => {
     if (currentSlide >= totalSlide) {
@@ -51,12 +51,12 @@ const Recommend = ({ ip }) => {
 
   // ******* SERVER DATA *******
   useEffect(() => {
-    fetch(`http://${ip}${location.search}`)
+    fetch(`http://${ip}/products${location.search}`)
       .then(res => res.json())
       .then(data => {
         setTasteImg(data.product_list);
       });
-  }, [location]);
+  }, [ip]);
 
   const getTasteBtn = tasteOption => {
     const queryString = `?themeId=${tasteOption}&sort=-id`;

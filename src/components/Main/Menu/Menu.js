@@ -7,14 +7,14 @@ const Menu = ({ title, src, className, ip }) => {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://${ip}?sort=-id`, {
+    fetch(`http://${ip}/products`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         setAllMenuList(data.product_list);
       });
-  }, []);
+  }, [ip]);
 
   useEffect(() => {
     fetch('/data/newProduct.json', {
@@ -27,7 +27,7 @@ const Menu = ({ title, src, className, ip }) => {
   }, []);
 
   return (
-    <div className="menu">
+    <div className="allMenu">
       <img className="menuLogoPhoto" src={src} alt="market" />
       <div className="menuList">
         <div className="menuTitle">{title}</div>
