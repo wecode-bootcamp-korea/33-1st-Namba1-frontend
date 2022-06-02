@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ReviewCarousel.scss';
+import { Link } from 'react-router-dom';
 
 const ReviewCarousel = () => {
   const TOTAL_SLIDES = 4;
@@ -41,19 +42,21 @@ const ReviewCarousel = () => {
   return (
     <div className="reviewCarousel">
       <div className="reviewContentDisplay">
-        {review.map(({ id, title, userReview }) => {
-          return (
-            <div
-              key={id}
-              className={`reviewContentBox ${
-                id - 1 === currentSlide ? 'active' : 'hidden'
-              }`}
-            >
-              <div className="reviewContentTitle">{title}</div>
-              <div className="reviewContentText">{userReview}</div>
-            </div>
-          );
-        })}
+        <Link to="/review" className="reviewLink">
+          {review.map(({ id, title, userReview }) => {
+            return (
+              <div
+                key={id}
+                className={`reviewContentBox ${
+                  id - 1 === currentSlide ? 'active' : 'hidden'
+                }`}
+              >
+                <div className="reviewContentTitle">{title}</div>
+                <div className="reviewContentText">{userReview}</div>
+              </div>
+            );
+          })}
+        </Link>
       </div>
       <div className="reviewImgDisplay">
         <div className="reviewImgBox" ref={slideRef}>

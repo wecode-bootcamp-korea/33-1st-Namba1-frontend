@@ -6,15 +6,17 @@ import './Recommend.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Recommend = ({ ip }) => {
-  const [totalSlide, setTotalSlide] = useState(0);
   const [tasteOption, setTasteOption] = useState('매콤한맛');
   const [tasteImg, setTasteImg] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlide = tasteImg.length - 1;
   const slideRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // location.search==='' ? navigate('/?themeId=8&sort=-id') : navigate('/');
+  useEffect(() => {
+    location.search === '' ? navigate('/?themeId=8&sort=-id') : navigate('/');
+  }, []);
 
   const nextSlide = () => {
     if (currentSlide >= totalSlide) {
@@ -23,6 +25,7 @@ const Recommend = ({ ip }) => {
       setCurrentSlide(currentSlide + 1);
     }
   };
+
   const prevSlide = () => {
     if (currentSlide === 0) {
       setCurrentSlide(totalSlide);
@@ -31,13 +34,12 @@ const Recommend = ({ ip }) => {
     }
   };
 
-  // const totalSlide = tasteImg.length
-
   useEffect(() => {
     slideRef.current.style.transition = 'all 1.0s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
+  // ******* MOCK DATA *******
   // useEffect(() => {
   //   fetch(`/data/newProduct.json`)
   //     .then(res => res.json())
@@ -47,15 +49,12 @@ const Recommend = ({ ip }) => {
   //     });
   // }, []);
 
+  // ******* SERVER DATA *******
   useEffect(() => {
     fetch(`http://${ip}${location.search}`)
       .then(res => res.json())
       .then(data => {
-        console.log('fetch data : ', data);
-        // TODO : 새로고침 혹은 주소를 바꾸지 않으면 setTasteImg가 작동하지 않는 문제
         setTasteImg(data.product_list);
-        console.log('tasteImg : ', tasteImg);
-        setTotalSlide(tasteImg.length - 1);
       });
   }, [location]);
 

@@ -26,7 +26,6 @@ const RecommendDrop = ({ taste, setTaste, getTasteBtn }) => {
               <li
                 key={id}
                 onClick={e => {
-                  console.log(e);
                   setTaste(taste);
                   activateDropdown();
                   getTasteBtn(id);
