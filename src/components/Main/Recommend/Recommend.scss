@@ -70,10 +70,15 @@
     .recommendPhotoDisplay {
       display: flex;
       height: 520px;
-      width: 520px;
 
-      img {
-        padding-left: 20px;
+      .imgBox {
+        margin-right: 15px;
+
+        img {
+          width: 700px;
+          height: 520px;
+          object-fit: cover;
+        }
       }
     }
   }

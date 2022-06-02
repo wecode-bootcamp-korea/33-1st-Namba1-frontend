@@ -27,6 +27,13 @@
     margin-top: 30px;
 
     .newProduct {
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
       .productImgBox {
         .productImg {
           width: 100%;

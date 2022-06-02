@@ -5,16 +5,14 @@ import RecommendDrop from './RecommendDrop.js';
 import './Recommend.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const Recommend = () => {
-  const totalSlide = RECOMMEND_PHOTO.length - 1;
+const Recommend = ({ ip }) => {
+  const [totalSlide, setTotalSlide] = useState(0);
   const [tasteOption, setTasteOption] = useState('매콤한맛');
   const [tasteImg, setTasteImg] = useState([]);
-  const navigate = useNavigate();
-  const location = useLocation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
-
-  console.log(location.search);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const nextSlide = () => {
     if (currentSlide >= totalSlide) {
@@ -36,16 +34,36 @@ const Recommend = () => {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
+  // useEffect(() => {
+  //   fetch(`10.58.2.60:8000?themeId=8&sort=-id`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setTasteImg(data.product_list);
+  //       setTotalSlide(tasteImg.length - 1);
+  //     });
+  // }, []);
+
+  // useEffect(() => {
+  //   fetch(`/data/newProduct.json`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setTasteImg(data.allMenu);
+  //       setTotalSlide(tasteImg.length - 1);
+  //     });
+  // }, [location.search]);
+
   useEffect(() => {
-    fetch(`/data/newProduct.json${location.search}`)
+    fetch(`http://${ip}${location.search}`)
       .then(res => res.json())
       .then(data => {
-        setTasteImg(data.allMenu);
+        // TODO : 새로고침 혹은 주소를 바꾸지 않으면 setTasteImg가 작동하지 않는 문제
+        setTasteImg(data.product_list);
+        setTotalSlide(tasteImg.length - 1);
       });
-  }, [location.search]);
+  }, [location]);
 
   const getTasteBtn = tasteOption => {
-    const queryString = `?taste=${tasteOption}`;
+    const queryString = `?themeId=${tasteOption}&sort=-id`;
     navigate(`${queryString}`);
   };
 
@@ -64,7 +82,7 @@ const Recommend = () => {
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <span className="currentSlide">
-            {currentSlide + 1}/{tasteOption.length}
+            {currentSlide + 1}/{tasteImg.length}
           </span>
           <button className="recommendBtn" onClick={nextSlide}>
             <FontAwesomeIcon icon={faArrowRight} />
@@ -74,18 +92,16 @@ const Recommend = () => {
       <div className="recommendPhoto">
         <div className="recommendPhotoDisplay" ref={slideRef}>
           {tasteImg.map(({ id, name, image }) => {
-            return <img key={id} src={image} alt={name} />;
+            return (
+              <div key={id} className="imgBox">
+                <img src={image} alt={name} />
+              </div>
+            );
           })}
         </div>
       </div>
     </div>
   );
 };
-
-const RECOMMEND_PHOTO = [
-  { id: 1, src: '/images/main/salad.jpg', alt: 'salad' },
-  { id: 2, src: '/images/main/salad.jpg', alt: 'salad' },
-  { id: 3, src: '/images/main/salad.jpg', alt: 'salad' },
-];
 
 export default Recommend;

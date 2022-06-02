@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import MenuInfo from '../../../components/Main/Menu/MenuInfo.js';
 import './Menu.scss';
 
-const Menu = ({ title, src, className }) => {
+const Menu = ({ title, src, className, ip }) => {
   const [allMenuList, setAllMenuList] = useState([]);
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/newProduct.json', {
+    fetch(`http://${ip}?sort=-id`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setAllMenuList(data.allMenu);
+        setAllMenuList(data.product_list);
       });
   }, []);
 

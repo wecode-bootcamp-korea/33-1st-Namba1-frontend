@@ -27,7 +27,7 @@ const ReviewCarousel = () => {
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 1.0s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide * 2}0%)`;
+    slideRef.current.style.transform = `translateX(-${currentSlide * 19.5}%)`;
   }, [currentSlide]);
 
   useEffect(() => {

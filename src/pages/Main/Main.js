@@ -22,17 +22,24 @@ function Main() {
       src: '/images/main/market2.jpg',
     },
   ];
+  const ipAddress = '10.58.2.60:8000';
 
   return (
     <div className="main">
       <Nav />
       <MainCarousel />
-      <Recommend />
-      <NewProducts />
-      <MainReview />
+      <Recommend ip={ipAddress} />
+      <NewProducts ip={ipAddress} />
+      <MainReview ip={ipAddress} />
       <div className="product">
         {MENU.map(({ id, className, title, src }) => (
-          <Menu key={id} className={className} title={title} src={src} />
+          <Menu
+            key={id}
+            className={className}
+            title={title}
+            src={src}
+            ip={ipAddress}
+          />
         ))}
       </div>
     </div>
