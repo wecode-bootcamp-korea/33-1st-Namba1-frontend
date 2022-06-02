@@ -48,7 +48,6 @@ const ReviewBox = () => {
   };
 
   const onCreateReview = e => {
-    e.preventDefault();
     fetch(`http://10.58.2.60:8000/review`, {
       method: 'POST',
       body: JSON.stringify({
@@ -59,7 +58,7 @@ const ReviewBox = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setReview(data.review_list);
+        setReview(data);
       });
   };
 

@@ -24,6 +24,11 @@ a {
 .userForm {
   margin: 3rem 0;
 
+  margin-top: 6.25rem;
+  margin-bottom: 1.875rem;
+  input {
+    padding: 15px;
+  }
   input::placeholder {
     color: #e0e0e0;
   }
