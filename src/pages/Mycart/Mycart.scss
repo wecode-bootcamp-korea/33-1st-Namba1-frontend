@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  .container {
+    width: 1180px;
+    margin: 0 auto;
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 120px 0 140px;
+      margin: 10px auto;
+      .myCart {
+        font-size: 40px;
+        font-weight: 800;
+      }
+      .cartIcon {
+        display: flex;
+        font-size: 15px;
+        p {
+          margin-top: 10px;
+          margin-left: 10px;
+        }
+        .myCartIcon {
+          font-weight: 800;
+          .background {
+            width: 80px;
+            height: 80px;
+            border: 2px solid none;
+            border-radius: 50%;
+            background-color: #fabf01;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-right: 30px;
+            p {
+              margin-top: 20px;
+              font-weight: 500;
+            }
+            .icons {
+              margin-top: 15px;
+              font-size: 30px;
+              padding-top: 9px;
+            }
+          }
+        }
+      }
+      .paymentIcon {
+        .background2 {
+          display: flex;
+          flex-direction: column;
+          width: 80px;
+          height: 80px;
+          border: 2px solid none;
+          border-radius: 50%;
+          background-color: #eee;
+          text-align: center;
+          margin-right: 30px;
+          p {
+            margin-top: 20px;
+          }
+          .icons {
+            margin-top: 15px;
+            font-size: 30px;
+            padding-top: 9px;
+          }
+        }
+      }
+      .checkAccount {
+        .background3 {
+          display: flex;
+          flex-direction: column;
+          width: 80px;
+          height: 80px;
+          border: 2px solid none;
+          border-radius: 50%;
+          background-color: #eee;
+          text-align: center;
+          margin-right: 30px;
+          p {
+            margin-top: 20px;
+          }
+          .icons {
+            margin-top: 15px;
+            font-size: 30px;
+            padding-top: 9px;
+          }
+        }
+      }
+    }
+    .checkCount {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      border-bottom: 2px solid #202020;
+
+      .deleteItem {
+        width: 96%;
+      }
+      .deleteBtn {
+        width: 105px;
+        height: 30px;
+        margin-right: 10px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fabf01;
+      }
+      .deleteBtn2 {
+        width: 120px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fabf01;
+      }
+    }
+    .deliveryDate {
+      display: flex;
+      border-bottom: 2px solid #202020;
+      align-items: center;
+      font-size: 20px;
+
+      .delivery {
+        padding: 20px 30px;
+        font-weight: 600;
+      }
+    }
+    .foodContent {
+      border-bottom: 2px solid #202020;
+    }
+    .foodList1 {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #e0e0e0;
+      align-items: center;
+      font-size: 20px;
+      .firstItem {
+        margin-left: 27px;
+      }
+      .foodPhoto1 {
+        width: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .food1 {
+        width: 75%;
+        font-weight: 600;
+        margin-left: 20px;
+        .soldOut {
+          color: red;
+          font-size: 16px;
+          font-weight: 700;
+          margin-bottom: 14px;
+        }
+        .foodName {
+          margin-bottom: 10px;
+        }
+      }
+      .boxBtn {
+        width: 20%;
+        .btnAmountMinus {
+          width: 30px;
+          height: 30px;
+          border: none;
+          background-color: white;
+          font-size: 25px;
+        }
+        .btnAmountPlus {
+          width: 30px;
+          height: 30px;
+          border: none;
+          background-color: white;
+          font-size: 25px;
+        }
+      }
+      .foodPrice {
+        width: 10%;
+      }
+      .deleteBtn {
+        width: 30px;
+        height: 30px;
+        border: none;
+        font-size: 25px;
+        background-color: white;
+      }
+    }
+
+    .foodList2 {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #e0e0e0;
+      align-items: center;
+      font-size: 20px;
+      .secondItem {
+        margin-left: 27px;
+      }
+      .foodPhoto2 {
+        width: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .food2 {
+        width: 75%;
+        font-weight: 600;
+        margin-left: 20px;
+        .soldOut2 {
+          color: red;
+          font-size: 16px;
+          font-weight: 700;
+          margin-bottom: 12px;
+        }
+        .foodName2 {
+          margin-bottom: 10px;
+        }
+      }
+      .boxBtn2 {
+        width: 20%;
+        .btnAmountMinus2 {
+          width: 30px;
+          height: 30px;
+          border: none;
+          background-color: white;
+          font-size: 25px;
+        }
+        .btnAmountPlus2 {
+          width: 30px;
+          height: 30px;
+          border: none;
+          background-color: white;
+          font-size: 25px;
+        }
+      }
+      .foodPrice2 {
+        width: 10%;
+      }
+      .deleteBtn2 {
+        width: 30px;
+        height: 30px;
+        border: none;
+        font-size: 25px;
+        background-color: white;
+      }
+    }
+    .totalPayment {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      margin-top: 45px;
+      border-top: 2px solid #202020;
+      padding: 33px 0 34px;
+      text-align: center;
+    }
+    .paymentArea {
+      display: flex;
+      justify-content: space-between;
+      font-size: 30px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 40px;
+      margin-bottom: 120px;
+    }
+  }
+}

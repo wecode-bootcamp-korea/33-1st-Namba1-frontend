@@ -9,15 +9,23 @@ const ReviewAdd = ({
   isReviewAdd,
   saveReviewInput,
   saveReviewMenu,
-  onCreatReview,
+  onCreateReview,
   imageSrc,
   isRemoveImg,
   encodeFileToBase64,
   selectMenu,
   reviewValue,
+  saveMenuId,
 }) => {
   const [menu, setMenu] = useState([]);
+  const [menuSelect, setMenuSelect] = useState('');
+  const [show, setShow] = useState(false);
+
   const outSection = useRef();
+  const isDisabled = selectMenu === '' || reviewValue.length < 20;
+  const isMenuSelectShow = () => {
+    setShow(!show);
+  };
 
   useEffect(() => {
     const escKeyModalClose = e => {
@@ -37,8 +45,6 @@ const ReviewAdd = ({
       });
   }, [setMenu]);
 
-  const isDisabled = selectMenu === '' || reviewValue.length < 20;
-
   return (
     <section className="reviewadd">
       {reviewAdd ? (
@@ -54,16 +60,29 @@ const ReviewAdd = ({
           <div className="reviewWriteFrom">
             <h3 className="reviewWriteHead">리뷰 쓰기</h3>
 
-            <select name="상품선택" onChange={saveReviewMenu} required>
-              <option disabled defaultValue>
-                메뉴를 선택해주세요.
-              </option>
-              {menu.map(({ id, menuName }) => (
-                <option key={id}>{menuName}</option>
-              ))}
-            </select>
+            <ul
+              onClick={isMenuSelectShow}
+              className={show ? 'menuSelect show' : 'menuSelect'}
+            >
+              {menuSelect === '' ? '메뉴를 선택해주세요.' : menuSelect}
+              <div className="menuSelectBox">
+                {menu.map(({ id, menuName }) => (
+                  <li
+                    key={id}
+                    onClick={e => {
+                      e.preventDefault();
+                      saveMenuId(id);
+                      saveReviewMenu(e.target.innerText);
+                      setMenuSelect(e.target.innerText);
+                    }}
+                  >
+                    {menuName}
+                  </li>
+                ))}
+              </div>
+            </ul>
 
-            <form className="reviewWriteForm">
+            <form className="reviewWriteForm" onSubmit={onCreateReview}>
               <p className="reviewFileTitle">사진 첨부 (선택)</p>
               <p className="reviewFileDesc">
                 오늘의집에 올렸던 사진에서 고르거나 새로운 사진을 첨부해주세요.
@@ -96,11 +115,7 @@ const ReviewAdd = ({
                 />
               </div>
 
-              <button
-                className="reviewSubmitBtn"
-                onClick={onCreatReview}
-                disabled={isDisabled && true}
-              >
+              <button className="reviewSubmitBtn" disabled={isDisabled && true}>
                 완료
               </button>
             </form>
