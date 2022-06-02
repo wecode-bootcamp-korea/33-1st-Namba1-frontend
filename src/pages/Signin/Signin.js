@@ -2,6 +2,8 @@ import React from 'react';
 import './Signin.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 
 const Signin = () => {
   const [inputId, setInputId] = useState('');
@@ -47,6 +49,7 @@ const Signin = () => {
 
   return (
     <div>
+      <Nav />
       <div className="loginForm">
         <div className="logIn">
           <h2 className="accountTitle">로그인</h2>
@@ -83,6 +86,8 @@ const Signin = () => {
           <li>비밀번호 찾기</li>
         </ul>
       </div>
+
+      <Footer />
     </div>
   );
 };

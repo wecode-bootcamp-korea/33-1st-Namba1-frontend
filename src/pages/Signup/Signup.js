@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
 import SignUpForm from '../../components/SignUpForm';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 
 const Signup = () => {
   const [numberInputValue, setNumberInputValue] = useState('');
@@ -153,96 +155,100 @@ const Signup = () => {
   }, [ageCheck, termsCheck, marketingCheck]);
 
   return (
-    <div className="backgroundWrapper">
-      <div className="contentWrapper">
-        <header>회원 가입</header>
-        <form className="signUpWrapper">
-          {SIGNUP_DATA.map(input => (
-            <SignUpForm
-              key={input.id}
-              input={input}
-              placeholder={input.placeholder}
-              onChange={handleInput}
-            />
-          ))}
-
-          <div className="phoneNumber">
-            <span className="title">휴대폰 번호 *</span>
-            <input
-              className="userPhoneNumber"
-              type="tel"
-              name="phoneNumber"
-              onChange={handlePress}
-              value={numberInputValue}
-            />
-          </div>
-
-          <div className="birth">
-            <span className="title">생년월일 *</span>
-            <input
-              className="userBirth"
-              type="text"
-              name="birth"
-              onChange={birthPress}
-              value={birthInputValue}
-            />
-          </div>
-
-          <div className="footer">
-            <div className="terms">
-              <input
-                className="agreeTerms"
-                type="checkbox"
-                checked={allCheck}
-                onChange={allBtnEvent}
+    <>
+      <Nav />
+      <div className="backgroundWrapper">
+        <div className="contentWrapper">
+          <header>회원 가입</header>
+          <form className="signUpWrapper">
+            {SIGNUP_DATA.map(input => (
+              <SignUpForm
+                key={input.id}
+                input={input}
+                placeholder={input.placeholder}
+                onChange={handleInput}
               />
-              <span className="title">약관 전체 동의</span>
+            ))}
+
+            <div className="phoneNumber">
+              <span className="title">휴대폰 번호 *</span>
+              <input
+                className="userPhoneNumber"
+                type="tel"
+                name="phoneNumber"
+                onChange={handlePress}
+                value={numberInputValue}
+              />
             </div>
 
-            <div className="essentialTerms">
+            <div className="birth">
+              <span className="title">생년월일 *</span>
               <input
-                className="agreeTerms"
-                type="checkbox"
-                checked={termsCheck}
-                onChange={termsBtnEvent}
+                className="userBirth"
+                type="text"
+                name="birth"
+                onChange={birthPress}
+                value={birthInputValue}
               />
-              <span className="title">(필수) 이용 약관에 동의합니다.</span>
             </div>
 
-            <div className="essentialTerms2">
-              <input
-                className="agreeTerms"
-                type="checkbox"
-                checked={ageCheck}
-                onChange={ageBtnEvent}
-              />
-              <span className="title">(필수) 만 14세 이상입니다.</span>
+            <div className="footer">
+              <div className="terms">
+                <input
+                  className="agreeTerms"
+                  type="checkbox"
+                  checked={allCheck}
+                  onChange={allBtnEvent}
+                />
+                <span className="title">약관 전체 동의</span>
+              </div>
+
+              <div className="essentialTerms">
+                <input
+                  className="agreeTerms"
+                  type="checkbox"
+                  checked={termsCheck}
+                  onChange={termsBtnEvent}
+                />
+                <span className="title">(필수) 이용 약관에 동의합니다.</span>
+              </div>
+
+              <div className="essentialTerms2">
+                <input
+                  className="agreeTerms"
+                  type="checkbox"
+                  checked={ageCheck}
+                  onChange={ageBtnEvent}
+                />
+                <span className="title">(필수) 만 14세 이상입니다.</span>
+              </div>
+
+              <div className="essentialTerms3">
+                <input
+                  className="agreeTerms"
+                  type="checkbox"
+                  checked={marketingCheck}
+                  onChange={marketingBtnEvent}
+                />
+                <span className="title">
+                  (선택) 이메일 및 SMS 마케팅 정보 수신에 동의합니다.
+                </span>
+              </div>
             </div>
 
-            <div className="essentialTerms3">
-              <input
-                className="agreeTerms"
-                type="checkbox"
-                checked={marketingCheck}
-                onChange={marketingBtnEvent}
-              />
-              <span className="title">
-                (선택) 이메일 및 SMS 마케팅 정보 수신에 동의합니다.
-              </span>
-            </div>
-          </div>
-
-          <button
-            className="userSignUp"
-            type="button"
-            onClick={goSignUp}
-            disabled={!isValid}
-          >
-            회원가입 하기
-          </button>
-        </form>
+            <button
+              className="userSignUp"
+              type="button"
+              onClick={goSignUp}
+              disabled={!isValid}
+            >
+              회원가입 하기
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
