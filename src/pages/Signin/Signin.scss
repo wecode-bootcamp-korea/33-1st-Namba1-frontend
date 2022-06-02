@@ -1,11 +1,12 @@
 .loginForm {
   width: 28.125rem;
-  height: 40.625rem;
+  height: 35rem;
   border: none;
   text-align: center;
   margin: auto;
   border-radius: 0.125rem;
-  margin-top: 6.25rem;
+  margin-top: 8.5rem;
+
   .logIn {
     h2 {
       margin-top: 3.125rem;
@@ -21,8 +22,8 @@ a {
 }
 
 .userForm {
-  margin-top: 6.25rem;
-  margin-bottom: 1.875rem;
+  margin: 3rem 0;
+
   input::placeholder {
     color: #e0e0e0;
   }
@@ -95,7 +96,6 @@ span {
 }
 
 .loginBtn {
-  margin-top: 4.375rem;
   width: 25rem;
   height: 4.375rem;
   background: #fabf01;
@@ -107,7 +107,6 @@ span {
   cursor: pointer;
 
   &:disabled {
-    margin-top: 4.375rem;
     width: 25rem;
     height: 4.375rem;
     background: #eee;
