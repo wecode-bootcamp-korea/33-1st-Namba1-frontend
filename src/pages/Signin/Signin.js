@@ -17,7 +17,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const goToSignUp = e => {
     e.preventDefault();
-    fetch('http://10.58.0.124:8000/user/login', {
+    fetch('http://10.58.2.60:8000/user/login', {
       method: 'POST',
       body: JSON.stringify({
         email: inputId,
@@ -28,12 +28,16 @@ const Signin = () => {
       .then(result => {
         if (result.Token) {
           localStorage.setItem('Token', result.Token);
+          localStorage.setItem('USER_NAME', result.USER_NAME);
+          navigate('/');
+          // 1. token
+          // 2. userName -> save, localStorage
         } else {
           alert('로그인 실패!');
         }
       });
 
-    navigate('/');
+    // TODO : 전역 상태로 바꾸기!
   };
 
   const idCondition =

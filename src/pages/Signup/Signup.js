@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
 import SignUpForm from '../../components/SignUpForm';
+import { faHourglassEmpty } from '@fortawesome/free-solid-svg-icons';
 
 const Signup = () => {
   const [numberInputValue, setNumberInputValue] = useState('');
@@ -12,6 +13,12 @@ const Signup = () => {
   const [ageCheck, setAgeCheck] = useState(false);
   const [termsCheck, setTermsCheck] = useState(false);
   const [marketingCheck, setMarketingCheck] = useState(false);
+
+  const [agreement, setAgreement] = useState({
+    age: false,
+    terms: false,
+    marketing: false,
+  });
 
   const [inputValue, setInputValue] = useState({
     email: '',
@@ -27,7 +34,7 @@ const Signup = () => {
   };
   const navigate = useNavigate();
   const goSignUp = e => {
-    fetch('http://10.58.0.124:8000/user/signup', {
+    fetch('http://10.58.2.60:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -36,10 +43,7 @@ const Signup = () => {
         phoneNumber: numberInputValue,
         birth: birthInputValue,
         agreement: {
-          allCheck: allCheck,
-          ageCheck: ageCheck,
-          termsCheck: termsCheck,
-          marketingCheck: marketingCheck,
+          agreement: agreement,
         },
       }),
     })
@@ -108,12 +112,12 @@ const Signup = () => {
 
   const allBtnEvent = () => {
     if (allCheck === false) {
-      setAllCheck(true);
+      setAgreement(true);
       setAgeCheck(true);
       setTermsCheck(true);
       setMarketingCheck(true);
     } else {
-      setAllCheck(false);
+      setAgreement(false);
       setAgeCheck(false);
       setTermsCheck(false);
       setMarketingCheck(false);
