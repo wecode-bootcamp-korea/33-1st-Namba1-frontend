@@ -36,12 +36,7 @@ const ProductCarousel = ({ id, name, image }) => {
         />
         <div className="collection">
           {image.map((item, index) => (
-            <CarouselItem
-              key={index}
-              source={item}
-              alt={name}
-              onClick={() => setCurrentIndex(index)}
-            />
+            <CarouselItem key={index} source={item} alt={name} />
           ))}
         </div>
         <FontAwesomeIcon

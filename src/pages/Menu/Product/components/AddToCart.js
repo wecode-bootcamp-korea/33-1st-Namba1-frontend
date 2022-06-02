@@ -5,16 +5,16 @@ import {
   faCircleQuestion,
   faMinus,
   faPlus,
-  faX,
   faHeart,
+  faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 const AddToCart = ({ price, name }) => {
-  const [isOptionOpen, setIsOptionOpen] = useState(false);
+  const [isOptionOpen, setIsOptionOpen] = useState(true);
   const [quantity, setQuantity] = useState(1);
 
   const closeHandler = () => {
-    setIsOptionOpen(false);
+    setIsOptionOpen(!isOptionOpen);
   };
 
   const decreaseQuantity = () => {
@@ -36,34 +36,33 @@ const AddToCart = ({ price, name }) => {
       </div>
 
       <div className="cartBox">
-        <div
-          className={`itemHeader ${isOptionOpen ? 'active' : ''}`}
-          onClick={() => setIsOptionOpen(true)}
-        >
+        <div className={`itemHeader ${isOptionOpen ? 'active' : ''}`}>
           <h3 className="itemHeaderTitle">옵션</h3>
-          <button className="cancelBtn" onClick={closeHandler}>
-            <FontAwesomeIcon icon={faX} className="cancelIcon" />
+          <button className="cancelBtn" type="button" onClick={closeHandler}>
+            <FontAwesomeIcon icon={faChevronDown} className="cancelIcon" />
           </button>
         </div>
 
-        <div className="itemInput">
-          <p className="itemName">{name}</p>
-          <form className="itemForm">
-            <div className="iconBtn" onClick={decreaseQuantity}>
-              <FontAwesomeIcon icon={faMinus} />
-            </div>
-            <input
-              type="text"
-              className="itemCount"
-              value={quantity}
-              onChange={event => setQuantity(event.target.value)}
-            />
-            <div className="iconBtn" onClick={increaseQuantity}>
-              <FontAwesomeIcon icon={faPlus} />
-            </div>
-          </form>
-          <p className="unitPrice">{price.toLocaleString()}원</p>
-        </div>
+        {isOptionOpen ? (
+          <div className="itemInput">
+            <p className="itemName">{name}</p>
+            <form className="itemForm">
+              <div className="iconBtn" onClick={decreaseQuantity}>
+                <FontAwesomeIcon icon={faMinus} />
+              </div>
+              <input
+                type="text"
+                className="itemCount"
+                value={quantity}
+                onChange={event => setQuantity(event.target.value)}
+              />
+              <div className="iconBtn" onClick={increaseQuantity}>
+                <FontAwesomeIcon icon={faPlus} />
+              </div>
+            </form>
+            <p className="unitPrice">{price.toLocaleString()}원</p>
+          </div>
+        ) : null}
       </div>
 
       <div className="itemTotal">
