@@ -40,19 +40,20 @@
 
   .reviewImgDisplay {
     display: flex;
-    width: 500%;
     overflow: hidden;
 
-    .reviewImgBox {
+    .reviewImgContainer {
       display: flex;
-    }
+      width: 100%;
 
-    .reviewImgBox {
-      padding-right: 80px;
+      .reviewImgBox {
+        width: 100%;
 
-      .reviewImg {
-        width: 630px;
-        object-fit: cover;
+        .reviewImg {
+          width: 50vw;
+          height: 520px;
+          object-fit: fill;
+        }
       }
     }
   }
