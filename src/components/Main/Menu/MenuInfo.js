@@ -2,10 +2,17 @@ import React from 'react';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './MenuInfo.scss';
+import { useNavigate } from 'react-router-dom';
 
 const MenuInfo = ({ id, name, serving, price, image }) => {
+  const navigate = useNavigate();
+
+  const goToDetail = id => {
+    navigate(`/products/${id}`);
+  };
+
   return (
-    <div key={id} className="menuInfo">
+    <div key={id} className="menuInfo" onClick={() => goToDetail(id)}>
       <div className="menuPhotoBox">
         <img className="menuPhoto" src={image} alt="salad" />
       </div>

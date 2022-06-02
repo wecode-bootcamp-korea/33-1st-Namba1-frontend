@@ -35,6 +35,7 @@ const Menu = ({ title, src, className, ip }) => {
           ? allMenuList.map(({ id, name, serving, price, image }) => (
               <MenuInfo
                 key={id}
+                id={id}
                 name={name}
                 serving={serving}
                 price={price}
