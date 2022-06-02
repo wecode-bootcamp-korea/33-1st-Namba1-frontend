@@ -4,7 +4,6 @@ import './Product.scss';
 import ProductCarousel from './components/ProductCarousel';
 import ProductInfo from './components/ProductInfo';
 import Nav from '../../../components/Nav/Nav';
-import Top from '../../../components/Top/Top';
 import Footer from '../../../components/Footer/Footer';
 
 const Product = () => {
@@ -48,7 +47,6 @@ const Product = () => {
             />
           </>
         )}
-        <Top />
       </div>
       <Footer />
     </>
