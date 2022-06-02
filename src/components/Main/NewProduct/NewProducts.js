@@ -7,8 +7,9 @@ import { useNavigate } from 'react-router-dom';
 const NewProduct = ({ ip }) => {
   const [newProduct, setNewProduct] = useState([]);
   const navigate = useNavigate();
-  const goToDetail = () => {
-    navigate(`/products/${newProduct.id}`);
+
+  const goToDetail = id => {
+    navigate(`/products/${id}`);
   };
 
   // ******* server data *******
@@ -39,7 +40,7 @@ const NewProduct = ({ ip }) => {
       <div className="newProductsContainer">
         {newProduct.map(({ id, name, serving, price, image }) => {
           return (
-            <div key={id} className="newProduct" onClick={goToDetail}>
+            <div key={id} className="newProduct" onClick={() => goToDetail(id)}>
               <div className="productImgBox">
                 <img className="productImg" src={image} alt="meat" />
               </div>

@@ -28,7 +28,7 @@ const ReviewCarousel = () => {
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 1.0s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide * 19.5}%)`;
+    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const ReviewCarousel = () => {
         </Link>
       </div>
       <div className="reviewImgDisplay">
-        <div className="reviewImgBox" ref={slideRef}>
+        <div className="reviewImgContainer" ref={slideRef}>
           {review.map(({ id, imgSrc, imgAlt }) => {
             return (
               <div key={id} className="reviewImgBox">

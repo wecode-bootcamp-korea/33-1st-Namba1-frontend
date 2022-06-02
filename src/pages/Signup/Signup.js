@@ -5,7 +5,6 @@ import './Signup.scss';
 import SignUpForm from '../../components/SignUpForm';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
-import { faHourglassEmpty } from '@fortawesome/free-solid-svg-icons';
 
 const Signup = () => {
   const [numberInputValue, setNumberInputValue] = useState('');

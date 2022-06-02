@@ -16,7 +16,7 @@ const Recommend = ({ ip }) => {
 
   useEffect(() => {
     location.search === '' ? navigate('/?themeId=8&sort=-id') : navigate('/');
-  }, [ip, navigate, location.search]);
+  }, []);
 
   const nextSlide = () => {
     if (currentSlide >= totalSlide) {
@@ -56,7 +56,7 @@ const Recommend = ({ ip }) => {
       .then(data => {
         setTasteImg(data.product_list);
       });
-  }, [ip]);
+  }, [tasteOption, ip, location]);
 
   const getTasteBtn = tasteOption => {
     const queryString = `?themeId=${tasteOption}&sort=-id`;

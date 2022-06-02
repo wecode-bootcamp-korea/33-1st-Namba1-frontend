@@ -1,6 +1,7 @@
+//Nav.js
+
 import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 const Nav = () => {
@@ -15,7 +16,7 @@ const Nav = () => {
 
   // useLocation -> URL
   // URL re-render
-  const location = useLocation();
+  // const location = useLocation();
   const [userName, setUserName] = useState(localStorage.getItem('USER_NAME'));
 
   return (
@@ -64,11 +65,9 @@ const Nav = () => {
   );
 };
 const PAGENAV_LIST = [
-  { id: 1, page: '메뉴', url: '/products' },
+  { id: 1, page: '메뉴', url: '/menu' },
   { id: 2, page: '리뷰', url: '/review' },
-  { id: 3, page: '마이카트', url: '/mycart' },
+  { id: 3, page: '마이카트', url: 'mycart' },
 ];
-
-const MY_NAV_LIST = [{ id: 1, page: '로그인', url: '/signin' }];
 
 export default Nav;
