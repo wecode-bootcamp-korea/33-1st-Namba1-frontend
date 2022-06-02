@@ -123,10 +123,14 @@ const ReviewBox = () => {
       });
   }, [locationPhoto.search]);
 
+  console.log(location.search);
+
   const handlePhotoFilter = e => {
     e.preventDefault();
-    const queryString = `?photo=http`;
-    navigate(queryString);
+    if (!location.search) {
+      const queryString = `?photo=http`;
+      navigate(queryString);
+    } else navigate('/review');
   };
 
   return (
