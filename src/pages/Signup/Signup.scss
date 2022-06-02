@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+}
+
+.contentWrapper {
+  margin-top: 3.125rem;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+
+  header {
+    margin-bottom: 80px;
+    text-align: center;
+    font-size: 1.875rem;
+  }
+}
+
+.signUpWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.idContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4.375rem;
+  font-size: 0.75rem;
+  .userId {
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
+}
+
+.nameContent {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  .isUserName {
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
+}
+
+.passwordContent {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  .userPassword {
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
+}
+
+.passwordCheckContent {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  .userPasswordCheck {
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
+}
+
+.phoneNumber {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  .userPhoneNumber {
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
+}
+
+.birth {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  .userBirth {
+    width: 25rem;
+    height: 2.5rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+    border: 0.063rem solid gray;
+    border-radius: 5px;
+    border: 0.063rem solid gray;
+    border-radius: 0.313rem;
+    &:focus {
+      outline: 0.063rem solid #fabf01;
+      border-color: #fabf01;
+    }
+  }
+}
+
+.footer {
+  position: relative;
+  margin-top: 1.25rem;
+  right: 1.25rem;
+  font-size: 0.875rem;
+
+  .agreeTerms {
+    margin-bottom: 0.625rem;
+  }
+  input[type='checkbox'] {
+    zoom: 1.2;
+    accent-color: #fabf01;
+  }
+}
+
+.userSignUp {
+  cursor: pointer;
+  width: 25rem;
+  height: 2.5rem;
+  margin-top: 30px;
+  background: #fabf01;
+  border: none;
+  border-radius: 0.313rem;
+  color: white;
+  font-size: 0.938rem;
+  font-weight: bold;
+
+  &:disabled {
+    width: 25rem;
+    height: 2.5rem;
+    background: #eee;
+    border: none;
+    border-radius: 0.313rem;
+    color: white;
+    font-size: 0.938rem;
+    font-weight: bold;
+  }
+}

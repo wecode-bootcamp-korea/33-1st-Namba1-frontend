@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+#footer {
+  position: relative;
+  .footerWrap {
+    position: relative;
+    min-width: 1260px;
+    height: 290px;
+    margin: 0 auto;
+    background-color: rgb(243, 222, 167);
+    color: white;
+    text-align: center;
+  }
+  .footerContent {
+    display: flex;
+    width: 1180px;
+    margin: 0 auto;
+    text-align: left;
+    .footerLeft {
+      float: left;
+      width: 300px;
+      padding-top: 36px;
+      .namba1 {
+        width: 180px;
+      }
+    }
+    .footerCenter {
+      float: left;
+      width: 850px;
+      padding-top: 32px;
+      .menu {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 250px;
+        font-weight: 800;
+        margin-bottom: 30px;
+        p:nth-child(2) {
+          color: #fabf01;
+        }
+        .footerInfo {
+          padding-top: 18px;
+          width: 630px;
+        }
+      }
+      .footerInfoContent {
+        color: #808080;
+        font-weight: 550;
+        .infoContent1 {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+          padding-right: 180px;
+        }
+
+        .infoContent2 {
+          display: flex;
+          justify-content: space-between;
+          font-size: 11px;
+          margin-top: 15px;
+          padding-right: 80px;
+        }
+        .infoContent3 {
+          display: flex;
+          justify-content: space-between;
+          font-size: 11px;
+          margin-bottom: 15px;
+          margin-top: 15px;
+          padding-right: 350px;
+        }
+        .infoContent4 {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+          margin-bottom: 2px;
+        }
+        span {
+          color: white;
+          text-decoration: underline;
+          font-size: 12px;
+        }
+        .copyright {
+          margin-top: 40px;
+          font-size: 11px;
+        }
+      }
+    }
+    .footerRight {
+      width: 300px;
+      .cjGroup {
+        padding: 32px;
+        .cjGroupText {
+          font-weight: 800;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      .cjGroupInfo {
+        margin-top: 60px;
+        .cjGroupCs {
+          font-size: 18px;
+          font-weight: 800;
+          display: flex;
+        }
+      }
+      .icon2 {
+        margin-top: 5px;
+      }
+      .cjGroupCsNumber {
+        font-size: 18px;
+        font-weight: 800;
+        margin-right: 60px;
+      }
+    }
+  }
+}
