@@ -1,7 +1,7 @@
 import React from 'react';
-import './SmallImages.scss';
+import './CarouselItem.scss';
 
-const SmallImages = ({ source, alt }) => {
+const CarouselItem = ({ source, alt }) => {
   return (
     <div className="smallImages">
       <img className="smallImage" src={source} alt={alt} />
@@ -9,4 +9,4 @@ const SmallImages = ({ source, alt }) => {
   );
 };
 
-export default SmallImages;
+export default CarouselItem;

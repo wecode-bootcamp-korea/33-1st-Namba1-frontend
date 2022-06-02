@@ -7,12 +7,17 @@ function Searchbox({ updateSearchTerms }) {
   const [searchItem, setSearchItem] = useState('');
 
   const onChangeSearch = event => {
-    setSearchItem(event.currentTarget.value);
-    updateSearchTerms(event.currentTarget.value);
+    setSearchItem(event.target.value);
   };
 
   return (
-    <div className="categorySearchBox">
+    <form
+      className="categorySearchBox"
+      onSubmit={e => {
+        e.preventDefault();
+        updateSearchTerms(searchItem);
+      }}
+    >
       <input
         className="searchInput"
         type="text"
@@ -21,7 +26,7 @@ function Searchbox({ updateSearchTerms }) {
         onChange={onChangeSearch}
       />
       <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon" />
-    </div>
+    </form>
   );
 }
 

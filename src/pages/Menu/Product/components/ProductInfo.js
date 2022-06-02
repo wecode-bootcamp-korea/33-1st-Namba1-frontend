@@ -10,7 +10,7 @@ import './ProductInfo.scss';
 const ProductInfo = ({
   name,
   description,
-  servings,
+  serving,
   cookTime,
   prepTime,
   spice,
@@ -25,11 +25,13 @@ const ProductInfo = ({
       </div>
 
       <div className="productPrep">
-        <p className="productAmount">{servings}인분</p>
+        <p className="productAmount">{`${serving}인분`}</p>
         <p className="productTime">조리 {cookTime}분</p>
         <p className="productPreparation">준비 {prepTime}분</p>
         <FontAwesomeIcon icon={faCircleQuestion} className="questionIcon" />
-        <p className="spiceLevel">{!spice ? null : `${spice} 매운맛`}</p>
+        <p className="spiceLevel">
+          {spice === true ? `${spice} 매운맛` : null}
+        </p>
       </div>
 
       <div className="productDetail">

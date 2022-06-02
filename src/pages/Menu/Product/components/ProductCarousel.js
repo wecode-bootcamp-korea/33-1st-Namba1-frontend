@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SmallImages from './SmallImages';
+import CarouselItem from './CarouselItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronLeft,
@@ -36,7 +36,7 @@ const ProductCarousel = ({ id, name, image }) => {
         />
         <div className="collection">
           {image.map((item, index) => (
-            <SmallImages
+            <CarouselItem
               key={index}
               source={item}
               alt={name}

@@ -8,7 +8,7 @@
 
 @mixin headingText {
   color: $subColor;
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 
 @mixin grayStyle {
@@ -21,7 +21,7 @@
   padding-left: 70px;
 
   .productContent {
-    line-height: 32px;
+    line-height: 35px;
 
     .productDescription {
       @include headingText;
@@ -45,7 +45,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 0.7em;
+    font-size: 0.9em;
 
     .productAmount,
     .productTime {
@@ -91,7 +91,7 @@
       }
 
       .productPrice {
-        font-size: 1.8em;
+        font-size: 1.9em;
         font-weight: 800;
       }
     }

@@ -9,13 +9,13 @@ import './Menu.scss';
 const Menu = () => {
   const [menuCard, setMenuCard] = useState([]);
   const [title, setTitle] = useState('전체');
-  const [searchTerms, setSearchTerms] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
   const [filterItem, setFilterItem] = useState({
     themeValue: '',
     sortValue: '-id',
+    searchValue: '',
   });
 
   const titleHandler = event => {
@@ -23,7 +23,7 @@ const Menu = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.0.124:8000/products${location.search}`)
+    fetch(`http://10.58.2.60:8000/products${location.search}`)
       .then(response => response.json())
       .then(data => setMenuCard(data.product_list));
   }, [location.search]);
@@ -31,9 +31,11 @@ const Menu = () => {
   useEffect(() => {
     const queryString = `?${
       filterItem.themeValue ? `themeId=${filterItem.themeValue}` : ''
-    }${filterItem.sortValue ? `&sort=${filterItem.sortValue}` : ''}`;
+    }${filterItem.sortValue ? `&sort=${filterItem.sortValue}` : ''}${
+      filterItem.searchValue ? `&search=${filterItem.searchValue}` : ''
+    }`;
     navigate(queryString);
-  }, [filterItem]);
+  }, [filterItem, navigate]);
 
   const getCategoryIdx = categoryIdx => {
     setFilterItem(prev => {
@@ -47,8 +49,10 @@ const Menu = () => {
     });
   };
 
-  const updateSearchTerms = newSearchTerm => {
-    setSearchTerms(newSearchTerm);
+  const updateSearchTerms = value => {
+    setFilterItem(prev => {
+      return { ...prev, searchValue: value };
+    });
   };
 
   return (
@@ -65,12 +69,12 @@ const Menu = () => {
       </div>
       <div className="contentDisplay">
         {menuCard.map(
-          ({ id, name, servings, cookTime, spice, price, image }) => (
+          ({ id, name, serving, cookTime, spice, price, image }) => (
             <MenuCard
               key={id}
               id={id}
               name={name}
-              servings={servings}
+              serving={serving}
               cookTime={cookTime}
               spice={spice}
               price={price}
@@ -78,9 +82,6 @@ const Menu = () => {
             />
           )
         )}
-        {/* {menuCard.map(({ id }, menu) => (
-          <MenuCard key={id} {...menu} />
-        ))} */}
       </div>
       <div className="pageNum">
         <button className="pageBtn">1</button>

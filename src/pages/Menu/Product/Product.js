@@ -12,7 +12,7 @@ const Product = () => {
     id,
     name,
     description,
-    servings,
+    serving,
     cookTime,
     prepTime,
     price,
@@ -21,7 +21,7 @@ const Product = () => {
   } = product;
 
   useEffect(() => {
-    fetch(`http://10.58.0.124:8000/products/${params.id}`)
+    fetch(`http://10.58.2.60:8000/products/${params.id}`)
       .then(response => {
         return response.json();
       })
@@ -36,7 +36,7 @@ const Product = () => {
           <ProductInfo
             name={name}
             description={description}
-            servings={servings}
+            serving={serving}
             cookTime={cookTime}
             prepTime={prepTime}
             spice={spice}

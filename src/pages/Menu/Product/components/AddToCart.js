@@ -41,12 +41,8 @@ const AddToCart = ({ price, name }) => {
           onClick={() => setIsOptionOpen(true)}
         >
           <h3 className="itemHeaderTitle">옵션</h3>
-          <button className="cancelBtn">
-            <FontAwesomeIcon
-              icon={faX}
-              className="cancelIcon"
-              onClick={closeHandler}
-            />
+          <button className="cancelBtn" onClick={closeHandler}>
+            <FontAwesomeIcon icon={faX} className="cancelIcon" />
           </button>
         </div>
 
