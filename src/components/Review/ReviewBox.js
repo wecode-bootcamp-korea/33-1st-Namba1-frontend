@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck';
@@ -10,25 +11,25 @@ import '../../components/Review/ReviewBox.scss';
 
 const ReviewBox = () => {
   const [review, setReview] = useState([]);
-  const [filterReview, setFilterReview] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [reviewAddForm, setReviewAddForm] = useState(false);
   const [reviewValue, setreviewValue] = useState([]);
   const [selectMenu, setSelectMenu] = useState([]);
   const [imageSrc, setImageSrc] = useState('');
-  const [filterPhoto, setFilterPhoto] = useState([]);
-  const [isPhotoFilter, setIsFilterPhoto] = useState(false);
-
-  const limit = 10;
-  const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
+  const [selectMenuId, setSelectMenuId] = useState([]);
+  const [totalReview, setTotalReview] = useState(0);
+  const [isPhotoFilter, setIsPhotoFilter] = useState(false);
 
   const saveReviewInput = e => {
     setreviewValue(e.target.value);
   };
 
-  const saveReviewMenu = e => {
-    setSelectMenu(e.target.value);
+  const saveReviewMenu = target => {
+    setSelectMenu(target);
+  };
+
+  const saveMenuId = id => {
+    setSelectMenuId(id);
   };
 
   const isRemoveImg = () => {
@@ -46,70 +47,91 @@ const ReviewBox = () => {
     });
   };
 
-  const nextId = useRef(12);
-  const onCreatReview = e => {
+  const onCreateReview = e => {
     e.preventDefault();
-    setReview([
-      ...review,
-      {
-        id: nextId.current,
+    fetch(`http://10.58.2.60:8000/review`, {
+      method: 'POST',
+      body: JSON.stringify({
         title: selectMenu,
-        date: '2022-05-23',
-        imageSrc: imageSrc,
-        userId: 'lemon',
+        product_id: selectMenuId,
         userInput: reviewValue,
-      },
-    ]);
-
-    nextId.current += 1;
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        setReview(data.review_list);
+      });
   };
-
-  useEffect(() => {
-    fetch('/data/review.json')
-      .then(res => res.json())
-      .then(data => {
-        setReview(data);
-        setFilterReview(data);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch('/data/photoReview.json')
-      .then(res => res.json())
-      .then(data => {
-        setFilterPhoto(data);
-      });
-  }, []);
 
   const isReviewAdd = () => {
     setReviewAddForm(true);
   };
 
-  const searchUser = e => {
-    setSearchInput(e.target.value);
-    if (searchInput === '') {
-      setFilterReview(review);
-    }
+  const limit = 10;
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    fetch(`http://10.58.2.60:8000/review${location.search}`)
+      .then(res => res.json())
+      .then(data => {
+        setTotalReview(data.total_review);
+        setReview(data.review_list);
+      });
+  }, [location.search]);
+
+  const getButtonIndex = buttonIndex => {
+    const offset = (buttonIndex - 1) * limit;
+    const queryString = `?offset=${offset}&limit=${limit}`;
+    navigate(queryString);
   };
 
-  const searchReview = e => {
+  useEffect(() => {
+    fetch(`http://10.58.2.60:8000/review${location.search}`)
+      .then(res => res.json())
+      .then(data => {
+        setReview(data.review_list);
+      });
+  }, [location.search]);
+
+  const getSearchInput = Input => {
+    setSearchInput(Input);
+  };
+
+  const getSearchInputValue = e => {
     e.preventDefault();
-    const result = filterReview.filter(review => {
-      return review.title.includes(searchInput);
-    });
-    setFilterReview(result);
+    const queryString = `?search=${searchInput}`;
+    navigate(queryString);
   };
 
-  const handlePhotoFilter = () => {
-    setIsFilterPhoto(current => !current);
+  useEffect(() => {
+    fetch(`http://10.58.2.60:8000/review${location.search}`)
+      .then(res => res.json())
+      .then(data => {
+        setReview(data.review_list);
+      });
+  }, [location.search]);
+
+  const handlePhotoFilter = e => {
+    e.preventDefault();
+    setIsPhotoFilter(!isPhotoFilter);
+    if (!location.search) {
+      const queryString = `?photo=http`;
+      navigate(queryString);
+    } else {
+      navigate('/review');
+    }
   };
 
   return (
     <section className="reviewbox">
-      <SearchBox searchUser={searchUser} searchReview={searchReview} />
+      <SearchBox
+        getSearchInput={getSearchInput}
+        getSearchInputValue={getSearchInputValue}
+      />
 
       <div className="reviewListHead">
-        <h2 className="reviewSum">리뷰 {review.length}건</h2>
+        <h2 className="reviewSum">리뷰 {totalReview}건</h2>
         <div className="reviewListRight">
           <button className="reviewAdd" onClick={isReviewAdd}>
             <FontAwesomeIcon icon={faPlus} />
@@ -135,40 +157,22 @@ const ReviewBox = () => {
           reviewValue={reviewValue}
           setreviewValue={setreviewValue}
           saveReviewInput={saveReviewInput}
-          onCreatReview={onCreatReview}
+          onCreateReview={onCreateReview}
           saveReviewMenu={saveReviewMenu}
           imageSrc={imageSrc}
           isRemoveImg={isRemoveImg}
           encodeFileToBase64={encodeFileToBase64}
           selectMenu={selectMenu}
+          saveMenuId={saveMenuId}
         />
       )}
 
-      {isPhotoFilter ? (
-        <ReviewList
-          offset={offset}
-          limit={limit}
-          searchReview={searchReview}
-          review={filterPhoto}
-          setReview={setReview}
-          imageSrc={imageSrc}
-        />
-      ) : (
-        <ReviewList
-          offset={offset}
-          limit={limit}
-          searchReview={searchReview}
-          review={searchInput === '' ? review : filterReview}
-          setReview={setReview}
-          imageSrc={imageSrc}
-        />
-      )}
+      <ReviewList review={review} />
 
       <Pagination
-        total={review.length}
+        total={totalReview}
         limit={limit}
-        page={page}
-        setPage={setPage}
+        getButtonIndex={getButtonIndex}
       />
     </section>
   );

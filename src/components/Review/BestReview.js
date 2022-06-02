@@ -51,8 +51,6 @@ const BestReview = () => {
               <h2 className="reviewTitle">{title}</h2>
               <div className="starBox">
                 <span className="star">★★★★★</span>
-                {/* TODO : id 3글자 이후 * 처리 */}
-
                 <span className="userId">{userId}</span>
               </div>
               <p className="bestReviewDesc">{userReview}</p>
