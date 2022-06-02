@@ -39,9 +39,9 @@ const Nav = () => {
 };
 
 const PAGENAV_LIST = [
-  { id: 1, page: '메뉴', url: '/menu' },
+  { id: 1, page: '메뉴', url: '/products' },
   { id: 2, page: '리뷰', url: '/review' },
-  { id: 3, page: '마이카트', url: 'mycart' },
+  { id: 3, page: '마이카트', url: '/mycart' },
 ];
 
 const MY_NAV_LIST = [{ id: 1, page: '로그인', url: '/signin' }];

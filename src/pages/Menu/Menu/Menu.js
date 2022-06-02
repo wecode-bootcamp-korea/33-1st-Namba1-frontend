@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Category from './components/category/Category';
 import Order from './components/Order';
 import MenuCard from './components/MenuCard';
+import Nav from '../../../components/Nav/Nav';
+import Footer from '../../../components/Footer/Footer';
 import Top from '../../../components/Top/Top';
 import './Menu.scss';
 
@@ -14,7 +16,7 @@ const Menu = () => {
 
   const [filterItem, setFilterItem] = useState({
     themeValue: '',
-    sortValue: '-id',
+    sortValue: '',
     searchValue: '',
   });
 
@@ -56,38 +58,42 @@ const Menu = () => {
   };
 
   return (
-    <div className="menu">
-      <header className="category">
-        <Category
-          titleHandler={titleHandler}
-          getCategoryIdx={getCategoryIdx}
-          updateSearchTerms={updateSearchTerms}
-        />
-      </header>
-      <div className="filter">
-        <Order title={title} getOrderIdx={getOrderIdx} />
+    <>
+      <div className="menu">
+        <Nav />
+        <header className="category">
+          <Category
+            titleHandler={titleHandler}
+            getCategoryIdx={getCategoryIdx}
+            updateSearchTerms={updateSearchTerms}
+          />
+        </header>
+        <div className="filter">
+          <Order title={title} getOrderIdx={getOrderIdx} />
+        </div>
+        <div className="contentDisplay">
+          {menuCard.map(
+            ({ id, name, serving, cookTime, spice, price, image }) => (
+              <MenuCard
+                key={id}
+                id={id}
+                name={name}
+                serving={serving}
+                cookTime={cookTime}
+                spice={spice}
+                price={price}
+                image={image}
+              />
+            )
+          )}
+        </div>
+        <div className="pageNum">
+          <button className="pageBtn">1</button>
+        </div>
+        <Top />
       </div>
-      <div className="contentDisplay">
-        {menuCard.map(
-          ({ id, name, serving, cookTime, spice, price, image }) => (
-            <MenuCard
-              key={id}
-              id={id}
-              name={name}
-              serving={serving}
-              cookTime={cookTime}
-              spice={spice}
-              price={price}
-              image={image}
-            />
-          )
-        )}
-      </div>
-      <div className="pageNum">
-        <button className="pageBtn">1</button>
-      </div>
-      <Top />
-    </div>
+      <Footer />
+    </>
   );
 };
 
