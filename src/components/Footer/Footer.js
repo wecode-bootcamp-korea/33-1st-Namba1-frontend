@@ -17,7 +17,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="footerCenter">
-            <div className="menu">
+            <div className="footerMenu">
               <p>이용약관 </p>
               <p>개인정보처리 방침</p>
               <p>법적고지 </p>

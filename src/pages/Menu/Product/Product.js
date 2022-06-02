@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom';
 import './Product.scss';
 import ProductCarousel from './components/ProductCarousel';
 import ProductInfo from './components/ProductInfo';
+import Nav from '../../../components/Nav/Nav';
 import Top from '../../../components/Top/Top';
+import Footer from '../../../components/Footer/Footer';
 
 const Product = () => {
   const [product, setProduct] = useState({});
@@ -29,23 +31,27 @@ const Product = () => {
   }, [params.id]);
 
   return (
-    <div className="product">
-      {id && (
-        <>
-          <ProductCarousel key={id} name={name} image={image} />
-          <ProductInfo
-            name={name}
-            description={description}
-            serving={serving}
-            cookTime={cookTime}
-            prepTime={prepTime}
-            spice={spice}
-            price={price}
-          />
-        </>
-      )}
-      <Top />
-    </div>
+    <>
+      <div className="product">
+        <Nav />
+        {id && (
+          <>
+            <ProductCarousel key={id} name={name} image={image} />
+            <ProductInfo
+              name={name}
+              description={description}
+              serving={serving}
+              cookTime={cookTime}
+              prepTime={prepTime}
+              spice={spice}
+              price={price}
+            />
+          </>
+        )}
+        <Top />
+      </div>
+      <Footer />
+    </>
   );
 };
 
