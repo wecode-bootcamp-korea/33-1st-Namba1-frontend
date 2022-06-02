@@ -5,6 +5,7 @@ import Menu from '../../components/Main/Menu/Menu.js';
 import NewProducts from '../../components/Main/NewProduct/NewProducts.js';
 import Recommend from '../../components/Main/Recommend/Recommend.js';
 import Nav from '../../components/Nav/Nav.js';
+import Footer from '../../components/Footer/Footer.js';
 import './Main.scss';
 
 function Main() {
@@ -25,24 +26,27 @@ function Main() {
   const ipAddress = '10.58.2.60:8000';
 
   return (
-    <div className="main">
-      <Nav />
-      <MainCarousel />
-      <Recommend ip={ipAddress} />
-      <NewProducts ip={ipAddress} />
-      <MainReview ip={ipAddress} />
-      <div className="product">
-        {MENU.map(({ id, className, title, src }) => (
-          <Menu
-            key={id}
-            className={className}
-            title={title}
-            src={src}
-            ip={ipAddress}
-          />
-        ))}
+    <>
+      <div className="main">
+        <Nav />
+        <MainCarousel />
+        <Recommend ip={ipAddress} />
+        <NewProducts ip={ipAddress} />
+        <MainReview ip={ipAddress} />
+        <div className="allProduct">
+          {MENU.map(({ id, className, title, src }) => (
+            <Menu
+              key={id}
+              className={className}
+              title={title}
+              src={src}
+              ip={ipAddress}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

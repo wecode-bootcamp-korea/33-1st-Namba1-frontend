@@ -41,13 +41,13 @@
         }
       }
 
-      .productContent {
+      .newProductContent {
         @include itemText();
         display: flex;
         justify-content: space-between;
         padding-top: 20px;
 
-        .productInfo {
+        .newProductInfo {
           .productName {
             padding-bottom: 15px;
           }

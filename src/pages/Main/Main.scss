@@ -17,11 +17,11 @@
   margin-top: 80px;
   overflow: hidden;
 
-  .product {
+  .allProduct {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 150px;
     width: 75%;
-    margin-top: 100px;
+    margin: 100px 0px;
   }
 }
