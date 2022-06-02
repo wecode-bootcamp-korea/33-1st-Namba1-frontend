@@ -11,22 +11,6 @@
     .recommendDrop {
       text-align: left;
 
-      // .taste {
-      //   @include primaryFont();
-      //   border: none;
-      //   border-bottom: solid 4px black;
-      //   width: 240px;
-      //   background-color: white;
-      //   text-align: left;
-      //   font-size: 40px;
-      //   font-weight: bold;
-      //   cursor: pointer;
-
-      //   span {
-      //     margin-right: 30px;
-      //   }
-      // }
-
       .recommendSelectBox {
         @include primaryFont();
         width: 240px;
@@ -69,13 +53,10 @@
 
     .recommendPhotoDisplay {
       display: flex;
-      height: 520px;
 
       .imgBox {
-        margin-right: 15px;
-
         img {
-          width: 700px;
+          width: 100vh;
           height: 520px;
           object-fit: cover;
         }
