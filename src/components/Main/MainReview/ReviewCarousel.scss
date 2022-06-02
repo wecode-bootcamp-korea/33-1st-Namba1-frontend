@@ -1,22 +1,29 @@
 .reviewCarousel {
-  display: flex;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  grid-column-gap: 15%;
+  height: 100%;
+  margin-top: 30px;
 
-  .reviewDisplay {
-    display: flex;
-    width: 88%;
+  .reviewContentDisplay {
+    position: relative;
 
-    .reviewBox {
-      display: flex;
-      position: relative;
-      margin: 30px 100px 0px 0px;
-      height: 420px;
-      width: 90%;
+    .reviewLink {
+      color: inherit;
 
       .reviewContentBox {
         position: absolute;
-        padding-top: 30px;
-        width: 350px;
+        left: 0;
+
+        &.hidden {
+          opacity: 0;
+          transition: opacity 800ms ease-in-out;
+        }
+
+        &.active {
+          opacity: 1;
+          transition: opacity 800ms ease-in-out;
+        }
 
         .reviewContentTitle {
           font-size: 25px;
@@ -24,20 +31,32 @@
         }
 
         .reviewContentText {
-          width: 65%;
-          padding-top: 30px;
+          margin-top: 30px;
           font-size: 25px;
-        }
-      }
-
-      .reviewImgBox {
-        .reviewImg {
-          margin-left: 300px;
-          height: 100%;
         }
       }
     }
   }
+
+  .reviewImgDisplay {
+    display: flex;
+    width: 500%;
+    overflow: hidden;
+
+    .reviewImgBox {
+      display: flex;
+    }
+
+    .reviewImgBox {
+      padding-right: 80px;
+
+      .reviewImg {
+        width: 630px;
+        object-fit: cover;
+      }
+    }
+  }
+
   .carouselBtns {
     position: absolute;
     bottom: 0px;

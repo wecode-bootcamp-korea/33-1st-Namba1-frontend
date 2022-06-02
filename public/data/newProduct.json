@@ -65,84 +65,96 @@
       "name": "단호박크림파스타",
       "serving": 3,
       "price": "21800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/fda88290-2da0-4fea-98f7-64c357510f59/image.jpg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/fda88290-2da0-4fea-98f7-64c357510f59/image.jpg",
+      "taste": "매콤한맛"
     },
     {
       "id": 2,
       "name": "토마토비프슈트",
       "serving": 2,
       "price": "24800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/7d5b6b4e-aa80-4a9d-a962-67de5ee0449c/image.jpg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/7d5b6b4e-aa80-4a9d-a962-67de5ee0449c/image.jpg",
+      "taste": "매콤한맛"
     },
     {
       "id": 3,
       "name": "소고기버섯잡채",
       "serving": 4,
       "price": "28800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/b96f7d97-8750-40c5-95cc-b710ebbdb5ad/image.jpeg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/b96f7d97-8750-40c5-95cc-b710ebbdb5ad/image.jpeg",
+      "taste": "짭짤한맛"
     },
     {
       "id": 4,
       "name": "매운 치즈크림스튜",
       "serving": 3,
       "price": "27800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/8d25ccea-b700-4869-9893-27eeb0b4b6c7/image.jpeg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/8d25ccea-b700-4869-9893-27eeb0b4b6c7/image.jpeg",
+      "taste": "짭짤한맛"
     },
     {
       "id": 5,
       "name": "로제 떡볶이",
       "serving": 3,
       "price": "41800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/8dd3a721-27f7-4747-a142-716d1b491f16/image.jpeg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/8dd3a721-27f7-4747-a142-716d1b491f16/image.jpeg",
+      "taste": "새콤한맛"
     },
     {
       "id": 6,
       "name": "비빔국수",
       "serving": 3,
       "price": "33800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/9ab94219-8711-4745-ba2b-d45601bde181/image.jpeg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/9ab94219-8711-4745-ba2b-d45601bde181/image.jpeg",
+      "taste": "새콤한맛"
     },
     {
       "id": 7,
       "name": "닭한마리와 칼국수",
       "serving": 3,
       "price": "27800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/bfc0c9c4-c9fb-4df6-9ef0-becf88c97ae9/image.jpeg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/bfc0c9c4-c9fb-4df6-9ef0-becf88c97ae9/image.jpeg",
+      "taste": "담백한맛"
     },
     {
       "id": 8,
       "name": "고추장수제비와 배추전",
       "serving": 3,
       "price": "22800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/bd8d81ca-a195-481b-b2dd-0e7baa4cdb94/image.jpeg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/bd8d81ca-a195-481b-b2dd-0e7baa4cdb94/image.jpeg",
+      "taste": "담백한맛"
     },
     {
       "id": 9,
       "name": "간장불고기",
       "serving": 3,
       "price": "29800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/57f294d9-eb62-4921-8f22-a7287d6194f9/image.jpg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/57f294d9-eb62-4921-8f22-a7287d6194f9/image.jpg",
+      "taste": "이국적인맛"
     },
     {
       "id": 10,
       "name": "김치전골",
       "serving": 3,
       "price": "34800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/4491f478-5e11-4406-8850-0a5b8d080f56/image.jpg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/4491f478-5e11-4406-8850-0a5b8d080f56/image.jpg",
+      "taste": "이국적인맛"
     },
     {
       "id": 11,
       "name": "매운 치즈크림스튜",
       "serving": 3,
       "price": "29800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/4c4d51c6-6899-4618-be56-8f24c98c6b94/image.jpeg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/4c4d51c6-6899-4618-be56-8f24c98c6b94/image.jpeg",
+      "taste": "얼큰한맛"
     },
     {
       "id": 12,
       "name": "치즈닭갈비",
       "serving": 3,
       "price": "26800.00",
-      "image": "https://velog.velcdn.com/images/eunnb05/post/7ba21f59-5295-4abe-8bb4-d7d6120235d6/image.jpeg"
+      "image": "https://velog.velcdn.com/images/eunnb05/post/7ba21f59-5295-4abe-8bb4-d7d6120235d6/image.jpeg",
+      "taste": "얼큰한맛"
     }
   ]
 }

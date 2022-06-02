@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './MainCarousel.scss';
 
 const MainCarousel = () => {
-  const TOTAL_SLIDES = MAIN_SLIDE.length - 1;
+  const totalSlide = MAIN_SLIDE.length - 1;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
   const nextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES) {
+    if (currentSlide >= totalSlide) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
@@ -18,7 +18,7 @@ const MainCarousel = () => {
 
   const prevSlide = () => {
     if (currentSlide === 0) {
-      setCurrentSlide(TOTAL_SLIDES);
+      setCurrentSlide(totalSlide);
     } else {
       setCurrentSlide(currentSlide - 1);
     }

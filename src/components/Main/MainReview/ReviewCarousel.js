@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ReviewCarousel.scss';
+import { Link } from 'react-router-dom';
 
 const ReviewCarousel = () => {
-  const TOTAL_SLIDES = REVIEW_LIST.length - 1;
+  const TOTAL_SLIDES = 4;
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [review, setReview] = useState([]);
   const slideRef = useRef(null);
 
   const nextSlide = () => {
@@ -26,31 +28,52 @@ const ReviewCarousel = () => {
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 1.0s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+    slideRef.current.style.transform = `translateX(-${currentSlide * 19.5}%)`;
   }, [currentSlide]);
+
+  useEffect(() => {
+    fetch('/data/bestReview.json')
+      .then(res => res.json())
+      .then(data => {
+        setReview(data);
+      });
+  }, []);
 
   return (
     <div className="reviewCarousel">
-      <div className="reviewDisplay" ref={slideRef}>
-        {REVIEW_LIST.map(({ id, name, content, src, alt }) => {
-          return (
-            <div key={id} className="reviewBox">
-              <div className="reviewContentBox">
-                <div className="reviewContentTitle">{name}</div>
-                <div className="reviewContentText">{content}</div>
+      <div className="reviewContentDisplay">
+        <Link to="/review" className="reviewLink">
+          {review.map(({ id, title, userReview }) => {
+            return (
+              <div
+                key={id}
+                className={`reviewContentBox ${
+                  id - 1 === currentSlide ? 'active' : 'hidden'
+                }`}
+              >
+                <div className="reviewContentTitle">{title}</div>
+                <div className="reviewContentText">{userReview}</div>
               </div>
-              <div className="reviewImgBox">
-                <img className="reviewImg" src={src} alt={alt} />
+            );
+          })}
+        </Link>
+      </div>
+      <div className="reviewImgDisplay">
+        <div className="reviewImgBox" ref={slideRef}>
+          {review.map(({ id, imgSrc, imgAlt }) => {
+            return (
+              <div key={id} className="reviewImgBox">
+                <img className="reviewImg" src={imgSrc} alt={imgAlt} />
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <div className="carouselBtns">
         <button className="recommendBtn">
           <FontAwesomeIcon icon={faArrowLeft} onClick={prevSlide} />
         </button>
-        {currentSlide + 1} / {REVIEW_LIST.length}
+        {currentSlide + 1} / {review.length}
         <button className="recommendBtn">
           <FontAwesomeIcon icon={faArrowRight} onClick={nextSlide} />
         </button>
@@ -58,29 +81,5 @@ const ReviewCarousel = () => {
     </div>
   );
 };
-
-const REVIEW_LIST = [
-  {
-    id: 1,
-    name: '소고기듬뿍잡채',
-    content: '대박대박대박마싯ㅇ어용',
-    src: '/images/main/lunch.jpg',
-    alt: 'lunch',
-  },
-  {
-    id: 2,
-    name: '소고기듬뿍잡채',
-    content: '야용',
-    src: '/images/main/lunch.jpg',
-    alt: 'lunch',
-  },
-  {
-    id: 3,
-    name: '소고기듬뿍잡채',
-    content: '대박대박대박마싯ㅇ어용',
-    src: '/images/main/lunch.jpg',
-    alt: 'lunch',
-  },
-];
 
 export default ReviewCarousel;
