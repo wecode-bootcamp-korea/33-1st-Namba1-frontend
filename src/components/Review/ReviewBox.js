@@ -17,7 +17,7 @@ const ReviewBox = () => {
   const [selectMenu, setSelectMenu] = useState([]);
   const [imageSrc, setImageSrc] = useState('');
   // const [filterPhoto, setFilterPhoto] = useState([]);
-  const [isPhotoFilter, setIsFilterPhoto] = useState(false);
+  // const [isPhotoFilter, setIsFilterPhoto] = useState(false);
   const [selectMenuId, setSelectMenuId] = useState([]);
   const [totalReview, setTotalReview] = useState(0);
 
@@ -51,7 +51,7 @@ const ReviewBox = () => {
   // [ Review Create API ]
   const onCreateReview = e => {
     e.preventDefault();
-    fetch('http://10.58.2.60:8000/review', {
+    fetch(`http://10.58.2.60:8000/review`, {
       method: 'POST',
       // headers: {
       //   'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const ReviewBox = () => {
     })
       .then(res => res.json())
       .then(data => {
-        // console.log(data);
+        setReview(data.review_list);
       });
   };
 
@@ -76,17 +76,12 @@ const ReviewBox = () => {
     setReviewAddForm(true);
   };
 
-  const handlePhotoFilter = () => {
-    setIsFilterPhoto(current => !current);
-  };
-
   const limit = 10;
-  const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const location = useLocation();
   const locationSearch = useLocation();
+  const locationPhoto = useLocation();
 
-  // [Pagination API]
   useEffect(() => {
     fetch(`http://10.58.2.60:8000/review${location.search}`)
       .then(res => res.json())
@@ -102,7 +97,6 @@ const ReviewBox = () => {
     navigate(queryString);
   };
 
-  // [SearchBox API]
   useEffect(() => {
     fetch(`http://10.58.2.60:8000/review${locationSearch.search}`)
       .then(res => res.json())
@@ -118,6 +112,20 @@ const ReviewBox = () => {
   const getSearchInputValue = e => {
     e.preventDefault();
     const queryString = `?search=${searchInput}`;
+    navigate(queryString);
+  };
+
+  useEffect(() => {
+    fetch(`http://10.58.2.60:8000/review${locationPhoto.search}`)
+      .then(res => res.json())
+      .then(data => {
+        setReview(data.review_list);
+      });
+  }, [locationPhoto.search]);
+
+  const handlePhotoFilter = e => {
+    e.preventDefault();
+    const queryString = `?photo=http`;
     navigate(queryString);
   };
 
@@ -138,7 +146,8 @@ const ReviewBox = () => {
 
           <button className="reviewAdd" onClick={handlePhotoFilter}>
             <FontAwesomeIcon
-              icon={isPhotoFilter ? faPlusCircle : faCircleCheck}
+              // icon={isPhotoFilter ? faPlusCircle : faCircleCheck}
+              icon={faCircleCheck}
               size="1.5x"
             />
             <span className="reviewAddDesc">포토리뷰만 보기</span>
@@ -155,7 +164,7 @@ const ReviewBox = () => {
           reviewValue={reviewValue}
           setreviewValue={setreviewValue}
           saveReviewInput={saveReviewInput}
-          onCreatReview={onCreateReview}
+          onCreateReview={onCreateReview}
           saveReviewMenu={saveReviewMenu}
           imageSrc={imageSrc}
           isRemoveImg={isRemoveImg}
@@ -165,24 +174,11 @@ const ReviewBox = () => {
         />
       )}
 
-      {isPhotoFilter ? (
-        <ReviewList
-          // review={filterPhoto}
-          imageSrc={imageSrc}
-        />
-      ) : (
-        <ReviewList
-          review={review}
-          // setReview={setReview}
-          imageSrc={imageSrc}
-        />
-      )}
+      <ReviewList review={review} />
 
       <Pagination
         total={totalReview}
         limit={limit}
-        page={page}
-        setPage={setPage}
         getButtonIndex={getButtonIndex}
       />
     </section>

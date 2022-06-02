@@ -82,7 +82,7 @@ const ReviewAdd = ({
               </div>
             </ul>
 
-            <form className="reviewWriteForm">
+            <form className="reviewWriteForm" onSubmit={onCreateReview}>
               <p className="reviewFileTitle">사진 첨부 (선택)</p>
               <p className="reviewFileDesc">
                 오늘의집에 올렸던 사진에서 고르거나 새로운 사진을 첨부해주세요.
@@ -115,11 +115,7 @@ const ReviewAdd = ({
                 />
               </div>
 
-              <button
-                className="reviewSubmitBtn"
-                onClick={onCreateReview}
-                disabled={isDisabled && true}
-              >
+              <button className="reviewSubmitBtn" disabled={isDisabled && true}>
                 완료
               </button>
             </form>
