@@ -5,7 +5,6 @@ import Order from './components/Order';
 import MenuCard from './components/MenuCard';
 import Nav from '../../../components/Nav/Nav';
 import Footer from '../../../components/Footer/Footer';
-import Top from '../../../components/Top/Top';
 import './Menu.scss';
 
 const Menu = () => {
@@ -90,7 +89,6 @@ const Menu = () => {
         <div className="pageNum">
           <button className="pageBtn">1</button>
         </div>
-        <Top />
       </div>
       <Footer />
     </>
