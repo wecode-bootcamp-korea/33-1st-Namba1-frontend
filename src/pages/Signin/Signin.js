@@ -19,7 +19,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const goToSignUp = e => {
     e.preventDefault();
-    fetch('http://10.58.2.60:8000/user/login', {
+    fetch('http://10.58.5.148:8000/user/login', {
       method: 'POST',
       body: JSON.stringify({
         email: inputId,

@@ -22,7 +22,7 @@ const Product = () => {
   } = product;
 
   useEffect(() => {
-    fetch(`http://10.58.2.60:8000/products/${params.id}`)
+    fetch(`http://10.58.5.148:8000/products/${params.id}`)
       .then(response => {
         return response.json();
       })

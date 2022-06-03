@@ -23,7 +23,7 @@ function Main() {
       src: '/images/main/market2.jpg',
     },
   ];
-  const ipAddress = '10.58.2.60:8000';
+  const ipAddress = '10.58.5.148:8000';
 
   return (
     <>

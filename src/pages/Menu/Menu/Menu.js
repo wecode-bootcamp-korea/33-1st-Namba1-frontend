@@ -24,7 +24,7 @@ const Menu = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.2.60:8000/products${location.search}`)
+    fetch(`http://10.58.5.148:8000/products${location.search}`)
       .then(response => response.json())
       .then(data => setMenuCard(data.product_list));
   }, [location.search]);
