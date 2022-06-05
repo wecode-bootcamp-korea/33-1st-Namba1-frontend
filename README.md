@@ -35,7 +35,7 @@
 <br/>
 **Back-End** : Python, Django web framework, Bcrypt, MySQL, pyjwt
 <br/>
-**Common** : Git-Hub, slack, trello
+**Common** : Git-Hub, slack, trello, AWS
 
 <br/>
 
