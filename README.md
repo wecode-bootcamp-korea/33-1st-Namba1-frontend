@@ -33,7 +33,7 @@
 ## 🌼 기술 🌼
 **Front-End** : React.js 
 <br/>
-**Back-End** : Python, Django web framework, Bcrypt, My SQL
+**Back-End** : Python, Django web framework, Bcrypt, MySQL, pyjwt
 <br/>
 **Common** : Git-Hub, slack, trello
 
