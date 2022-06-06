@@ -80,6 +80,7 @@
 ||Review Page|
 |------|---|
 |Description|- 베스트 리뷰 캐러셀 기능 구현 <br/> - 리뷰 검색 기능 구현 <br/> - 리뷰쓰기 기능 구현 <br/> - 포토리뷰 모아보기 필터 기능 구현 <br/> - 리뷰 리스트 페이지네이션 구현|
+|담당자 repo|https://github.com/parkjooyoung0608/33-1st-Namba1-frontend|
 
 <br/>
 
