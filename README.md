@@ -62,6 +62,7 @@
 ||Main Page|
 |------|---|
 |Description|- 메인, 리뷰 캐러셀 기능 구현 <br/> - Query Parameter를 사용해 사용자가 맛을 선택하면 맛에 해당하는 상품 렌더링 기능 구현 <br/> - fetch 함수로 백엔드에게 데이터 요청하여 상품 리스트를 구성 <br/> - Path Parameter를 이용해 메뉴 리스트에서 한 상품을 클릭시 해당 상품 상세 페이지로 이동 <br/> |
+|담당자 repo|- https://github.com/cham-min/wecode-1st-project |
 
 ||Nav|
 |------|---|
