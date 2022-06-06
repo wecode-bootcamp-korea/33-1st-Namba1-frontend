@@ -72,7 +72,13 @@
 #### Menu Page
 ||Menu Page|
 |------|---|
-|Description|테스트2|
+|Description|- fetch 함수를 사용하여 백엔드에게 데이터 요청. <br/> - Path Parameter를 이용해 메뉴 리스트에서 한 상품을 클릭시 해당 상품 상세 페이지로 이동.  <br/> - Query Parameter를 사용해 현재 url 주소를 변경하여 카테고리 및 정렬, 검색 기능 구현. <br/> - 컴포넌트를 재사용하여 메뉴 리스트 구현 (map 한수 사용).|
+
+<br/>
+
+||Product Detail Page|
+|------|---|
+|Description|- 수량 및 가격 변경 기능 구현.|
 
 <br/>
 
