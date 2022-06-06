@@ -78,7 +78,7 @@
 
 ||Product Detail Page|
 |------|---|
-|Description|- 수량 및 가격 변경 기능 구현|
+|Description|- 수량 및 가격 변경 기능 구현 <br/> - Grid 레이아웃으로 반응형 페이지로 변경|
 
 <br/>
 
