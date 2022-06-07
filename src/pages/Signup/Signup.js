@@ -35,7 +35,7 @@ const Signup = () => {
   };
   const navigate = useNavigate();
   const goSignUp = e => {
-    fetch('http://10.58.5.148:8000/user/signup', {
+    fetch('http://52.14.211.193:8000/user/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: email,

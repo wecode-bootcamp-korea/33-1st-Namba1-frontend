@@ -48,7 +48,7 @@ const ReviewBox = () => {
   };
 
   const onCreateReview = e => {
-    fetch(`http://10.58.5.148:8000/review`, {
+    fetch(`http://52.14.211.193:8000/review`, {
       method: 'POST',
       body: JSON.stringify({
         title: selectMenu,
@@ -71,7 +71,7 @@ const ReviewBox = () => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`http://10.58.5.148:8000/review${location.search}`)
+    fetch(`http://52.14.211.193:8000/review${location.search}`)
       .then(res => res.json())
       .then(data => {
         setTotalReview(data.total_review);
@@ -86,7 +86,7 @@ const ReviewBox = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.5.148:8000/review${location.search}`)
+    fetch(`http://52.14.211.193:8000/review${location.search}`)
       .then(res => res.json())
       .then(data => {
         setReview(data.review_list);
@@ -102,14 +102,6 @@ const ReviewBox = () => {
     const queryString = `?search=${searchInput}`;
     navigate(queryString);
   };
-
-  useEffect(() => {
-    fetch(`http://10.58.5.148:8000/review${location.search}`)
-      .then(res => res.json())
-      .then(data => {
-        setReview(data.review_list);
-      });
-  }, [location.search]);
 
   const handlePhotoFilter = e => {
     e.preventDefault();
