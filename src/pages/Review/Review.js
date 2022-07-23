@@ -1,9 +1,9 @@
 import React from 'react';
-import './Review.scss';
-import BestReview from './BestReview';
-import ReviewBox from './ReviewBox';
 import Nav from '../../components/Nav/Nav';
+import BestReview from './BestReview/BestReview';
+import ReviewBox from './ReviewListContainer/ReviewContainer';
 import Footer from '../../components/Footer/Footer';
+import './Review.scss';
 
 function Review() {
   return (

@@ -3,11 +3,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck';
-import ReviewList from './ReviewList';
-import ReviewAdd from './ReviewAdd';
-import SearchBox from './SearchBox';
-import Pagination from './Pagination';
-import './ReviewBox.scss';
+import ReviewList from './ReviewList/ReviewList';
+import ReviewAdd from './ReviewWrite/ReviewAdd';
+import SearchBox from './ReviewListSearchBox/SearchBox';
+import Pagination from './ReviewListPagination/Pagination';
+import './ReviewContainer.scss';
 
 const ReviewBox = () => {
   const [review, setReview] = useState([]);

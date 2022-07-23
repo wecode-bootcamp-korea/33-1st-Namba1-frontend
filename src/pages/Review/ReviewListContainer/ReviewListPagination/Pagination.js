@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Review/Pagination.scss';
+import './Pagination.scss';
 
 function Pagination({ total, limit, getButtonIndex }) {
   const numPages = Math.ceil(total / limit);

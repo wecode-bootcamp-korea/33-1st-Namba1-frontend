@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './ReviewAdd.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
-import UserFileImg from './UserFileImg';
+import UserFileImg from './UserFileImg/UserFileImg';
 
 const ReviewAdd = ({
   reviewAdd,

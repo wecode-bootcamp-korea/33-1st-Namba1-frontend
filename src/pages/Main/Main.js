@@ -1,10 +1,10 @@
 import React from 'react';
 import Nav from '../../components/Nav/Nav.js';
-import MainCarousel from '../../components/Main/MainCarousel/MainCarousel.js';
-import Recommend from '../../components/Main/Recommend/Recommend.js';
-import NewProducts from '../../components/Main/NewProduct/NewProducts.js';
-import MainReview from '../../components/Main/MainReview/MainReview.js';
-import Menu from '../../components/Main/Menu/Menu.js';
+import MainCarousel from './MainCarousel/MainCarousel.js';
+import Recommend from './Recommend/Recommend.js';
+import NewProducts from './NewProduct/NewProducts.js';
+import MainReview from './MainReview/MainReview.js';
+import Menu from './Menu/Menu.js';
 import Footer from '../../components/Footer/Footer.js';
 import './Main.scss';
 

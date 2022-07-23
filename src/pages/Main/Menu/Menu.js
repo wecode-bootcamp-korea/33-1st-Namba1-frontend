@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MenuInfo from '../../../components/Main/Menu/MenuInfo.js';
+import MenuInfo from './MenuInfo.js';
 import './Menu.scss';
 
 const Menu = ({ title, src, className, ip }) => {

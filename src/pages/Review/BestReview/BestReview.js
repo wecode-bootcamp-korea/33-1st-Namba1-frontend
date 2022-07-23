@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
+import Arrows from './BestReviewArrows';
 import './BestReview.scss';
-import Arrows from './Arrows';
 
 const BestReview = () => {
   const [slider, setSlider] = useState([]);

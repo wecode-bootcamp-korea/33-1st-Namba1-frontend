@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../pages/Review/Review.scss';
-import ReviewListItem from './ReviewListItem';
+import ReviewListItem from './ReviewListItem/ReviewListItem';
+import '../../Review.scss';
 import './ReviewList.scss';
 
 const ReviewList = ({ review }) => {
