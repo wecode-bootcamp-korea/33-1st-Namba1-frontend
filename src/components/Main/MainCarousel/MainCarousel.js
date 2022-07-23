@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './MainCarousel.scss';
 
 const MainCarousel = () => {
-  const totalSlide = MAIN_SLIDE.length - 1;
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const totalSlide = MAIN_SLIDE.length - 1;
   const slideRef = useRef(null);
 
   const nextSlide = () => {

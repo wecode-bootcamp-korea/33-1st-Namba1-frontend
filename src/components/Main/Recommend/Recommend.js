@@ -1,16 +1,18 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useRef, useState } from 'react';
 import RecommendDrop from './RecommendDrop.js';
 import './Recommend.scss';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 const Recommend = ({ ip }) => {
   const [tasteOption, setTasteOption] = useState('매콤한맛');
   const [tasteImg, setTasteImg] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+
   const totalSlide = tasteImg.length - 1;
   const slideRef = useRef(null);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -40,23 +42,22 @@ const Recommend = ({ ip }) => {
   }, [currentSlide]);
 
   // ******* MOCK DATA *******
-  // useEffect(() => {
-  //   fetch(`/data/newProduct.json`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setTasteImg(data.allMenu);
-  //       setTotalSlide(tasteImg.length - 1);
-  //     });
-  // }, []);
-
-  // ******* SERVER DATA *******
   useEffect(() => {
-    fetch(`http://${ip}/products${location.search}`)
+    fetch(`/data/newProduct.json`)
       .then(res => res.json())
       .then(data => {
-        setTasteImg(data.product_list);
+        setTasteImg(data.allMenu);
       });
-  }, [tasteOption, ip, location]);
+  }, []);
+
+  // ******* SERVER DATA *******
+  // useEffect(() => {
+  //   fetch(`http://${ip}/products${location.search}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setTasteImg(data.product_list);
+  //     });
+  // }, [tasteOption, ip, location]);
 
   const getTasteBtn = tasteOption => {
     const queryString = `?themeId=${tasteOption}&sort=-id`;
