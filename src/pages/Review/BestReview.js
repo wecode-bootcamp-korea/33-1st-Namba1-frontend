@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import '../../components/Review/BestReview.scss';
+import './BestReview.scss';
 import Arrows from './Arrows';
 
 const BestReview = () => {

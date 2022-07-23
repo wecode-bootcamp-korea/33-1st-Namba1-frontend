@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import '../../components/Review/SearchBox.scss';
+import './SearchBox.scss';
 
 const SearchBox = ({ getSearchInput, getSearchInputValue }) => {
   return (

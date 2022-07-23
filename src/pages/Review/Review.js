@@ -1,7 +1,7 @@
 import React from 'react';
 import './Review.scss';
-import BestReview from '../../components/Review/BestReview';
-import ReviewBox from '../../components/Review/ReviewBox';
+import BestReview from './BestReview';
+import ReviewBox from './ReviewBox';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 
