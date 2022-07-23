@@ -4,8 +4,9 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import './RecommendDrop.scss';
 
 const RecommendDrop = ({ taste, setTaste, getTasteBtn }) => {
-  const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
+
+  const dropdownRef = useRef(null);
   const activateDropdown = () => setIsActive(!isActive);
 
   return (

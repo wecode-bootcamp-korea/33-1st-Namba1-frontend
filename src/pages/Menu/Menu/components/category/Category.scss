@@ -1,17 +1,15 @@
 @import '../../../../../styles/variables.scss';
 
-$borderColor: #c4c4c4;
-
 .category {
   @include primaryFont;
   height: 130px;
-  border-bottom: 1px solid $borderColor;
+  border-bottom: 1px solid #c4c4c4;
 
   .menuTitle {
     margin-bottom: 20px;
-    color: $subColor;
     font-size: 2.5em;
     font-weight: 800;
+    color: $subColor;
   }
 
   .menuNav {

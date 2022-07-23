@@ -72,8 +72,14 @@ const Recommend = ({ ip }) => {
           taste={tasteOption}
           setTaste={setTasteOption}
         />
-        <div className="recommendMsg">메뉴</div>
-        <div className="recommendMsg">추천드려요 :D</div>
+        <div className="recommendMsg">
+          메뉴
+          <br />
+          추천드려요
+        </div>
+        <p className="recommendMsgDesc">
+          맛취향에 따라 딱맞는 맛있는 메뉴를 추천드려요!
+        </p>
         <div className="recommendCarouselBtns">
           <button className="recommendBtn" onClick={prevSlide}>
             <FontAwesomeIcon icon={faArrowLeft} />

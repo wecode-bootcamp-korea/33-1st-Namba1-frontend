@@ -32,7 +32,8 @@
 
         .reviewContentText {
           margin-top: 30px;
-          font-size: 25px;
+          font-size: 18px;
+          line-height: 25px;
         }
       }
     }
@@ -45,14 +46,28 @@
     .reviewImgContainer {
       display: flex;
       width: 100%;
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 250px;
+        height: 535px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.8) 100%
+        );
+      }
 
       .reviewImgBox {
+        display: flex;
         width: 100%;
-
+        height: 520px;
         .reviewImg {
           width: 50vw;
-          height: 520px;
-          object-fit: fill;
+          object-fit: cover;
         }
       }
     }

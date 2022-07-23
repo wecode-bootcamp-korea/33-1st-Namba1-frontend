@@ -29,7 +29,13 @@
 
     .recommendMsg {
       padding-top: 20px;
-      font-size: 30px;
+      font-size: 25px;
+      line-height: 40px;
+    }
+
+    .recommendMsgDesc {
+      padding-top: 20px;
+      font-size: 15px;
     }
 
     .recommendCarouselBtns {
@@ -54,14 +60,17 @@
     .recommendPhotoDisplay {
       display: flex;
       width: 100%;
+      height: 520px;
 
       .imgBox {
+        display: flex;
         width: 100%;
 
         img {
+          justify-content: center;
+          align-items: center;
           width: 50vw;
-          height: 520px;
-          object-fit: fill;
+          object-fit: cover;
         }
       }
     }

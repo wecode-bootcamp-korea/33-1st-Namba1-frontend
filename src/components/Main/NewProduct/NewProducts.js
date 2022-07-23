@@ -13,26 +13,26 @@ const NewProduct = ({ ip }) => {
   };
 
   // ******* server data *******
-  useEffect(() => {
-    fetch(`http://${ip}/products?is_new=1&sort=-id`, {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setNewProduct(data.product_list);
-      });
-  }, [ip]);
-
-  // ******* mock data *******
   // useEffect(() => {
-  //   fetch('/data/newProduct.json', {
+  //   fetch(`http://${ip}/products?is_new=1&sort=-id`, {
   //     method: 'GET',
   //   })
   //     .then(res => res.json())
   //     .then(data => {
-  //       setNewProduct(data.newMenu);
+  //       setNewProduct(data.product_list);
   //     });
-  // }, []);
+  // }, [ip]);
+
+  // ******* mock data *******
+  useEffect(() => {
+    fetch('/data/newProduct.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setNewProduct(data.newMenu);
+      });
+  }, []);
 
   return (
     <div className="newProducts">
