@@ -1,22 +1,8 @@
-//Nav.js
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
 
 const Nav = () => {
-  // userName get localStorage.get
-  // UI
-
-  // state change -> UI re-render
-  // localStorage.get -> re-render X
-
-  // state, props
-  // userName -> global state
-
-  // useLocation -> URL
-  // URL re-render
-  // const location = useLocation();
   const [userName, setUserName] = useState(localStorage.getItem('USER_NAME'));
 
   return (
