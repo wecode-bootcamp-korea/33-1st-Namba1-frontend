@@ -4,7 +4,7 @@ import './MyCartForm.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faX } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
-import Nav from './Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 
 function MyCartForm({
   productList,

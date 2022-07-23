@@ -13,7 +13,7 @@ import {
   faCircleCheck,
   faCreditCard,
 } from '@fortawesome/free-regular-svg-icons';
-import MyCartForm from '../../components/MyCartForm';
+import MyCartForm from './MyCartForm';
 const Mycart = () => {
   const [count, setCount] = useState(1);
   const [productList, setProductList] = useState();

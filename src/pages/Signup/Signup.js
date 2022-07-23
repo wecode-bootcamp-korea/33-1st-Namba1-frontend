@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
-import SignUpForm from '../../components/SignUpForm';
+import SignUpForm from './SignUpForm';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 
