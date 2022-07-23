@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from '../../components/Nav/Nav';
-import BestReview from './BestReview/BestReview';
-import ReviewBox from './ReviewListContainer/ReviewContainer';
+import BestReviewCarousel from './BestReviewCarousel/BestReviewCarousel';
+import ReviewListContainer from './ReviewListContainer/ReviewListContainer';
 import Footer from '../../components/Footer/Footer';
 import './Review.scss';
 
@@ -12,8 +12,8 @@ function Review() {
         <Nav />
         <h1 className="reviewHeader">리뷰</h1>
         <hr />
-        <BestReview />
-        <ReviewBox />
+        <BestReviewCarousel />
+        <ReviewListContainer />
       </div>
       <Footer />
     </>

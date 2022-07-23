@@ -1,32 +1,29 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Arrows from './BestReviewArrows';
-import './BestReview.scss';
+import './BestReviewCarousel.scss';
 
-const BestReview = () => {
+const BestReviewCarousel = () => {
   const [slider, setSlider] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const TOTAL_SLIDES = slider.length;
+
   const slideRef = useRef(null);
+  const TotalSlides = slider.length;
 
   const nextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES - 1) {
+    if (currentSlide >= TotalSlides - 1) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
   };
+
   const prevSlide = () => {
     if (currentSlide === 0) {
-      setCurrentSlide(TOTAL_SLIDES - 1);
+      setCurrentSlide(TotalSlides - 1);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
   };
-
-  useEffect(() => {
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${currentSlide * 568}px)`;
-  }, [currentSlide]);
 
   useEffect(() => {
     fetch('/data/bestReview.json')
@@ -36,20 +33,25 @@ const BestReview = () => {
       });
   }, []);
 
+  useEffect(() => {
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${currentSlide * 568}px)`;
+  }, [currentSlide]);
+
   return (
-    <section className="bestReview">
-      <ul className="bestSliderWarp">
-        <div ref={slideRef}>
+    <section className="bestReviewCarousel">
+      <ul className="bestReviewCarouselUl">
+        <div ref={slideRef} className="bestReviewCarouselWarp">
           {slider.map(({ id, title, imgSrc, userId, userReview }) => (
-            <li key={id} className="reviewSlider">
+            <li key={id} className="bestReviewItem">
               <div className="bestReviewImgBox">
-                <div className="bestBg">
+                <div className="bestReviewBg">
                   <span className="bestTag">Best</span>
                 </div>
                 <img className="bestReviewImg" src={imgSrc} alt={title} />
               </div>
-              <h2 className="reviewTitle">{title}</h2>
-              <div className="starBox">
+              <h2 className="bestReviewTitle">{title}</h2>
+              <div className="scopeWarp">
                 <span className="star">★★★★★</span>
                 <span className="userId">{userId}</span>
               </div>
@@ -67,4 +69,4 @@ const BestReview = () => {
   );
 };
 
-export default BestReview;
+export default BestReviewCarousel;

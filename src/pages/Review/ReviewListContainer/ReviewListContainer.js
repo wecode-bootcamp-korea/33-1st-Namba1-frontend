@@ -3,22 +3,27 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons/faCircleCheck';
+import ReviewListSearchBox from './ReviewListSearchBox/ReviewListSearchBox';
+import ReviewWrite from './ReviewWrite/ReviewWrite';
 import ReviewList from './ReviewList/ReviewList';
-import ReviewAdd from './ReviewWrite/ReviewAdd';
-import SearchBox from './ReviewListSearchBox/SearchBox';
-import Pagination from './ReviewListPagination/Pagination';
-import './ReviewContainer.scss';
+import ReviewListPagination from './ReviewListPagination/ReviewListPagination';
+import './ReviewListContainer.scss';
 
-const ReviewBox = () => {
-  const [review, setReview] = useState([]);
+const ReviewListContainer = () => {
+  const [reviewList, setReviewList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [reviewAddForm, setReviewAddForm] = useState(false);
+  const [reviewWriteForm, setReviewWriteForm] = useState(false);
   const [reviewValue, setreviewValue] = useState([]);
   const [selectMenu, setSelectMenu] = useState([]);
   const [imageSrc, setImageSrc] = useState('');
   const [selectMenuId, setSelectMenuId] = useState([]);
   const [totalReview, setTotalReview] = useState(0);
   const [isPhotoFilter, setIsPhotoFilter] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const limit = 10;
 
   const saveReviewInput = e => {
     setreviewValue(e.target.value);
@@ -58,24 +63,20 @@ const ReviewBox = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setReview(data);
+        setReviewList(data);
       });
   };
 
   const isReviewAdd = () => {
-    setReviewAddForm(true);
+    setReviewWriteForm(true);
   };
-
-  const limit = 10;
-  const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     fetch(`http://10.58.5.148:8000/review${location.search}`)
       .then(res => res.json())
       .then(data => {
         setTotalReview(data.total_review);
-        setReview(data.review_list);
+        setReviewList(data.review_list);
       });
   }, [location.search]);
 
@@ -89,7 +90,7 @@ const ReviewBox = () => {
     fetch(`http://10.58.5.148:8000/review${location.search}`)
       .then(res => res.json())
       .then(data => {
-        setReview(data.review_list);
+        setReviewList(data.review_list);
       });
   }, [location.search]);
 
@@ -107,7 +108,7 @@ const ReviewBox = () => {
     fetch(`http://10.58.5.148:8000/review${location.search}`)
       .then(res => res.json())
       .then(data => {
-        setReview(data.review_list);
+        setReviewList(data.review_list);
       });
   }, [location.search]);
 
@@ -124,7 +125,7 @@ const ReviewBox = () => {
 
   return (
     <section className="reviewbox">
-      <SearchBox
+      <ReviewListSearchBox
         getSearchInput={getSearchInput}
         getSearchInputValue={getSearchInputValue}
       />
@@ -148,11 +149,11 @@ const ReviewBox = () => {
       </div>
       <hr />
 
-      {reviewAddForm && (
-        <ReviewAdd
-          reviewAdd={reviewAddForm}
-          isReviewAdd={setReviewAddForm}
-          setReview={setReview}
+      {reviewWriteForm && (
+        <ReviewWrite
+          reviewAdd={reviewWriteForm}
+          isReviewAdd={setReviewWriteForm}
+          setReview={setReviewList}
           reviewValue={reviewValue}
           setreviewValue={setreviewValue}
           saveReviewInput={saveReviewInput}
@@ -166,9 +167,9 @@ const ReviewBox = () => {
         />
       )}
 
-      <ReviewList review={review} />
+      <ReviewList review={reviewList} />
 
-      <Pagination
+      <ReviewListPagination
         total={totalReview}
         limit={limit}
         getButtonIndex={getButtonIndex}
@@ -177,4 +178,4 @@ const ReviewBox = () => {
   );
 };
 
-export default ReviewBox;
+export default ReviewListContainer;

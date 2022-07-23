@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import './SearchBox.scss';
+import './ReviewListSearchBox.scss';
 
-const SearchBox = ({ getSearchInput, getSearchInputValue }) => {
+const ReviewListSearchBox = ({ getSearchInput, getSearchInputValue }) => {
   return (
     <section className="searchBox">
       <form className="searchForm">
@@ -21,4 +21,4 @@ const SearchBox = ({ getSearchInput, getSearchInputValue }) => {
   );
 };
 
-export default SearchBox;
+export default ReviewListSearchBox;

@@ -10,7 +10,7 @@ const ReviewListItem = ({ title, date, userId, userInput, imageSrc }) => {
         <h3 className="reviewMenu">{title}</h3>
         <span>{date}</span>
       </div>
-      <div className="starBox">
+      <div className="scopeWarp">
         <span className="star">★★★★★</span>
         <span>|</span>
         <span>{userId}</span>

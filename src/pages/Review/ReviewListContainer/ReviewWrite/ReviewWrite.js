@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './ReviewAdd.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
-import UserFileImg from './UserFileImg/UserFileImg';
+import UserFileImg from './ReviewImg/UserFileImg';
+import './ReviewWrite.scss';
 
-const ReviewAdd = ({
+const ReviewWrite = ({
   reviewAdd,
   isReviewAdd,
   saveReviewInput,
@@ -177,4 +177,4 @@ const DETAILS_DESC = [
   },
 ];
 
-export default ReviewAdd;
+export default ReviewWrite;

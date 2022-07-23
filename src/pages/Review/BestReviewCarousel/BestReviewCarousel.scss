@@ -1,9 +1,9 @@
 @import '../../../styles/variables.scss';
 
-.bestReview {
+.bestReviewCarousel {
   padding: 32px 0;
 
-  .bestSliderWarp {
+  .bestReviewCarouselUl {
     position: relative;
     overflow: hidden;
 
@@ -22,10 +22,10 @@
       );
     }
 
-    div {
+    .bestReviewCarouselWarp {
       display: flex;
 
-      .reviewSlider {
+      .bestReviewItem {
         margin-right: 48px;
 
         .bestReviewImgBox {
@@ -34,7 +34,7 @@
           height: 324px;
           overflow: hidden;
 
-          .bestBg {
+          .bestReviewBg {
             position: absolute;
             top: 0;
             left: 30px;
@@ -61,13 +61,13 @@
     }
   }
 
-  .reviewTitle {
+  .bestReviewTitle {
     margin: 10px 0;
     font-size: 32px;
     font-weight: 700;
   }
 
-  .starBox {
+  .scopeWarp {
     .userId {
       line-height: 1.6;
     }

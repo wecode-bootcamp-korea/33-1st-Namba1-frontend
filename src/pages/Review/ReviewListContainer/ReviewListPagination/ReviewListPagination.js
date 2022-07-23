@@ -1,7 +1,7 @@
 import React from 'react';
-import './Pagination.scss';
+import './ReviewListPagination.scss';
 
-function Pagination({ total, limit, getButtonIndex }) {
+function ReviewListPagination({ total, limit, getButtonIndex }) {
   const numPages = Math.ceil(total / limit);
 
   return (
@@ -21,4 +21,4 @@ function Pagination({ total, limit, getButtonIndex }) {
   );
 }
 
-export default Pagination;
+export default ReviewListPagination;
