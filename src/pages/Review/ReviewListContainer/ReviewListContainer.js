@@ -8,6 +8,7 @@ import ReviewWrite from './ReviewWrite/ReviewWrite';
 import ReviewList from './ReviewList/ReviewList';
 import ReviewListPagination from './ReviewListPagination/ReviewListPagination';
 import './ReviewListContainer.scss';
+import API from '../../../config';
 
 const ReviewListContainer = () => {
   const [reviewList, setReviewList] = useState([]);
@@ -53,7 +54,7 @@ const ReviewListContainer = () => {
   };
 
   const onCreateReview = e => {
-    fetch(`http://52.14.211.193:8000/review`, {
+    fetch(`${API.review}`, {
       method: 'POST',
       body: JSON.stringify({
         title: selectMenu,
@@ -72,7 +73,7 @@ const ReviewListContainer = () => {
   };
 
   useEffect(() => {
-    fetch(`http://52.14.211.193:8000/review${location.search}`)
+    fetch(`${API.review}${location.search}`)
       .then(res => res.json())
       .then(data => {
         setTotalReview(data.total_review);
@@ -87,7 +88,7 @@ const ReviewListContainer = () => {
   };
 
   useEffect(() => {
-    fetch(`http://52.14.211.193:8000/review${location.search}`)
+    fetch(`${API.review}${location.search}`)
       .then(res => res.json())
       .then(data => {
         setReviewList(data.review_list);
@@ -105,7 +106,7 @@ const ReviewListContainer = () => {
   };
 
   useEffect(() => {
-    fetch(`http://52.14.211.193:8000/review${location.search}`)
+    fetch(`${API.review}${location.search}`)
       .then(res => res.json())
       .then(data => {
         setReviewList(data.review_list);

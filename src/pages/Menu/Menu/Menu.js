@@ -6,6 +6,7 @@ import MenuCard from './components/MenuCard';
 import Nav from '../../../components/Nav/Nav';
 import Footer from '../../../components/Footer/Footer';
 import './Menu.scss';
+import API from '../../../config';
 
 const Menu = () => {
   const [menuCard, setMenuCard] = useState([]);
@@ -24,7 +25,7 @@ const Menu = () => {
   };
 
   useEffect(() => {
-    fetch(`http://52.14.211.193:8000/products${location.search}`)
+    fetch(`${API.products}${location.search}`)
       .then(response => response.json())
       .then(data => setMenuCard(data.product_list));
   }, [location.search]);

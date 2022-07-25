@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import './NewProducts.scss';
 import { useNavigate } from 'react-router-dom';
+import API from '../../../config';
 
-const NewProduct = ({ ip }) => {
+const NewProduct = () => {
   const [newProduct, setNewProduct] = useState([]);
   const navigate = useNavigate();
 
@@ -12,27 +13,15 @@ const NewProduct = ({ ip }) => {
     navigate(`/products/${id}`);
   };
 
-  // ******* server data *******
-  // useEffect(() => {
-  //   fetch(`http://${ip}/products?is_new=1&sort=-id`, {
-  //     method: 'GET',
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setNewProduct(data.product_list);
-  //     });
-  // }, [ip]);
-
-  // ******* mock data *******
   useEffect(() => {
-    fetch('/data/newProduct.json', {
+    fetch(`${API.products}?is_new=1&sort=-id`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setNewProduct(data.newMenu);
+        setNewProduct(data.product_list);
       });
-  }, []);
+  }, [API]);
 
   return (
     <div className="newProducts">

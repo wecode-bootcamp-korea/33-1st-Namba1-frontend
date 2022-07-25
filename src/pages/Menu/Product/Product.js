@@ -5,6 +5,7 @@ import ProductCarousel from './components/ProductCarousel';
 import ProductInfo from './components/ProductInfo';
 import Nav from '../../../components/Nav/Nav';
 import Footer from '../../../components/Footer/Footer';
+import API from '../../../config';
 
 const Product = () => {
   const [product, setProduct] = useState({});
@@ -22,7 +23,7 @@ const Product = () => {
   } = product;
 
   useEffect(() => {
-    fetch(`http://52.14.211.193:8000/products/${params.id}`)
+    fetch(`${API.products}/${params.id}`)
       .then(response => {
         return response.json();
       })

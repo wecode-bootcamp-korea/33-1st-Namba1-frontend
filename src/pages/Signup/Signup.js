@@ -5,6 +5,7 @@ import './Signup.scss';
 import SignUpForm from './SignUpForm';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
+import API from '../../config';
 
 const Signup = () => {
   const [numberInputValue, setNumberInputValue] = useState('');
@@ -35,7 +36,7 @@ const Signup = () => {
   };
   const navigate = useNavigate();
   const goSignUp = e => {
-    fetch('http://52.14.211.193:8000/user/signup', {
+    fetch(`${API.signUp}`, {
       method: 'POST',
       body: JSON.stringify({
         email: email,

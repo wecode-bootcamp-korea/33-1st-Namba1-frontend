@@ -4,8 +4,9 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import RecommendDrop from './RecommendDrop.js';
 import './Recommend.scss';
+import API from '../../../config.js';
 
-const Recommend = ({ ip }) => {
+const Recommend = () => {
   const [tasteOption, setTasteOption] = useState('매콤한맛');
   const [tasteImg, setTasteImg] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -41,23 +42,13 @@ const Recommend = ({ ip }) => {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
-  // ******* MOCK DATA *******
   useEffect(() => {
-    fetch(`/data/newProduct.json`)
+    fetch(`${API.products}${location.search}`)
       .then(res => res.json())
       .then(data => {
-        setTasteImg(data.allMenu);
+        setTasteImg(data.product_list);
       });
-  }, []);
-
-  // ******* SERVER DATA *******
-  // useEffect(() => {
-  //   fetch(`http://${ip}/products${location.search}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setTasteImg(data.product_list);
-  //     });
-  // }, [tasteOption, ip, location]);
+  }, [tasteOption, API, location]);
 
   const getTasteBtn = tasteOption => {
     const queryString = `?themeId=${tasteOption}&sort=-id`;

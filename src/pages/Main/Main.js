@@ -24,25 +24,17 @@ const MENU = [
 ];
 
 function Main() {
-  const ipAddress = '52.14.211.193:8000';
-
   return (
     <>
       <div className="main">
         <Nav />
         <MainCarousel />
-        <Recommend ip={ipAddress} />
-        <NewProducts ip={ipAddress} />
-        <MainReview ip={ipAddress} />
+        <Recommend />
+        <NewProducts />
+        <MainReview />
         <div className="allProduct">
           {MENU.map(({ id, className, title, src }) => (
-            <Menu
-              key={id}
-              className={className}
-              title={title}
-              src={src}
-              ip={ipAddress}
-            />
+            <Menu key={id} className={className} title={title} src={src} />
           ))}
         </div>
       </div>

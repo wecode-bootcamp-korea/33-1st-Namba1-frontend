@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
+import API from '../../config';
 
 const Signin = () => {
   const [inputId, setInputId] = useState('');
@@ -19,7 +20,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const goToSignUp = e => {
     e.preventDefault();
-    fetch('http://52.14.211.193:8000/user/login', {
+    fetch(`${API.signIn}`, {
       method: 'POST',
       body: JSON.stringify({
         email: inputId,
