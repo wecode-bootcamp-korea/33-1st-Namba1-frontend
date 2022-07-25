@@ -30,6 +30,7 @@ const Signup = () => {
   });
 
   const { email, name, password, passwordConfirm } = inputValue;
+
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
@@ -53,7 +54,7 @@ const Signup = () => {
         res.json();
       })
       .then(result => {});
-    navigate('/');
+    navigate('/signin');
   };
 
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^~*+=-])(?=.*[0-9]).{8,}$/;
