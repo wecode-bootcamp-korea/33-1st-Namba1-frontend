@@ -62,7 +62,7 @@ const Signin = () => {
             onChange={handleLogin}
             name="email"
             className="userName"
-            type="text"
+            type="email"
             placeholder="아이디"
           />
           <input
